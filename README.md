@@ -6,6 +6,8 @@ This is a front end capstone project for Hackreactor. The aim of this project is
 
 > "Our outdated client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers.   Project Catwalk comprises a complete redesign of the retail portal designed to address this concern and modernize the site.  This document outlines the features to be implemented as part of Project Catwalk in its initial release.  The following requirements define the new user interface required for customers to browse items in our retail catalog."
 
+For more infomation please see the [Project Catwalk - Business Requirements Document](https://docs.google.com/document/d/1KAqduzY8ae3DYrSoCL1i23qHe95zJRYFulqMk-sGLWY/)
+
 ## Getting Started
 
 - Fork or directly clone this repository to your local machine
