@@ -1,0 +1,7 @@
+# compiled files
+/dist/bundle.js
+/dist/bundle.js.map
+
+node_modules
+
+.vscode
