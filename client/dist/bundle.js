@@ -287,7 +287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function QuestionsAnswers() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, " Questions and Answers ");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, " Questions and Answers ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "question"), " ");
 }
 
 ;

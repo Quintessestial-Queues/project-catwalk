@@ -1,7 +1,7 @@
 import React from 'react';
 
 function QuestionsAnswers () {
-  return (<div> Questions and Answers </div>)
+  return (<div> Questions and Answers <p>question</p> </div>)
 };
 
 export default QuestionsAnswers;
