@@ -38,6 +38,7 @@
     "webpack-cli": "^4.6.0"
   },
   "devDependencies": {
+    "enzyme": "^3.11.0",
     "live-server": "^1.2.1"
   }
 }

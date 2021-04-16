@@ -8,7 +8,7 @@ function ProductOverview() {
   return (
     <div>
       <StarRating
-        starRating={2} // star rating from api will be integer
+        starRating={1} // star rating from api will be integer
       />
     </div>
   )

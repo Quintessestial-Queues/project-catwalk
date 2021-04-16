@@ -425,7 +425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ProductOverview() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SharedComponents_StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
-    starRating: 2 // star rating from api will be integer
+    starRating: 1 // star rating from api will be integer
 
   }));
 }
@@ -498,6 +498,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_empty_star_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_empty_star_svg__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _assets_filled_star_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/filled-star.svg */ "./assets/filled-star.svg");
 /* harmony import */ var _assets_filled_star_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_filled_star_svg__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _assets_three_quarter_star_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/three-quarter-star.svg */ "./assets/three-quarter-star.svg");
+/* harmony import */ var _assets_three_quarter_star_svg__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_three_quarter_star_svg__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _assets_quarter_star_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/quarter-star.svg */ "./assets/quarter-star.svg");
+/* harmony import */ var _assets_quarter_star_svg__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_quarter_star_svg__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _assets_half_star_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../assets/half-star.svg */ "./assets/half-star.svg");
+/* harmony import */ var _assets_half_star_svg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_half_star_svg__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _starRating_module_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./starRating.module.css */ "./client/src/SharedComponents/starRating.module.css");
+
+
+
+
 
 
 
@@ -512,40 +523,105 @@ var StarRating = function StarRating(_ref) {
       setStarState = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    // Update  star rating from passed in props
+    // Update star rating upon first intitial render
     setRating(starRating);
   }, []);
 
   var setRating = function setRating() {
+    var wholeStars = 5;
     var rating = starRating;
-    var emptyStars = 5 - rating;
-    var emptyArray = new Array(emptyStars); // will make an array of empty stars
+    var partialStar; // if the rating is not a whole number
 
-    emptyArray.fill("empty"); // fill the array with empty values
-    // build new array with filled stars
+    if (rating % 1 != 0) {
+      // subtract the number of whole stars - 1 partial star
+      wholeStars = 4; // split the rating at the decimal point
 
-    var newState = [];
+      var splitRating = starRating.toString().split('.'); // update rating to the whole number
 
-    for (var i = 0; i < rating; i++) {
-      // add a filled star to new array
-      newState.unshift("filled");
+      rating = parseInt(splitRating[0]);
+      var decimal = parseInt(splitRating[1]); // get partial star based on decimal
+
+      partialStar = getPartialStar(decimal);
     }
 
-    setStarState(newState.concat(emptyArray)); // joins both newly created empty and filled arrays
+    var emptyStars = wholeStars - rating; // make an array of length of empty stars
+
+    var emptyArray = new Array(emptyStars);
+    emptyArray.fill("empty"); // fill the array with empty values
+    // make new array with filled stars
+
+    var filledArray = [];
+
+    for (var i = 0; i < rating; i++) {
+      filledArray.push("filled");
+    } // if there is partial filled star add it to the filledArray
+
+
+    partialStar && filledArray.push(partialStar); // set state with all filled, partial, and empty stars
+
+    setStarState(filledArray.concat(emptyArray));
+  };
+
+  var getPartialStar = function getPartialStar(decimal) {
+    var partialStar;
+
+    if (decimal <= 3) {
+      partialStar = 'quarter';
+    } else if (decimal <= 6) {
+      partialStar = 'half';
+    } else {
+      partialStar = 'threeQuarters';
+    }
+
+    return partialStar;
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", null, "5 star rating system"), starState.map(function (star, index) {
-    return star === "empty" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
-      // adds a clasName to get html
-      className: "star",
-      src: (_assets_empty_star_svg__WEBPACK_IMPORTED_MODULE_2___default()),
-      alt: "empty star",
-      key: index
-    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
-      src: (_assets_filled_star_svg__WEBPACK_IMPORTED_MODULE_3___default()),
-      alt: "empty star",
-      key: index
-    });
+    switch (star) {
+      case 'empty':
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+          className: _starRating_module_css__WEBPACK_IMPORTED_MODULE_7__.default.star,
+          src: (_assets_empty_star_svg__WEBPACK_IMPORTED_MODULE_2___default()),
+          alt: "empty star",
+          key: index
+        });
+        break;
+
+      case 'filled':
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+          className: _starRating_module_css__WEBPACK_IMPORTED_MODULE_7__.default.star,
+          src: (_assets_filled_star_svg__WEBPACK_IMPORTED_MODULE_3___default()),
+          alt: "empty star",
+          key: index
+        });
+
+      case 'half':
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+          className: _starRating_module_css__WEBPACK_IMPORTED_MODULE_7__.default.star,
+          src: (_assets_half_star_svg__WEBPACK_IMPORTED_MODULE_6___default()),
+          alt: "half star",
+          key: index
+        });
+        break;
+
+      case 'quarter':
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+          className: _starRating_module_css__WEBPACK_IMPORTED_MODULE_7__.default.star,
+          src: (_assets_quarter_star_svg__WEBPACK_IMPORTED_MODULE_5___default()),
+          alt: "half star",
+          key: index
+        });
+        break;
+
+      case 'threeQuarters':
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+          className: _starRating_module_css__WEBPACK_IMPORTED_MODULE_7__.default.star,
+          src: (_assets_three_quarter_star_svg__WEBPACK_IMPORTED_MODULE_4___default()),
+          alt: "half star",
+          key: index
+        });
+        break;
+    }
   }));
 };
 
@@ -577,13 +653,37 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./client/src/SharedComponents/starRating.module.css":
+/*!***********************************************************!*\
+  !*** ./client/src/SharedComponents/starRating.module.css ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_starRating_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./starRating.module.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/SharedComponents/starRating.module.css");
+
+
+var options = {};
+options.insert = "head";
+options.singleton = false;
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_starRating_module_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_starRating_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./assets/empty-star.svg":
 /*!*******************************!*\
   !*** ./assets/empty-star.svg ***!
   \*******************************/
 /***/ ((module) => {
 
-module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z'/%3e%3c/svg%3e";
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M5.28347 1.54595C5.57692 0.951356 6.42479 0.951358 6.71825 1.54595L7.82997 3.79856L10.3159 4.15979C10.9721 4.25513 11.2341 5.06151 10.7592 5.52434L8.96043 7.27775L9.38507 9.75361C9.49716 10.4071 8.81122 10.9055 8.22431 10.597L6.00086 9.42801L3.7774 10.597C3.19049 10.9055 2.50455 10.4071 2.61664 9.75361L3.04128 7.27775L1.24246 5.52434C0.767651 5.06151 1.02966 4.25513 1.68584 4.15979L4.17174 3.79856L5.28347 1.54595ZM6.00086 2.35192L5.02194 4.33542C4.90541 4.57153 4.68016 4.73519 4.41959 4.77305L2.23067 5.09112L3.81459 6.63506C4.00313 6.81885 4.08917 7.08365 4.04466 7.34316L3.67075 9.52324L5.62858 8.49395C5.86164 8.37142 6.14007 8.37142 6.37313 8.49395L8.33096 9.52324L7.95705 7.34317C7.91254 7.08365 7.99858 6.81885 8.18713 6.63506L9.77105 5.09112L7.58212 4.77305C7.32156 4.73519 7.0963 4.57153 6.97977 4.33542L6.00086 2.35192Z' fill='%23212121'/%3e %3c/svg%3e";
 
 /***/ }),
 
@@ -593,7 +693,37 @@ module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' w
   \********************************/
 /***/ ((module) => {
 
-module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z'/%3e%3c/svg%3e";
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M5.28347 1.54595C5.57692 0.951356 6.42479 0.951358 6.71825 1.54595L7.82997 3.79856L10.3159 4.15979C10.9721 4.25513 11.2341 5.06151 10.7592 5.52434L8.96043 7.27775L9.38507 9.75361C9.49716 10.4071 8.81122 10.9055 8.22431 10.597L6.00086 9.42801L3.7774 10.597C3.19049 10.9055 2.50455 10.4071 2.61664 9.75361L3.04128 7.27775L1.24246 5.52434C0.767651 5.06151 1.02966 4.25513 1.68584 4.15979L4.17174 3.79856L5.28347 1.54595Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/half-star.svg":
+/*!******************************!*\
+  !*** ./assets/half-star.svg ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6 9.42843L3.7774 10.5969C3.19049 10.9055 2.50455 10.4071 2.61664 9.75358L3.04128 7.27772L1.24246 5.52431C0.767651 5.06148 1.02966 4.2551 1.68584 4.15976L4.17174 3.79853L5.28347 1.54592C5.43005 1.24892 5.71495 1.10027 6 1.09998C6.28562 1.09968 6.57137 1.24833 6.71825 1.54592L7.82997 3.79853L10.3159 4.15976C10.9721 4.25511 11.2341 5.06148 10.7592 5.52431L8.96043 7.27772L9.38507 9.75358C9.49716 10.4071 8.81122 10.9055 8.22431 10.5969L6 9.42843ZM6 2.35362V8.40203C6.12816 8.40189 6.25634 8.43252 6.37313 8.49392L8.33096 9.52321L7.95705 7.34314C7.91254 7.08362 7.99858 6.81882 8.18713 6.63503L9.77105 5.09109L7.58212 4.77302C7.32156 4.73516 7.0963 4.5715 6.97977 4.33539L6.00086 2.35189L6 2.35362Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/quarter-star.svg":
+/*!*********************************!*\
+  !*** ./assets/quarter-star.svg ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6.71825 1.54592C6.42479 0.951327 5.57692 0.951326 5.28347 1.54592L4.17174 3.79848L1.68584 4.1597C1.25906 4.22172 0.999018 4.58452 1 4.95795C1.00052 5.15868 1.07646 5.36249 1.24246 5.52431L3.04128 7.27772L2.61664 9.75353C2.60963 9.79439 2.60574 9.83465 2.60475 9.87414C2.60362 9.91952 2.60631 9.96389 2.6125 10.007C2.68708 10.5265 3.26935 10.864 3.7774 10.5969L6.00086 9.42798L8.22431 10.5969C8.81122 10.9055 9.49716 10.4071 9.38507 9.75358L8.96043 7.27772L10.7592 5.52431C11.2341 5.06148 10.9721 4.2551 10.3159 4.15976L7.82997 3.79853L6.71825 1.54592ZM5 8.82439V4.37675C5.00769 4.36323 5.01501 4.34944 5.02194 4.33539L6.00086 2.35189L6.97977 4.33539C7.0963 4.5715 7.32156 4.73516 7.58212 4.77302L9.77105 5.09109L8.18713 6.63503C7.99858 6.81882 7.91254 7.08362 7.95705 7.34313L8.33096 9.52321L6.37313 8.49392C6.14007 8.37139 5.86164 8.37139 5.62858 8.49392L5 8.82439Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/three-quarter-star.svg":
+/*!***************************************!*\
+  !*** ./assets/three-quarter-star.svg ***!
+  \***************************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6.71825 1.54592L7.82997 3.79853L10.3159 4.15976C10.9721 4.2551 11.2341 5.06148 10.7592 5.52431L8.96043 7.27772L9.38507 9.75358C9.49716 10.4071 8.81122 10.9055 8.22431 10.5969L6.00086 9.42798L3.7774 10.5969C3.19049 10.9055 2.50455 10.4071 2.61664 9.75358L3.04128 7.27772L1.24246 5.52431C0.767651 5.06148 1.02966 4.2551 1.68584 4.15976L4.17174 3.79853L5.28347 1.54592C5.57692 0.951326 6.42479 0.951327 6.71825 1.54592ZM7 8.82348L8.33096 9.52321L7.95705 7.34313C7.91254 7.08362 7.99858 6.81882 8.18713 6.63503L9.77105 5.09109L7.58212 4.77302C7.3359 4.73724 7.12122 4.58914 7 4.37372V8.82348Z' fill='%23212121'/%3e %3c/svg%3e";
 
 /***/ }),
 
@@ -619,6 +749,36 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "div {\n  /* background-color: blueviolet; */\n}", "",{"version":3,"sources":["webpack://./client/src/ProductOverview/product.module.css"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC","sourcesContent":["div {\n  /* background-color: blueviolet; */\n}"],"sourceRoot":""}]);
 // Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/SharedComponents/starRating.module.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/SharedComponents/starRating.module.css ***!
+  \*****************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "._2d6czDt2IX_ld47EFnj33j {\n  width: 24px;\n  height: 24px;\n}\n", "",{"version":3,"sources":["webpack://./client/src/SharedComponents/starRating.module.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,YAAY;AACd","sourcesContent":[".star {\n  width: 24px;\n  height: 24px;\n}\n"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"star": "_2d6czDt2IX_ld47EFnj33j"
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
