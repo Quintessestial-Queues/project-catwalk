@@ -5,6 +5,10 @@ import ProductOverview from './ProductOverview/index.jsx';
 import QuestionsAnswers from './QuestionsAnswers/index.jsx';
 import RelatedItems from './RelatedItems/index.jsx';
 
+
+//Ratings and Reviews components
+import ReviewsList from './ReviewsList/index.jsx';
+
 class App extends React.Component {
   render () {
     return(
@@ -13,6 +17,7 @@ class App extends React.Component {
           <ProductOverview />
           <QuestionsAnswers />
           <RelatedItems />
+          <ReviewsList />
       </div>
     )
   }
