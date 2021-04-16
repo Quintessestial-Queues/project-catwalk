@@ -425,7 +425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ProductOverview() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SharedComponents_StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
-    starRating: 1 // star rating from api will be integer
+    starRating: 1.6 // star rating from api will be integer
 
   }));
 }
