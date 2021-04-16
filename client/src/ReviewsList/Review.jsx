@@ -1,8 +1,12 @@
 import React from 'react';
+// import styles from './ReviewsList.module.css';
 
-let Review = () => {
+
+let Review = (props) => {
   return (
-    <div>Review</div>
+    <div className='review'>
+      Review
+      </div>
   )
 }
 

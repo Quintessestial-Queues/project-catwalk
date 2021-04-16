@@ -1,0 +1,9 @@
+
+div {
+  border-style: solid;
+}
+
+.reviews-list {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
