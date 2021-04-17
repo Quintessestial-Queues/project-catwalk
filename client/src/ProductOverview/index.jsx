@@ -23,7 +23,7 @@ function ProductOverview() {
 
       <div className={`${styles.item} ${styles.productInfo}`}>
         <StarRating
-          starRating={1.6} // star rating from api will be integer
+          starRating={1.6}
         />
         <p> {product.category} </p>
         <h1> {product.name} </h1>
@@ -32,12 +32,16 @@ function ProductOverview() {
       </div>
 
       <div className={`${styles.item} ${styles.description}`}>
-        <div>
-          Product Description and information
+          <h2>{product.slogan}</h2>
+          <p>{product.description}</p>
       </div>
-        <div>
-          Product Description and information
-        </div>
+      <div className={`${styles.item} ${styles.features}`}>
+        <ul className={styles.featureList}>
+          {console.log(product.features)}
+          {product && product.features && product.features.map((feature, i) => {
+            return <li key={i}>{feature.feature} : {feature.value}</li>
+          })}
+        </ul>
       </div>
     </div>
   )

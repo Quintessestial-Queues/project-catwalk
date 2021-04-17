@@ -13,15 +13,13 @@
   border: 1px solid black;
 }
 
-.description {
-  display: flex;
-  grid-column: span 2;
+.features {
+  padding: 15px 25px;
 }
-
-.description :nth-child(0){
-  border: 1px solid black;
+.featureList {
+  border-left: 1px solid black;
+  padding: 10px
 }
-
 .announcement {
   grid-column: span 2;
   display: flex;
