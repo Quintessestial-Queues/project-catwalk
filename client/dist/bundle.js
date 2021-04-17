@@ -342,106 +342,6 @@ function _unsupportedIterableToArray(o, minLen) {
 
 /***/ }),
 
-/***/ "./assets/empty-star.svg":
-/*!*******************************!*\
-  !*** ./assets/empty-star.svg ***!
-  \*******************************/
-/***/ (() => {
-
-/*#__PURE__*/
-React.createElement("svg", {
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M5.28347 1.54595C5.57692 0.951356 6.42479 0.951358 6.71825 1.54595L7.82997 3.79856L10.3159 4.15979C10.9721 4.25513 11.2341 5.06151 10.7592 5.52434L8.96043 7.27775L9.38507 9.75361C9.49716 10.4071 8.81122 10.9055 8.22431 10.597L6.00086 9.42801L3.7774 10.597C3.19049 10.9055 2.50455 10.4071 2.61664 9.75361L3.04128 7.27775L1.24246 5.52434C0.767651 5.06151 1.02966 4.25513 1.68584 4.15979L4.17174 3.79856L5.28347 1.54595ZM6.00086 2.35192L5.02194 4.33542C4.90541 4.57153 4.68016 4.73519 4.41959 4.77305L2.23067 5.09112L3.81459 6.63506C4.00313 6.81885 4.08917 7.08365 4.04466 7.34316L3.67075 9.52324L5.62858 8.49395C5.86164 8.37142 6.14007 8.37142 6.37313 8.49395L8.33096 9.52324L7.95705 7.34317C7.91254 7.08365 7.99858 6.81885 8.18713 6.63506L9.77105 5.09112L7.58212 4.77305C7.32156 4.73519 7.0963 4.57153 6.97977 4.33542L6.00086 2.35192Z",
-  fill: "#212121"
-}));
-
-/***/ }),
-
-/***/ "./assets/filled-star.svg":
-/*!********************************!*\
-  !*** ./assets/filled-star.svg ***!
-  \********************************/
-/***/ (() => {
-
-/*#__PURE__*/
-React.createElement("svg", {
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M5.28347 1.54595C5.57692 0.951356 6.42479 0.951358 6.71825 1.54595L7.82997 3.79856L10.3159 4.15979C10.9721 4.25513 11.2341 5.06151 10.7592 5.52434L8.96043 7.27775L9.38507 9.75361C9.49716 10.4071 8.81122 10.9055 8.22431 10.597L6.00086 9.42801L3.7774 10.597C3.19049 10.9055 2.50455 10.4071 2.61664 9.75361L3.04128 7.27775L1.24246 5.52434C0.767651 5.06151 1.02966 4.25513 1.68584 4.15979L4.17174 3.79856L5.28347 1.54595Z",
-  fill: "#212121"
-}));
-
-/***/ }),
-
-/***/ "./assets/half-star.svg":
-/*!******************************!*\
-  !*** ./assets/half-star.svg ***!
-  \******************************/
-/***/ (() => {
-
-/*#__PURE__*/
-React.createElement("svg", {
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M6 9.42843L3.7774 10.5969C3.19049 10.9055 2.50455 10.4071 2.61664 9.75358L3.04128 7.27772L1.24246 5.52431C0.767651 5.06148 1.02966 4.2551 1.68584 4.15976L4.17174 3.79853L5.28347 1.54592C5.43005 1.24892 5.71495 1.10027 6 1.09998C6.28562 1.09968 6.57137 1.24833 6.71825 1.54592L7.82997 3.79853L10.3159 4.15976C10.9721 4.25511 11.2341 5.06148 10.7592 5.52431L8.96043 7.27772L9.38507 9.75358C9.49716 10.4071 8.81122 10.9055 8.22431 10.5969L6 9.42843ZM6 2.35362V8.40203C6.12816 8.40189 6.25634 8.43252 6.37313 8.49392L8.33096 9.52321L7.95705 7.34314C7.91254 7.08362 7.99858 6.81882 8.18713 6.63503L9.77105 5.09109L7.58212 4.77302C7.32156 4.73516 7.0963 4.5715 6.97977 4.33539L6.00086 2.35189L6 2.35362Z",
-  fill: "#212121"
-}));
-
-/***/ }),
-
-/***/ "./assets/quarter-star.svg":
-/*!*********************************!*\
-  !*** ./assets/quarter-star.svg ***!
-  \*********************************/
-/***/ (() => {
-
-/*#__PURE__*/
-React.createElement("svg", {
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M6.71825 1.54592C6.42479 0.951327 5.57692 0.951326 5.28347 1.54592L4.17174 3.79848L1.68584 4.1597C1.25906 4.22172 0.999018 4.58452 1 4.95795C1.00052 5.15868 1.07646 5.36249 1.24246 5.52431L3.04128 7.27772L2.61664 9.75353C2.60963 9.79439 2.60574 9.83465 2.60475 9.87414C2.60362 9.91952 2.60631 9.96389 2.6125 10.007C2.68708 10.5265 3.26935 10.864 3.7774 10.5969L6.00086 9.42798L8.22431 10.5969C8.81122 10.9055 9.49716 10.4071 9.38507 9.75358L8.96043 7.27772L10.7592 5.52431C11.2341 5.06148 10.9721 4.2551 10.3159 4.15976L7.82997 3.79853L6.71825 1.54592ZM5 8.82439V4.37675C5.00769 4.36323 5.01501 4.34944 5.02194 4.33539L6.00086 2.35189L6.97977 4.33539C7.0963 4.5715 7.32156 4.73516 7.58212 4.77302L9.77105 5.09109L8.18713 6.63503C7.99858 6.81882 7.91254 7.08362 7.95705 7.34313L8.33096 9.52321L6.37313 8.49392C6.14007 8.37139 5.86164 8.37139 5.62858 8.49392L5 8.82439Z",
-  fill: "#212121"
-}));
-
-/***/ }),
-
-/***/ "./assets/three-quarter-star.svg":
-/*!***************************************!*\
-  !*** ./assets/three-quarter-star.svg ***!
-  \***************************************/
-/***/ (() => {
-
-/*#__PURE__*/
-React.createElement("svg", {
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M6.71825 1.54592L7.82997 3.79853L10.3159 4.15976C10.9721 4.2551 11.2341 5.06148 10.7592 5.52431L8.96043 7.27772L9.38507 9.75358C9.49716 10.4071 8.81122 10.9055 8.22431 10.5969L6.00086 9.42798L3.7774 10.5969C3.19049 10.9055 2.50455 10.4071 2.61664 9.75358L3.04128 7.27772L1.24246 5.52431C0.767651 5.06148 1.02966 4.2551 1.68584 4.15976L4.17174 3.79853L5.28347 1.54592C5.57692 0.951326 6.42479 0.951327 6.71825 1.54592ZM7 8.82348L8.33096 9.52321L7.95705 7.34313C7.91254 7.08362 7.99858 6.81882 8.18713 6.63503L9.77105 5.09109L7.58212 4.77302C7.3359 4.73724 7.12122 4.58914 7 4.37372V8.82348Z",
-  fill: "#212121"
-}));
-
-/***/ }),
-
 /***/ "./client/src/App.jsx":
 /*!****************************!*\
   !*** ./client/src/App.jsx ***!
@@ -462,6 +362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProductOverview_index_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ProductOverview/index.jsx */ "./client/src/ProductOverview/index.jsx");
 /* harmony import */ var _QuestionsAnswers_index_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./QuestionsAnswers/index.jsx */ "./client/src/QuestionsAnswers/index.jsx");
 /* harmony import */ var _RelatedItems_index_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./RelatedItems/index.jsx */ "./client/src/RelatedItems/index.jsx");
+/* harmony import */ var _app_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.module.css */ "./client/src/app.module.css");
 
 
 
@@ -475,6 +376,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  // components
 
 
+
+ // styles
 
 
 
@@ -493,8 +396,16 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-        className: "app"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("h1", null, " APP Here "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ProductOverview_index_jsx__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_QuestionsAnswers_index_jsx__WEBPACK_IMPORTED_MODULE_7__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_RelatedItems_index_jsx__WEBPACK_IMPORTED_MODULE_8__.default, null));
+        className: _app_module_css__WEBPACK_IMPORTED_MODULE_9__.default.appGrid
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("header", {
+        className: _app_module_css__WEBPACK_IMPORTED_MODULE_9__.default.appGridItem
+      }, " APP Here "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+        className: _app_module_css__WEBPACK_IMPORTED_MODULE_9__.default.appGridItem
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ProductOverview_index_jsx__WEBPACK_IMPORTED_MODULE_6__.default, null), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+        className: _app_module_css__WEBPACK_IMPORTED_MODULE_9__.default.appGridItem
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_RelatedItems_index_jsx__WEBPACK_IMPORTED_MODULE_8__.default, null), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+        className: _app_module_css__WEBPACK_IMPORTED_MODULE_9__.default.appGridItem
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_QuestionsAnswers_index_jsx__WEBPACK_IMPORTED_MODULE_7__.default, null), " "));
     }
   }]);
 
@@ -524,10 +435,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function ProductOverview() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SharedComponents_StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _product_module_css__WEBPACK_IMPORTED_MODULE_2__.default.grid
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _product_module_css__WEBPACK_IMPORTED_MODULE_2__.default.item
+  }, "image carousel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _product_module_css__WEBPACK_IMPORTED_MODULE_2__.default.item
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SharedComponents_StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
     starRating: 1.6 // star rating from api will be integer
 
-  }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, " product title "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "style selection")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "".concat(_product_module_css__WEBPACK_IMPORTED_MODULE_2__.default.item, " ").concat(_product_module_css__WEBPACK_IMPORTED_MODULE_2__.default.description)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Product Description and information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Product Description and information")));
 }
 
 ;
@@ -777,6 +696,80 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./client/src/app.module.css":
+/*!***********************************!*\
+  !*** ./client/src/app.module.css ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_app_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app.module.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/app.module.css");
+
+
+var options = {};
+options.insert = "head";
+options.singleton = false;
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_app_module_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_app_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./assets/empty-star.svg":
+/*!*******************************!*\
+  !*** ./assets/empty-star.svg ***!
+  \*******************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M5.28347 1.54595C5.57692 0.951356 6.42479 0.951358 6.71825 1.54595L7.82997 3.79856L10.3159 4.15979C10.9721 4.25513 11.2341 5.06151 10.7592 5.52434L8.96043 7.27775L9.38507 9.75361C9.49716 10.4071 8.81122 10.9055 8.22431 10.597L6.00086 9.42801L3.7774 10.597C3.19049 10.9055 2.50455 10.4071 2.61664 9.75361L3.04128 7.27775L1.24246 5.52434C0.767651 5.06151 1.02966 4.25513 1.68584 4.15979L4.17174 3.79856L5.28347 1.54595ZM6.00086 2.35192L5.02194 4.33542C4.90541 4.57153 4.68016 4.73519 4.41959 4.77305L2.23067 5.09112L3.81459 6.63506C4.00313 6.81885 4.08917 7.08365 4.04466 7.34316L3.67075 9.52324L5.62858 8.49395C5.86164 8.37142 6.14007 8.37142 6.37313 8.49395L8.33096 9.52324L7.95705 7.34317C7.91254 7.08365 7.99858 6.81885 8.18713 6.63506L9.77105 5.09112L7.58212 4.77305C7.32156 4.73519 7.0963 4.57153 6.97977 4.33542L6.00086 2.35192Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/filled-star.svg":
+/*!********************************!*\
+  !*** ./assets/filled-star.svg ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M5.28347 1.54595C5.57692 0.951356 6.42479 0.951358 6.71825 1.54595L7.82997 3.79856L10.3159 4.15979C10.9721 4.25513 11.2341 5.06151 10.7592 5.52434L8.96043 7.27775L9.38507 9.75361C9.49716 10.4071 8.81122 10.9055 8.22431 10.597L6.00086 9.42801L3.7774 10.597C3.19049 10.9055 2.50455 10.4071 2.61664 9.75361L3.04128 7.27775L1.24246 5.52434C0.767651 5.06151 1.02966 4.25513 1.68584 4.15979L4.17174 3.79856L5.28347 1.54595Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/half-star.svg":
+/*!******************************!*\
+  !*** ./assets/half-star.svg ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6 9.42843L3.7774 10.5969C3.19049 10.9055 2.50455 10.4071 2.61664 9.75358L3.04128 7.27772L1.24246 5.52431C0.767651 5.06148 1.02966 4.2551 1.68584 4.15976L4.17174 3.79853L5.28347 1.54592C5.43005 1.24892 5.71495 1.10027 6 1.09998C6.28562 1.09968 6.57137 1.24833 6.71825 1.54592L7.82997 3.79853L10.3159 4.15976C10.9721 4.25511 11.2341 5.06148 10.7592 5.52431L8.96043 7.27772L9.38507 9.75358C9.49716 10.4071 8.81122 10.9055 8.22431 10.5969L6 9.42843ZM6 2.35362V8.40203C6.12816 8.40189 6.25634 8.43252 6.37313 8.49392L8.33096 9.52321L7.95705 7.34314C7.91254 7.08362 7.99858 6.81882 8.18713 6.63503L9.77105 5.09109L7.58212 4.77302C7.32156 4.73516 7.0963 4.5715 6.97977 4.33539L6.00086 2.35189L6 2.35362Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/quarter-star.svg":
+/*!*********************************!*\
+  !*** ./assets/quarter-star.svg ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6.71825 1.54592C6.42479 0.951327 5.57692 0.951326 5.28347 1.54592L4.17174 3.79848L1.68584 4.1597C1.25906 4.22172 0.999018 4.58452 1 4.95795C1.00052 5.15868 1.07646 5.36249 1.24246 5.52431L3.04128 7.27772L2.61664 9.75353C2.60963 9.79439 2.60574 9.83465 2.60475 9.87414C2.60362 9.91952 2.60631 9.96389 2.6125 10.007C2.68708 10.5265 3.26935 10.864 3.7774 10.5969L6.00086 9.42798L8.22431 10.5969C8.81122 10.9055 9.49716 10.4071 9.38507 9.75358L8.96043 7.27772L10.7592 5.52431C11.2341 5.06148 10.9721 4.2551 10.3159 4.15976L7.82997 3.79853L6.71825 1.54592ZM5 8.82439V4.37675C5.00769 4.36323 5.01501 4.34944 5.02194 4.33539L6.00086 2.35189L6.97977 4.33539C7.0963 4.5715 7.32156 4.73516 7.58212 4.77302L9.77105 5.09109L8.18713 6.63503C7.99858 6.81882 7.91254 7.08362 7.95705 7.34313L8.33096 9.52321L6.37313 8.49392C6.14007 8.37139 5.86164 8.37139 5.62858 8.49392L5 8.82439Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
+/***/ "./assets/three-quarter-star.svg":
+/*!***************************************!*\
+  !*** ./assets/three-quarter-star.svg ***!
+  \***************************************/
+/***/ ((module) => {
+
+module.exports = "data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6.71825 1.54592L7.82997 3.79853L10.3159 4.15976C10.9721 4.2551 11.2341 5.06148 10.7592 5.52431L8.96043 7.27772L9.38507 9.75358C9.49716 10.4071 8.81122 10.9055 8.22431 10.5969L6.00086 9.42798L3.7774 10.5969C3.19049 10.9055 2.50455 10.4071 2.61664 9.75358L3.04128 7.27772L1.24246 5.52431C0.767651 5.06148 1.02966 4.2551 1.68584 4.15976L4.17174 3.79853L5.28347 1.54592C5.57692 0.951326 6.42479 0.951327 6.71825 1.54592ZM7 8.82348L8.33096 9.52321L7.95705 7.34313C7.91254 7.08362 7.99858 6.81882 8.18713 6.63503L9.77105 5.09109L7.58212 4.77302C7.3359 4.73724 7.12122 4.58914 7 4.37372V8.82348Z' fill='%23212121'/%3e %3c/svg%3e";
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/ProductOverview/product.module.css":
 /*!*************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/ProductOverview/product.module.css ***!
@@ -797,8 +790,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "div {\n  /* background-color: blueviolet; */\n}", "",{"version":3,"sources":["webpack://./client/src/ProductOverview/product.module.css"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC","sourcesContent":["div {\n  /* background-color: blueviolet; */\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1xuPp7dgTxwhiRhzZi9kv3 {\n  display: grid;\n  height: 100%;\n  grid-template-columns: 60% 40%;\n  grid-template-rows:  600px 1fr;\n  border: 1px solid black;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n\n._1BccuZqunHhDko84rhtmms {\n  border: 1px solid black;\n}\n\n.-lbjVnyU6W3MJ-fAmH3ek {\n  display: flex;\n  grid-column: span 2;\n}\n\n.-lbjVnyU6W3MJ-fAmH3ek :nth-child(0){\n  border: 1px solid black;\n}", "",{"version":3,"sources":["webpack://./client/src/ProductOverview/product.module.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,YAAY;EACZ,8BAA8B;EAC9B,8BAA8B;EAC9B,uBAAuB;EACvB,iBAAiB;EACjB,cAAc;AAChB;;;AAGA;EACE,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,uBAAuB;AACzB","sourcesContent":[".grid {\n  display: grid;\n  height: 100%;\n  grid-template-columns: 60% 40%;\n  grid-template-rows:  600px 1fr;\n  border: 1px solid black;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n\n.item {\n  border: 1px solid black;\n}\n\n.description {\n  display: flex;\n  grid-column: span 2;\n}\n\n.description :nth-child(0){\n  border: 1px solid black;\n}"],"sourceRoot":""}]);
 // Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"grid": "_1xuPp7dgTxwhiRhzZi9kv3",
+	"item": "_1BccuZqunHhDko84rhtmms",
+	"description": "-lbjVnyU6W3MJ-fAmH3ek"
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
@@ -828,6 +826,37 @@ ___CSS_LOADER_EXPORT___.push([module.id, "._2d6czDt2IX_ld47EFnj33j {\n  width: 2
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"star": "_2d6czDt2IX_ld47EFnj33j"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/app.module.css":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./client/src/app.module.css ***!
+  \*****************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/* ============================================================================================================================================\nStart Reset CSS\nThe goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on.\n==================================================================================================================================================== */\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/* ============================================================================================================================================\nEnd Reset CSS\nThe goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on.\n==================================================================================================================================================== */\n\n._1GGm-hRzbhquW1k8eH-x9d {\n  display: grid;\n  grid-template-columns: 1200px;\n  grid-template-rows:  75px 900px 750px 500px;\n  border: 1px solid black;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n._3zIgFUg6Z5wGCziJKaX6hR {\n  border: 1px solid black;\n}", "",{"version":3,"sources":["webpack://./client/src/app.module.css"],"names":[],"mappings":"AAAA;;;sJAGsJ;AACtJ;;;;;;;;;;;;;CAaC,SAAS;CACT,UAAU;CACV,SAAS;CACT,eAAe;CACf,aAAa;CACb,wBAAwB;AACzB;AACA,gDAAgD;AAChD;;CAEC,cAAc;AACf;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,YAAY;AACb;AACA;;CAEC,WAAW;CACX,aAAa;AACd;AACA;CACC,yBAAyB;CACzB,iBAAiB;AAClB;;AAEA;;;sJAGsJ;;AAEtJ;EACE,aAAa;EACb,6BAA6B;EAC7B,2CAA2C;EAC3C,uBAAuB;EACvB,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB","sourcesContent":["/* ============================================================================================================================================\nStart Reset CSS\nThe goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on.\n==================================================================================================================================================== */\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/* ============================================================================================================================================\nEnd Reset CSS\nThe goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on.\n==================================================================================================================================================== */\n\n.appGrid {\n  display: grid;\n  grid-template-columns: 1200px;\n  grid-template-rows:  75px 900px 750px 500px;\n  border: 1px solid black;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.appGridItem {\n  border: 1px solid black;\n}"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"appGrid": "_1GGm-hRzbhquW1k8eH-x9d",
+	"appGridItem": "_3zIgFUg6Z5wGCziJKaX6hR"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
