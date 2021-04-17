@@ -13,6 +13,10 @@
   border: 1px solid black;
 }
 
+.description {
+  padding: 5px;
+}
+
 .features {
   padding: 15px 25px;
 }

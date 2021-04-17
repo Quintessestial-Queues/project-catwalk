@@ -16,7 +16,7 @@ function ProductOverview() {
     <div className={styles.grid}>
 
       <div className={`${styles.item} ${styles.announcement}`}>
-       <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a>NEW PRODUCT HIGHLIGHT</a></p>
+       <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
 
       <div className={styles.item}>image carousel</div>
