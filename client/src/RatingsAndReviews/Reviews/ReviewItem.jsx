@@ -1,8 +1,8 @@
 import React from 'react';
-// import styles from './ReviewsList.module.css';
 
 
-let Review = (props) => {
+
+let ReviewItem = (props) => {
   return (
     <div className='review'>
       Review
@@ -10,4 +10,4 @@ let Review = (props) => {
   )
 }
 
-export default Review;
+export default ReviewItem;

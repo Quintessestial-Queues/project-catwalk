@@ -1,9 +1,9 @@
 
-div {
+/* div {
   border-style: solid;
-}
+} */
 
-.reviews-list {
+.ratingsAndReviews {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }

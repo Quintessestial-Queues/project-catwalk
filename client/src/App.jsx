@@ -4,7 +4,7 @@ import React from 'react';
 import ProductOverview from './ProductOverview/index.jsx';
 import QuestionsAnswers from './QuestionsAnswers/index.jsx';
 import RelatedItems from './RelatedItems/index.jsx';
-
+import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
 
 class App extends React.Component {
   render () {
@@ -14,7 +14,7 @@ class App extends React.Component {
           <ProductOverview />
           <QuestionsAnswers />
           <RelatedItems />
-
+          <RatingsAndReviews />
       </div>
     )
   }
