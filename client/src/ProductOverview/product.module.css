@@ -2,7 +2,7 @@
   display: grid;
   height: 100%;
   grid-template-columns: 60% 40%;
-  grid-template-rows:  600px 1fr;
+  grid-template-rows: 5% 600px 1fr;
   border: 1px solid black;
   max-width: 1200px;
   margin: 0 auto;
@@ -20,4 +20,15 @@
 
 .description :nth-child(0){
   border: 1px solid black;
+}
+
+.announcement {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productInfo {
+  padding: 15px 25px;
 }
