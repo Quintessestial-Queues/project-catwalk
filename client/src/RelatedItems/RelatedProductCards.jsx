@@ -1,9 +1,10 @@
 import React from 'react';
 import ProductCard from './ProductCard.jsx'
+import styles from './relatedItems.module.css'
 
 const RelatedProductCards = () => {
   return (
-    <div>
+    <div id={styles.relatedProductsContainer}>
       <ProductCard />
     </div>
   )

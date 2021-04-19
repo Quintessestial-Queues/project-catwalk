@@ -3,9 +3,6 @@ client/dist/bundle.js
 client/dist/bundle.js.map
 
 node_modules
-<<<<<<< HEAD
-=======
 
 # test
 coverage
->>>>>>> d05634efda9cfa0c47b847f74e974e7fa9ad3882

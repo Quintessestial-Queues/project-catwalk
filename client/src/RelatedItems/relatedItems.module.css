@@ -1,0 +1,13 @@
+
+#relatedProductsContainer {
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  grid-template-rows: 300px;
+  gap: 0px 0px;
+}
+.productCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 65% 35%;
+  gap: 0px 0px;
+}
