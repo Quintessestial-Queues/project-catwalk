@@ -44,10 +44,12 @@ describe('<ProductOverview />', () => {
 
   describe('it loads correct state', () =>{
     it('loads a product', () => {
+      // Todo: get this to work with toHaveBeenCalled()
       expect(props.setProduct);
     });
 
     it('sets product styles to state', () => {
+       // Todo: get this to work with toHaveBeenCalled()
       expect(props.setProductStyles);
     })
   })
@@ -63,12 +65,15 @@ describe('<StarRating />', () => {
   })
 
   describe('it renders the correct amount of stars based on props', () => {
+    const wrapper = mount(<StarRating starRating={starRating} />);
 
-    it('renders 5 stars', () => {
-      // MOUNT DOES NOT WORK WITH REACT 17. Not sure what to do about this.
-      // the problem is shallow rendering only goes one level deep and I need to test 2 levels StarRating > div > star svgs
-      const wrapper = render(<StarRating starRating={starRating} />);
-      console.log(wrapper.find('div').children);
+    it('starRating props should be 5', () => {
+      expect(wrapper.prop('starRating')).to.equal(5);
+    })
+
+
+    it('should render 5 stars', () => {
+      expect(wrapper.find('img')).to.have.lengthOf(5);
     })
   })
 })
