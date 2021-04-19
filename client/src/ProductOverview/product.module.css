@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 60% 40%;
+  grid-template-rows:  600px 1fr;
+  border: 1px solid black;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.item {
+  border: 1px solid black;
+}
+
+.description {
+  display: flex;
+  grid-column: span 2;
+}
+
+.description :nth-child(0){
+  border: 1px solid black;
+}

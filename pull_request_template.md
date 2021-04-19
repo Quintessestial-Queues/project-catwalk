@@ -11,7 +11,7 @@ Please delete options that are not relevant.
 - [ ] Documentation update
 
 
-# How Has This Been Tested?
+# Has This Been Tested?
 
 - [ ] Yes
 - [ ] No
@@ -20,8 +20,9 @@ Please delete options that are not relevant.
 
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have added both my teammates as reviewers
 - [ ] I have added documentation to complex files
-- [ ] My changes generate no new warnings
+- [ ] My changes generate no new warnings in the console
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] There are no merge conflicts

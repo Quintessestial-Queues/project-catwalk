@@ -3,12 +3,13 @@ var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
-  devtool: "source-map",
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  mode: "development",
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -26,12 +27,43 @@ module.exports = {
                 {
                   "regenerator": true
                 }
-              ],
-              ["@babel/plugin-proposal-class-properties"]
+              ]
             ]
           }
         }
+      },
+      {
+        test: /\.css$/,
+      use: ['style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 1,
+          modules: true,
+        }
       }
-    ]
+      ],
+      include: /\.module\.css$/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+        exclude: /\.module\.css$/
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      }
+    ],
   }
 };
