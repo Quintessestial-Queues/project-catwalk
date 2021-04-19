@@ -2,22 +2,34 @@
   display: grid;
   height: 100%;
   grid-template-columns: 60% 40%;
-  grid-template-rows:  600px 1fr;
+  grid-template-rows: 5% 600px 1fr;
   border: 1px solid black;
   max-width: 1200px;
   margin: 0 auto;
 }
-
 
 .item {
   border: 1px solid black;
 }
 
 .description {
-  display: flex;
-  grid-column: span 2;
+  padding: 5px;
 }
 
-.description :nth-child(0){
-  border: 1px solid black;
+.features {
+  padding: 15px 25px;
+}
+.featureList {
+  border-left: 1px solid black;
+  padding: 10px
+}
+.announcement {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productInfo {
+  padding: 15px 25px;
 }
