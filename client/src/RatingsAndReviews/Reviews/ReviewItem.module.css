@@ -1,0 +1,6 @@
+
+.reviewContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: black solid;
+}
