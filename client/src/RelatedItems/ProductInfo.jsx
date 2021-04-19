@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductInfo = () => {
   return (
-    <div>
+    <div className='product-info'>
       {console.log('product info loaded')}
       <h4>Category</h4>
       <h3>Expanded Product Name</h3>

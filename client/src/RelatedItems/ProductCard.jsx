@@ -10,9 +10,7 @@ const ProductCard = () => {
       <div className='preview-image'>
 
       </div>
-      <div className='product-info'>
-        <ProductInfo />
-      </div>
+      <ProductInfo />
     </div>
   )
 };
