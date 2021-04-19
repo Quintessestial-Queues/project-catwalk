@@ -1,13 +1,14 @@
 import React from 'react';
 import StarRating from '../SharedComponents/StarRating.jsx'
+import styles from './relatedItems.module.css'
 
 const ProductInfo = ({ product }) => {
   return (
-    <div className='productInfo'>
+    <div className={styles.productInfo}>
       {console.log('product info loaded')}
-      <h4>Category</h4>
-      <h3>Expanded Product Name</h3>
-      <h4>Price</h4>
+      <h5 className={styles.productText}>{product.category}</h5>
+      <h4 className={styles.productText}>{product.name}</h4>
+      <h5 className={styles.productText}>{product.default_price}</h5>
       <StarRating starRating={4.0}/>
     </div>
   )
