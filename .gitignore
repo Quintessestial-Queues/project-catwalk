@@ -2,7 +2,9 @@
 client/dist/bundle.js
 client/dist/bundle.js.map
 
-node_modules
+# dependencies
+/node_modules
+
 
 # test
 coverage

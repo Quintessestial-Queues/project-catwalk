@@ -78,7 +78,6 @@ const StarRating = ({
 
   return (
     <div>
-      <h1>5 star rating system</h1>
       {starState.map((star, index) => {
         switch (star) {
           case 'empty':
