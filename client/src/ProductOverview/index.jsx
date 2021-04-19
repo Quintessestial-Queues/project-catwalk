@@ -37,7 +37,6 @@ function ProductOverview() {
       </div>
       <div className={`${styles.item} ${styles.features}`}>
         <ul className={styles.featureList}>
-          {console.log(product.features)}
           {product && product.features && product.features.map((feature, i) => {
             return <li key={i}>{feature.feature} : {feature.value}</li>
           })}
