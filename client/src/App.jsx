@@ -6,15 +6,17 @@ import QuestionsAnswers from './QuestionsAnswers/index.jsx';
 import RelatedItems from './RelatedItems/index.jsx';
 import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
 
+// styles
+import styles from './app.module.css';
+
 class App extends React.Component {
   render () {
     return(
-      <div className='app'>
-          <h1> APP Here </h1>
-          <ProductOverview />
-          <QuestionsAnswers />
-          <RelatedItems />
-          <RatingsAndReviews />
+      <div className={styles.appGrid}>
+          <header className={styles.appGridItem}> APP Here </header>
+          <div className={styles.appGridItem}> <ProductOverview /> </div>
+          <div className={styles.appGridItem}> <RelatedItems /> </div>
+          <div className={styles.appGridItem}> <QuestionsAnswers /> </div>
       </div>
     )
   }
