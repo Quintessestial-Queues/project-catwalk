@@ -2,18 +2,18 @@
 .reviewContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 10% 20% .5fr 1fr;
   border: black solid;
+  grid-gap: 5px;
+  justify-content: space-around
 }
 
 .starRating {
-  /* display: inline-block; */
   border: solid;
 }
 
 
 .datePosted {
-  /* display: inline-block; */
   border: solid;
   text-align: right;
 }
@@ -21,10 +21,17 @@
 .boldedSummary {
   font-weight: bold;
   border: solid;
+  grid-column: span 2;
+  padding-top: 5px;
+}
+
+.body {
+  grid-column: span 2;
+  border: solid;
 }
 
 .recommendation {
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr; */
+  grid-column: span 2;
+  border: solid;
 }
+
