@@ -2,7 +2,7 @@
 .reviewContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 10% 20% .5fr 1fr;
+  grid-template-rows: 10% 20% .5fr .2fr auto .1fr;
   border: black solid;
   grid-gap: 5px;
   justify-content: space-around
@@ -35,3 +35,17 @@
   border: solid;
 }
 
+.responseActive {
+  background-color: grey;
+  grid-column: span 2;
+  border: solid;
+}
+
+.responseNormal {
+  grid-column: span 2;
+  border: solid;
+}
+
+.helpful {
+  border: solid;
+}
