@@ -9,7 +9,9 @@ const ProductInfo = ({ product }) => {
       <h5 className={styles.productText}>{product.category}</h5>
       <h4 className={styles.productText}>{product.name}</h4>
       <h5 className={styles.productText}>{product.default_price}</h5>
-      <StarRating starRating={4.0}/>
+      <div className={styles.productText}>
+        <StarRating starRating={4.0}/>
+      </div>
     </div>
   )
 };

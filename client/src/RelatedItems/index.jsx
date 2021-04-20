@@ -9,7 +9,7 @@ function RelatedItems () {
   return (
     <div>
       <h3 id={styles.relatedItemsTitle}>Related Items and Comparisons</h3>
-      <RelatedProductCards products={data}/>
+      <RelatedProductCards products={data} />
     </div>
   )
 };

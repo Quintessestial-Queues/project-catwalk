@@ -7,7 +7,9 @@ const ProductCard = ({ product, image }) => {
     <div className={styles.productCard}>
       {console.log('product card loaded')}
       {/* <button className='action-button' /> */}
-      <div className='preview-image'>IMAGE</div>
+      <div className={styles.img}>
+        <img src={image} className={styles.img}/>
+      </div>
       <ProductInfo product={product}/>
     </div>
   )
