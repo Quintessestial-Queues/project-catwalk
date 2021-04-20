@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import StarRating from '../SharedComponents/StarRating.jsx';
 import styles from './product.module.css';
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
+
+//components
+import StarRating from '../SharedComponents/StarRating.jsx';
+import Gallery from './Gallery.jsx';
 
 function ProductOverview() {
   const [product, setProduct] = useState({});
   const [productStyles, setProductStyles] = useState({});
+  const [defaultView, setDefaultView] = useState(true);
 
   useEffect(() => {
     setProduct(dummyProduct);
@@ -19,9 +23,12 @@ function ProductOverview() {
        <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
 
-      <div className={styles.item}>image carousel</div>
+      <Gallery
+        productStyles={productStyles}
+        defaultView={defaultView}
+        setDefaultView={setDefaultView} />
 
-      <div className={`${styles.item} ${styles.productInfo}`}>
+      <div className={defaultView === true ? `${styles.item} ${styles.productInfo}` : `${styles.hide}`}>
         <StarRating
           starRating={1.6}
         />
