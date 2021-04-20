@@ -49,7 +49,7 @@ class Reviews extends React.Component {
     if (!this.clickedMoreReviews) {
       return <div className={styles.reviewsContainer}>{reviewsList.slice(0, 2)}</div>;
     }
-    // if (reviews.length > 1)
+    if (reviews.length > 1)
     return <div className={styles.reviewsContainer} onScroll={this.handleScroll}>{reviewsList}</div>;
   }
 }

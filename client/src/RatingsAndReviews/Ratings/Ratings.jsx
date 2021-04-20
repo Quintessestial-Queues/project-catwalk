@@ -1,9 +1,10 @@
 import React from 'react';
 
+import styles from './Ratings.module.css';
 
 let Ratings = () => {
   return (
-    <div>Ratings</div>
+    <div className={styles.ratingsContainer}>Ratings</div>
   )
 }
 

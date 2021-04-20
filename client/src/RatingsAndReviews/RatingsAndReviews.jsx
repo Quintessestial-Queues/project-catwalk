@@ -1,7 +1,7 @@
 import React from 'react';
 import Ratings from './Ratings/Ratings.jsx'
 import Reviews from './Reviews/Reviews.jsx';
-import {dummyReviews} from '../dummyData.jsx';
+import {dummyReviews} from '../dummyData.js';
 
 import styles from './RatingsAndReviews.module.css';
 
@@ -15,7 +15,6 @@ class RatingsAndReviews extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div className={styles.ratingsAndReviews}>
         <div><Ratings /></div>
