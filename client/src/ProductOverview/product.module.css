@@ -63,11 +63,19 @@
   right: 20px;
   cursor: pointer;
   z-index: 1;
+  background: aliceblue;
 }
 
 .thumbnailGallery {
   position: absolute;
-  bottom: 60%;
+  left: 15px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnail {
+  width: 45px;
 }
 
 .slide {

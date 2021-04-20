@@ -41,10 +41,12 @@ function Gallery({productStyles}) {
       <img
         src={leftArrow}
         alt='left arrow'
-        style={{ position: 'absolute', bottom: '50%', left: '20px', cursor: 'pointer', zIndex: 1}}
+        style={{ position: 'absolute', bottom: '50%', left: '70px', cursor: 'pointer', zIndex: 1, background: 'aliceblue'}}
         onClick={prev} />
       <div className={styles.thumbnailGallery} >
-        thumbnails
+       { images.map((image, index) => {
+         return (<img src={image.thumbnail_url} key={index} className={styles.thumbnail} />)
+       })}
       </div>
       <div className={styles.gallery}>
       {images.map((slide, index) => {
