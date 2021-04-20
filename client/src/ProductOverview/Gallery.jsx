@@ -18,6 +18,7 @@ function Gallery({productStyles, defaultView, setDefaultView}) {
   const [thumbnailPage, setThumbnailPage] = useState(5);
 
   useEffect(()=> {
+    // sets default image and styles to first image
     const defaultStyle = dummyProductStyles.results[0];
     const defaultImage = defaultStyle.photos[0].url;
     setCurrentSyle(defaultStyle);
@@ -27,6 +28,7 @@ function Gallery({productStyles, defaultView, setDefaultView}) {
   }, [])
 
   useEffect(() => {
+    // display thumbnail gallary based on current thumbnail page
     if (currentImage > thumbnailPage) {
       setThumbnailPage(thumbnailPage + 5)
     } else if (currentImage === thumbnailPage && currentImage > thumbnailPage) {
@@ -78,7 +80,8 @@ function Gallery({productStyles, defaultView, setDefaultView}) {
       />
       <div className={styles.thumbnailGallery} >
        { images.map((image, index) => {
-         return index <= thumbnailPage -1 && index > thumbnailPage - 6 &&
+        //  only display images starting at thumbnail page up to 5
+         return index <= thumbnailPage - 1 && index > thumbnailPage - 6 &&
           ( <img onClick={() => selectThumbnail(index)} src={image.thumbnail_url} key={index} className={index === currentImage ? styles.thumbnailActive : styles.thumbnail} /> )
        })}
        <img
