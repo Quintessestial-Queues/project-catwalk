@@ -48,6 +48,10 @@ function Gallery({productStyles}) {
   const down = () => {
     setThumbnailPage(thumbnailPage < images.length - 1? thumbnailPage + 5 : 5)
   }
+
+  const selectThumbnail = (index) => {
+    setCurrentImage(index)
+  }
   return (
     <div className={`${styles.item} ${styles.galleryWrapper}`}>
       <img
@@ -63,7 +67,7 @@ function Gallery({productStyles}) {
       <div className={styles.thumbnailGallery} >
        { images.map((image, index) => {
          return index <= thumbnailPage -1 && index > thumbnailPage - 6 &&
-          ( <img src={image.thumbnail_url} key={index} className={index === currentImage ? styles.thumbnailActive : styles.thumbnail} /> )
+          ( <img onClick={() => selectThumbnail(index)} src={image.thumbnail_url} key={index} className={index === currentImage ? styles.thumbnailActive : styles.thumbnail} /> )
        })}
        <img
         src={downArrow}
