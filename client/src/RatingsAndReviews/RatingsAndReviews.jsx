@@ -8,9 +8,7 @@ import styles from './RatingsAndReviews.module.css';
 class RatingsAndReviews extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      moreReviews: false
-    }
+
 
   }
 
@@ -18,7 +16,7 @@ class RatingsAndReviews extends React.Component {
     return (
       <div className={styles.ratingsAndReviews}>
         <div><Ratings /></div>
-        <div><Reviews reviews={dummyReviews.results} moreReviews={this.moreReviews}/></div>
+        <div><Reviews reviews={dummyReviews.results}/></div>
       </div>
     )
   }

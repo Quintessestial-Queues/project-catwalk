@@ -657,15 +657,9 @@ var RatingsAndReviews = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(RatingsAndReviews);
 
   function RatingsAndReviews(props) {
-    var _this;
-
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, RatingsAndReviews);
 
-    _this = _super.call(this, props);
-    _this.state = {
-      moreReviews: false
-    };
-    return _this;
+    return _super.call(this, props);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(RatingsAndReviews, [{
@@ -674,8 +668,7 @@ var RatingsAndReviews = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
         className: _RatingsAndReviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.ratingsAndReviews
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_Ratings_Ratings_jsx__WEBPACK_IMPORTED_MODULE_6__.default, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_Reviews_Reviews_jsx__WEBPACK_IMPORTED_MODULE_7__.default, {
-        reviews: _dummyData_js__WEBPACK_IMPORTED_MODULE_8__.dummyReviews.results,
-        moreReviews: this.moreReviews
+        reviews: _dummyData_js__WEBPACK_IMPORTED_MODULE_8__.dummyReviews.results
       })));
     }
   }]);
@@ -771,9 +764,11 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
       reviews: _this.props.reviews.slice(0, 5) || [],
       loading: false,
       hasMore: false,
-      clickedMoreReviews: false
+      clickedMoreReviews: false,
+      reviewsView: 2
     };
     _this.handleScroll = _this.handleScroll.bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__.default)(_this));
+    _this.handleClickMoreReviews = _this.handleClickMoreReviews.bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__.default)(_this));
     return _this;
   }
 
@@ -799,12 +794,21 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
           loading: false
         });
       }
+    }
+  }, {
+    key: "handleClickMoreReviews",
+    value: function handleClickMoreReviews(event) {
+      console.log('More Reviews Got Clicked!');
+      this.setState({
+        clickedMoreReviews: !this.state.clickedMoreReviews,
+        reviewsView: this.state.reviewsView + 2
+      });
     } //A lot of repeating code, might want to refactor
 
   }, {
     key: "render",
     value: function render() {
-      var reviews = this.props.reviews;
+      var reviews = this.state.reviews;
 
       if (reviews === 0) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", null, "Currently, there are no reviews for this product.");
@@ -817,7 +821,7 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
         });
       });
 
-      if (!this.clickedMoreReviews) {
+      if (!this.state.clickedMoreReviews) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
           className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsContainer,
           onScroll: this.handleScroll
@@ -825,11 +829,12 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
           className: "reviewSorter"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("p", null, "".concat(reviews.length, " reviews, sorted by "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Relevance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Helpful"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Newest")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
           className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsList
-        }, reviewsList.slice(0, 2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+        }, reviewsList.slice(0, this.state.reviewsView)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
           className: "buttons"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
-          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton
-        }, "More Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+        }, this.state.reviews.length > 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton,
+          onClick: this.handleClickMoreReviews
+        }, "More Reviews") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
           className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.addAReviewButton
         }, "Add A Review")));
       }
@@ -841,11 +846,12 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
         className: "reviewSorter"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("p", null, "".concat(reviews.length, " reviews, sorted by "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Relevance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Helpful"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Newest")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
         className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsList
-      }, reviewsList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+      }, reviewsList.slice(0, this.state.reviewsView)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
         className: "buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
-        className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton
-      }, "More Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+      }, this.state.reviewsView <= this.props.reviews.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+        className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton,
+        onClick: this.handleClickMoreReviews
+      }, "More Reviews") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
         className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.addAReviewButton
       }, "Add A Review")));
     }

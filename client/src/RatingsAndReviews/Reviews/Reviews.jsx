@@ -11,9 +11,11 @@ class Reviews extends React.Component {
       reviews: this.props.reviews.slice(0, 5) || [],
       loading : false,
       hasMore : false,
-      clickedMoreReviews: false
+      clickedMoreReviews: false,
+      reviewsView: 2,
     }
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
   }
 
 
@@ -35,10 +37,17 @@ class Reviews extends React.Component {
     }
   }
 
+  handleClickMoreReviews (event) {
+    console.log('More Reviews Got Clicked!')
+    this.setState({
+      clickedMoreReviews: !this.state.clickedMoreReviews,
+      reviewsView: this.state.reviewsView + 2
+    })
+  }
 
   //A lot of repeating code, might want to refactor
   render() {
-    let reviews = this.props.reviews;
+    let reviews = this.state.reviews;
 
     if (reviews === 0) {
       return (<div>Currently, there are no reviews for this product.</div>)
@@ -46,7 +55,7 @@ class Reviews extends React.Component {
     let reviewsList = reviews.map((review, index) => {
       return <ReviewItem key={index} review={review}/>
     })
-    if (!this.clickedMoreReviews) {
+    if (!this.state.clickedMoreReviews) {
       return (
         <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
           <div className='reviewSorter'>
@@ -59,10 +68,10 @@ class Reviews extends React.Component {
             </p>
           </div>
           <div className={styles.reviewsList}>
-            {reviewsList.slice(0, 2)}
+            {reviewsList.slice(0, this.state.reviewsView)}
           </div>
           <div className='buttons'>
-            <button className={styles.moreReviewsButton}>More Reviews</button>
+            {this.state.reviews.length > 2 ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
             <button className={styles.addAReviewButton}>Add A Review</button>
           </div>
         </div>
@@ -80,11 +89,11 @@ class Reviews extends React.Component {
           </p>
         </div>
         <div className={styles.reviewsList}>
-          {reviewsList}
+          {reviewsList.slice(0, this.state.reviewsView)}
         </div>
         <div className='buttons'>
-          <button className={styles.moreReviewsButton}>More Reviews</button>
-          <button className={styles.addAReviewButton}>Add A Review</button>
+          {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
+          <button className={styles.addAReviewButton} >Add A Review</button>
         </div>
       </div>
       );
