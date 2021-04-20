@@ -4,6 +4,7 @@ import styles from './product.module.css';
 //icons
 import leftArrow from '../../../assets/left-arrow.svg';
 import rightArrow from '../../../assets/right-arrow.svg';
+import downArrow from '../../../assets/down-arrow.svg';
 
 // this will be a context file in future release
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
@@ -13,6 +14,7 @@ function Gallery({productStyles}) {
   const [images, setImages] = useState([]);
   const [defaultImg, setDefaultImg] = useState('')
   const [currentImage, setCurrentImage] = useState(0);
+  const [thumbnailPage, setThumbnailPage] = useState(5);
 
    useEffect(()=> {
     const defaultStyle = dummyProductStyles.results[0];
@@ -28,9 +30,12 @@ function Gallery({productStyles}) {
   }
 
   const prev = () => {
-    setCurrentImage(currentImage === 0 ? images.length - 1: currentImage - 1)
+    setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1)
   }
 
+  const down = () => {
+    setThumbnailPage(thumbnailPage < images.length - 1? thumbnailPage + 5 : 5)
+  }
   return (
     <div className={`${styles.item} ${styles.galleryWrapper}`}>
       <img
@@ -41,12 +46,18 @@ function Gallery({productStyles}) {
       <img
         src={leftArrow}
         alt='left arrow'
-        style={{ position: 'absolute', bottom: '50%', left: '70px', cursor: 'pointer', zIndex: 1, background: 'aliceblue'}}
+        style={{ position: 'absolute', bottom: '50%', left: '110px', cursor: 'pointer', zIndex: 1, background: 'aliceblue'}}
         onClick={prev} />
       <div className={styles.thumbnailGallery} >
        { images.map((image, index) => {
-         return (<img src={image.thumbnail_url} key={index} className={styles.thumbnail} />)
+         return index <= thumbnailPage -1 && index > thumbnailPage - 6 &&
+          ( <img src={image.thumbnail_url} key={index} className={index === currentImage ? styles.thumbnailActive : styles.thumbnail} /> )
        })}
+       <img
+        src={downArrow}
+        alt='down arrow to scroll through thumbnails'
+        className={styles.down}
+        onClick={down} />
       </div>
       <div className={styles.gallery}>
       {images.map((slide, index) => {
