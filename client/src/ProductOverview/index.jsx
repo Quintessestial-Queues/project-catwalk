@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import StarRating from '../SharedComponents/StarRating.jsx';
 import styles from './product.module.css';
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
+
+//components
+import StarRating from '../SharedComponents/StarRating.jsx';
+import Gallery from './Gallery.jsx';
 
 function ProductOverview() {
   const [product, setProduct] = useState({});
@@ -19,7 +22,7 @@ function ProductOverview() {
        <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
 
-      <div className={styles.item}>image carousel</div>
+      <Gallery productStyles={productStyles} />
 
       <div className={`${styles.item} ${styles.productInfo}`}>
         <StarRating

@@ -33,3 +33,49 @@
 .productInfo {
   padding: 15px 25px;
 }
+
+/* image gallery styles */
+
+.galleryWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery {
+  position: absolute;
+
+}
+
+.leftArrow {
+  position: absolute;
+  width: 24px;
+  bottom: 50%;
+  left: 20px;
+  z-index: 1;
+}
+
+.rightArrow {
+  position: absolute;
+  width: 24px;
+  bottom: 50%;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.thumbnailGallery {
+  position: absolute;
+  bottom: 60%;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  max-height: 600px;
+}
+
+.slideActive {
+
+};
