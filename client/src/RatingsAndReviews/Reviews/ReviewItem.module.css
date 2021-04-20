@@ -1,6 +1,19 @@
 
 .reviewContainer {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
   border: black solid;
+}
+
+.starRating {
+  display: inline-block;
+  border: solid;
+}
+
+
+.datePosted {
+  display: inline-block;
+  border: solid;
+  text-align: right;
 }
