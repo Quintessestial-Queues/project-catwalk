@@ -831,7 +831,7 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
           className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsList
         }, reviewsList.slice(0, this.state.reviewsView)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
           className: "buttons"
-        }, this.state.reviews.length > 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+        }, this.state.reviewsView <= this.props.reviews.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
           className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton,
           onClick: this.handleClickMoreReviews
         }, "More Reviews") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {

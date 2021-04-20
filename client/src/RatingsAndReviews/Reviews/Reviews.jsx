@@ -71,7 +71,7 @@ class Reviews extends React.Component {
             {reviewsList.slice(0, this.state.reviewsView)}
           </div>
           <div className='buttons'>
-            {this.state.reviews.length > 2 ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
+            {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
             <button className={styles.addAReviewButton}>Add A Review</button>
           </div>
         </div>
