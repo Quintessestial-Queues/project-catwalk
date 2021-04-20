@@ -36,7 +36,7 @@ class Reviews extends React.Component {
   }
 
 
-
+  //A lot of repeating code, might want to refactor
   render() {
     let reviews = this.props.reviews;
 
@@ -47,10 +47,47 @@ class Reviews extends React.Component {
       return <ReviewItem key={index} review={review}/>
     })
     if (!this.clickedMoreReviews) {
-      return <div className={styles.reviewsContainer}>{reviewsList.slice(0, 2)}</div>;
+      return (
+        <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
+          <div className='reviewSorter'>
+            <p>
+              {`${reviews.length} reviews, sorted by `} <select>
+                <option>Relevance</option>
+                <option>Helpful</option>
+                <option>Newest</option>
+              </select>
+            </p>
+          </div>
+          <div className={styles.reviewsList}>
+            {reviewsList.slice(0, 2)}
+          </div>
+          <div className='buttons'>
+            <button className={styles.moreReviewsButton}>More Reviews</button>
+            <button className={styles.addAReviewButton}>Add A Review</button>
+          </div>
+        </div>
+        );
     }
-    if (reviews.length > 1)
-    return <div className={styles.reviewsContainer} onScroll={this.handleScroll}>{reviewsList}</div>;
+    return (
+      <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
+        <div className='reviewSorter'>
+          <p>
+            {`${reviews.length} reviews, sorted by `} <select>
+              <option>Relevance</option>
+              <option>Helpful</option>
+              <option>Newest</option>
+            </select>
+          </p>
+        </div>
+        <div className={styles.reviewsList}>
+          {reviewsList}
+        </div>
+        <div className='buttons'>
+          <button className={styles.moreReviewsButton}>More Reviews</button>
+          <button className={styles.addAReviewButton}>Add A Review</button>
+        </div>
+      </div>
+      );
   }
 }
 

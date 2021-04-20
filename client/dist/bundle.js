@@ -799,7 +799,8 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
           loading: false
         });
       }
-    }
+    } //A lot of repeating code, might want to refactor
+
   }, {
     key: "render",
     value: function render() {
@@ -818,14 +819,35 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
 
       if (!this.clickedMoreReviews) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
-          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsContainer
-        }, reviewsList.slice(0, 2));
+          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsContainer,
+          onScroll: this.handleScroll
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+          className: "reviewSorter"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("p", null, "".concat(reviews.length, " reviews, sorted by "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Relevance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Helpful"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Newest")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsList
+        }, reviewsList.slice(0, 2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+          className: "buttons"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton
+        }, "More Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+          className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.addAReviewButton
+        }, "Add A Review")));
       }
 
-      if (reviews.length > 1) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
         className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsContainer,
         onScroll: this.handleScroll
-      }, reviewsList);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+        className: "reviewSorter"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("p", null, "".concat(reviews.length, " reviews, sorted by "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Relevance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Helpful"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("option", null, "Newest")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+        className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.reviewsList
+      }, reviewsList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
+        className: "buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+        className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.moreReviewsButton
+      }, "More Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("button", {
+        className: _Reviews_module_css__WEBPACK_IMPORTED_MODULE_9__.default.addAReviewButton
+      }, "Add A Review")));
     }
   }]);
 
@@ -1884,10 +1906,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fKYGf-vvT9ajIsGpb_CgL {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-auto-rows: 300px;\n  border: 1px solid black;\n  overflow-y: scroll;\n  max-height: 100%;\n}", "",{"version":3,"sources":["webpack://./client/src/RatingsAndReviews/Reviews/Reviews.module.css"],"names":[],"mappings":";AACA;EACE,aAAa;EACb,0BAA0B;EAC1B,qBAAqB;EACrB,uBAAuB;EACvB,kBAAkB;EAClB,gBAAgB;AAClB","sourcesContent":["\n.reviewsContainer {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-auto-rows: 300px;\n  border: 1px solid black;\n  overflow-y: scroll;\n  max-height: 100%;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fKYGf-vvT9ajIsGpb_CgL {\n  display: grid;\n  grid-template-columns: 1fr;\n  border: 1px solid black;\n}\n\n\n.uh6wbQ8vP1VIMeJs-rdBW {\n  display: grid;\n  grid-auto-rows: 300px;\n  border: 1px solid black;\n  overflow-y: scroll;\n  max-height: 100%;\n  grid-template-columns: 1fr;\n}\n\n\n.V7XgytVF0xBYgmQbxT7TN {\n  display: inline-block;\n  width: 30%;\n  margin-right: 5px;\n}\n\n\n._32AO4E7rhJ3ykWBU2uCHV4 {\n  display: inline-block;\n  width: 30%;\n  margin-right: 5px;\n}", "",{"version":3,"sources":["webpack://./client/src/RatingsAndReviews/Reviews/Reviews.module.css"],"names":[],"mappings":";AACA;EACE,aAAa;EACb,0BAA0B;EAC1B,uBAAuB;AACzB;;;AAGA;EACE,aAAa;EACb,qBAAqB;EACrB,uBAAuB;EACvB,kBAAkB;EAClB,gBAAgB;EAChB,0BAA0B;AAC5B;;;AAGA;EACE,qBAAqB;EACrB,UAAU;EACV,iBAAiB;AACnB;;;AAGA;EACE,qBAAqB;EACrB,UAAU;EACV,iBAAiB;AACnB","sourcesContent":["\n.reviewsContainer {\n  display: grid;\n  grid-template-columns: 1fr;\n  border: 1px solid black;\n}\n\n\n.reviewsList {\n  display: grid;\n  grid-auto-rows: 300px;\n  border: 1px solid black;\n  overflow-y: scroll;\n  max-height: 100%;\n  grid-template-columns: 1fr;\n}\n\n\n.moreReviewsButton {\n  display: inline-block;\n  width: 30%;\n  margin-right: 5px;\n}\n\n\n.addAReviewButton {\n  display: inline-block;\n  width: 30%;\n  margin-right: 5px;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"reviewsContainer": "fKYGf-vvT9ajIsGpb_CgL"
+	"reviewsContainer": "fKYGf-vvT9ajIsGpb_CgL",
+	"reviewsList": "uh6wbQ8vP1VIMeJs-rdBW",
+	"moreReviewsButton": "V7XgytVF0xBYgmQbxT7TN",
+	"addAReviewButton": "_32AO4E7rhJ3ykWBU2uCHV4"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
