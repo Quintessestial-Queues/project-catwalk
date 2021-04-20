@@ -22,8 +22,17 @@ describe('RatingsAndReviews', () => {
       const wrapper = shallow(<Reviews reviews={dummyReviews.results}/>);
       expect(wrapper.find(ReviewItem)).toHaveLength(2);
     })
-  })
 
-  //TODOS: Write a test that checks how many reviews are rendered when the 'More Reviews' button is toggled
+
+    //TODOS: Refactor using a mock callback function to test click event instead
+    it ('renders four reviews when button the "More Reviews" button is clicked', () => {
+      const wrapper = shallow(<Reviews reviews={dummyReviews.results}/>);
+      wrapper.setState({
+        clickedMoreReviews: true,
+        reviewsView: 4
+      });
+      expect(wrapper.find(ReviewItem)).toHaveLength(4);
+    })
+  })
 
 });
