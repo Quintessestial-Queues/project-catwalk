@@ -5,7 +5,6 @@ import styles from './relatedItems.module.css'
 const ProductCard = ({ product, image }) => {
   return (
     <div className={styles.productCard}>
-      {console.log('product card loaded')}
       {/* <button className='action-button' /> */}
       <div className={styles.img}>
         <img src={image} className={styles.img}/>
