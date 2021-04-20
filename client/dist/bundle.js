@@ -879,6 +879,10 @@ __webpack_require__.r(__webpack_exports__);
 var ReviewItem = function ReviewItem(_ref) {
   var review = _ref.review;
   var rating = review.rating;
+  var boldedSummary = review.summary.slice(0, 60); //TODO: Bugg with rest of summary being on the same row as the boldedSummary; Try to get the rest of the summary under the boldedSummary
+
+  var restOfSummary = review.summary.length < 60 ? null : "...".concat(review.summary.slice(60));
+  var body = review.body.slice(0, 250);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _ReviewItem_module_css__WEBPACK_IMPORTED_MODULE_3__.default.reviewContainer
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
@@ -887,7 +891,11 @@ var ReviewItem = function ReviewItem(_ref) {
     starRating: rating
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _ReviewItem_module_css__WEBPACK_IMPORTED_MODULE_3__.default.datePosted
-  }, moment__WEBPACK_IMPORTED_MODULE_2___default()(review.date).format("ll")));
+  }, moment__WEBPACK_IMPORTED_MODULE_2___default()(review.date).format("ll")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: _ReviewItem_module_css__WEBPACK_IMPORTED_MODULE_3__.default.boldedSummary
+  }, boldedSummary), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, restOfSummary), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+    className: _ReviewItem_module_css__WEBPACK_IMPORTED_MODULE_3__.default.recommendation
+  }, "I recommend this product"));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewItem);
@@ -991,7 +999,7 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var reviews = this.state.reviews;
+      var reviews = this.props.reviews;
 
       if (reviews === 0) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", null, "Currently, there are no reviews for this product.");
@@ -2258,12 +2266,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n._2tbj6MPD4bI6Exm-mQafUw {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 3fr;\n  border: black solid;\n}\n\n._2AUrqaKvUhNCUWq7-HYF10 {\n  display: inline-block;\n  border: solid;\n}\n\n\n.fgvdOS_LwBkEy_uH4AyIx {\n  display: inline-block;\n  border: solid;\n  text-align: right;\n}", "",{"version":3,"sources":["webpack://./client/src/RatingsAndReviews/Reviews/ReviewItem.module.css"],"names":[],"mappings":";AACA;EACE,aAAa;EACb,8BAA8B;EAC9B,2BAA2B;EAC3B,mBAAmB;AACrB;;AAEA;EACE,qBAAqB;EACrB,aAAa;AACf;;;AAGA;EACE,qBAAqB;EACrB,aAAa;EACb,iBAAiB;AACnB","sourcesContent":["\n.reviewContainer {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 3fr;\n  border: black solid;\n}\n\n.starRating {\n  display: inline-block;\n  border: solid;\n}\n\n\n.datePosted {\n  display: inline-block;\n  border: solid;\n  text-align: right;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n._2tbj6MPD4bI6Exm-mQafUw {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 1fr 1fr;\n  border: black solid;\n}\n\n._2AUrqaKvUhNCUWq7-HYF10 {\n  /* display: inline-block; */\n  border: solid;\n}\n\n\n.fgvdOS_LwBkEy_uH4AyIx {\n  /* display: inline-block; */\n  border: solid;\n  text-align: right;\n}\n\n._1l12fnzTKsnoJI8sqwjKxZ {\n  font-weight: bold;\n  border: solid;\n}\n\n._2TztHXiJYiiXlyYnm-7hV7 {\n  /* display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 1fr; */\n}", "",{"version":3,"sources":["webpack://./client/src/RatingsAndReviews/Reviews/ReviewItem.module.css"],"names":[],"mappings":";AACA;EACE,aAAa;EACb,8BAA8B;EAC9B,+BAA+B;EAC/B,mBAAmB;AACrB;;AAEA;EACE,2BAA2B;EAC3B,aAAa;AACf;;;AAGA;EACE,2BAA2B;EAC3B,aAAa;EACb,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,aAAa;AACf;;AAEA;EACE;;4BAE0B;AAC5B","sourcesContent":["\n.reviewContainer {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 1fr 1fr;\n  border: black solid;\n}\n\n.starRating {\n  /* display: inline-block; */\n  border: solid;\n}\n\n\n.datePosted {\n  /* display: inline-block; */\n  border: solid;\n  text-align: right;\n}\n\n.boldedSummary {\n  font-weight: bold;\n  border: solid;\n}\n\n.recommendation {\n  /* display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 1fr; */\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"reviewContainer": "_2tbj6MPD4bI6Exm-mQafUw",
 	"starRating": "_2AUrqaKvUhNCUWq7-HYF10",
-	"datePosted": "fgvdOS_LwBkEy_uH4AyIx"
+	"datePosted": "fgvdOS_LwBkEy_uH4AyIx",
+	"boldedSummary": "_1l12fnzTKsnoJI8sqwjKxZ",
+	"recommendation": "_2TztHXiJYiiXlyYnm-7hV7"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

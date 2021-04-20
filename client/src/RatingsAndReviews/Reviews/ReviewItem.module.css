@@ -2,18 +2,29 @@
 .reviewContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 1fr 1fr;
   border: black solid;
 }
 
 .starRating {
-  display: inline-block;
+  /* display: inline-block; */
   border: solid;
 }
 
 
 .datePosted {
-  display: inline-block;
+  /* display: inline-block; */
   border: solid;
   text-align: right;
+}
+
+.boldedSummary {
+  font-weight: bold;
+  border: solid;
+}
+
+.recommendation {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr; */
 }

@@ -174,7 +174,7 @@ let dummyReviews = {
         "reviewer_name": "negativity",
         "helpfulness": 0,
         "photos": []
-    }
+    },
 ]
 }
 
