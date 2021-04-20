@@ -1,0 +1,30 @@
+
+.reviewsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid black;
+}
+
+
+.reviewsList {
+  display: grid;
+  grid-auto-rows: 300px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  max-height: 100%;
+  grid-template-columns: 1fr;
+}
+
+
+.moreReviewsButton {
+  display: inline-block;
+  width: 30%;
+  margin-right: 5px;
+}
+
+
+.addAReviewButton {
+  display: inline-block;
+  width: 30%;
+  margin-right: 5px;
+}

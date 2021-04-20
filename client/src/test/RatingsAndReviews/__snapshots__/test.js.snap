@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RatingsAndReviews renders the RatingsAndReviews component 1`] = `
+<div
+  className="ratingsAndReviews"
+>
+  <div>
+    <Ratings />
+  </div>
+  <div>
+    <Reviews
+      reviews={
+        Array [
+          Object {
+            "body": "Comfortable and practical.",
+            "date": "2019-04-14T00:00:00.000Z",
+            "helpfulness": 8,
+            "photos": Array [
+              Object {
+                "id": 298296,
+                "url": "https://images.unsplash.com/photo-1560570803-7474c0f9af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
+              },
+              Object {
+                "id": 298297,
+                "url": "https://images.unsplash.com/photo-1561693532-9ff59442a7db?ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80",
+              },
+              Object {
+                "id": 298298,
+                "url": "https://images.unsplash.com/photo-1487349384428-12b47aca925e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+              },
+            ],
+            "rating": 3,
+            "recommend": true,
+            "response": "",
+            "review_id": 188758,
+            "reviewer_name": "shortandsweeet",
+            "summary": "I'm enjoying wearing these shades",
+          },
+          Object {
+            "body": "This Review is great, so is the person who made this module!",
+            "date": "2021-03-12T00:00:00.000Z",
+            "helpfulness": 2,
+            "photos": Array [],
+            "rating": 5,
+            "recommend": true,
+            "response": null,
+            "review_id": 288940,
+            "reviewer_name": "Tear-in",
+            "summary": "Best Review Ever!",
+          },
+          Object {
+            "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+            "date": "2021-03-12T00:00:00.000Z",
+            "helpfulness": 0,
+            "photos": Array [],
+            "rating": 5,
+            "recommend": true,
+            "response": null,
+            "review_id": 288942,
+            "reviewer_name": "frogeeeeeee",
+            "summary": "Cutest Frog",
+          },
+          Object {
+            "body": "They're fine but I wouldn't buy again.",
+            "date": "2019-05-23T00:00:00.000Z",
+            "helpfulness": 0,
+            "photos": Array [],
+            "rating": 2,
+            "recommend": false,
+            "response": "",
+            "review_id": 188760,
+            "reviewer_name": "anyone",
+            "summary": "This product was ok!",
+          },
+          Object {
+            "body": "I don't like them",
+            "date": "2019-06-16T00:00:00.000Z",
+            "helpfulness": 0,
+            "photos": Array [],
+            "rating": 5,
+            "recommend": false,
+            "response": "Sorry to hear. Is there anything in particular you don't like?",
+            "review_id": 188759,
+            "reviewer_name": "negativity",
+            "summary": "I'm not a fan!",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;
