@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './product.module.css';
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
+
+// context
+import  { ProductContext }  from '../state/ProductContext.js';
 
 //components
 import StarRating from '../SharedComponents/StarRating.jsx';
@@ -8,8 +11,10 @@ import Gallery from './Gallery.jsx';
 import StyleSelector from './StyleSelector.jsx';
 
 function ProductOverview() {
-  const [product, setProduct] = useState({});
-  const [productStyles, setProductStyles] = useState({});
+  const {
+    product, setProduct, productStyles, setProductStyles
+  } = useContext(ProductContext);
+
   const [defaultView, setDefaultView] = useState(true);
 
   useEffect(() => {
