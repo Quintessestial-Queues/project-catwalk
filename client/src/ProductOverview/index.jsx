@@ -5,6 +5,7 @@ import { dummyProduct, dummyProductStyles } from '../dummyData.js'
 //components
 import StarRating from '../SharedComponents/StarRating.jsx';
 import Gallery from './Gallery.jsx';
+import StyleSelector from './StyleSelector.jsx';
 
 function ProductOverview() {
   const [product, setProduct] = useState({});
@@ -35,7 +36,8 @@ function ProductOverview() {
         <p> {product.category} </p>
         <h1> {product.name} </h1>
         <p> {product.default_price} </p>
-        <div>style selection</div>
+
+        <StyleSelector />
       </div>
 
       <div className={`${styles.item} ${styles.description}`}>
