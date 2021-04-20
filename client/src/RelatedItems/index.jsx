@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './relatedItems.module.css';
 import RelatedProductCards from './RelatedProductCards.jsx'
 import { dummyProducts, dummyProductStyles } from '../dummyData.js'
 
 function RelatedItems () {
   const [data, setData] = useState(dummyProducts)
-
-  // useEffect(() =>{
-  //   setData(dummyProducts);
-  // })
 
   return (
     <div>
