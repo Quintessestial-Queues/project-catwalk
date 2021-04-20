@@ -5,11 +5,12 @@ import styles from './product.module.css';
 import leftArrow from '../../../assets/left-arrow.svg';
 import rightArrow from '../../../assets/right-arrow.svg';
 import downArrow from '../../../assets/down-arrow.svg';
+import fullScreen from '../../../assets/full-screen.svg';
 
 // this will be a context file in future release
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
 
-function Gallery({productStyles}) {
+function Gallery({productStyles, defaultView, setDefaultView}) {
   const [currentStyle, setCurrentSyle] = useState({});
   const [images, setImages] = useState([]);
   const [defaultImg, setDefaultImg] = useState('')
@@ -52,8 +53,13 @@ function Gallery({productStyles}) {
   const selectThumbnail = (index) => {
     setCurrentImage(index)
   }
+
+  const toggleView = () => {
+    setDefaultView(!defaultView);
+  }
+
   return (
-    <div className={`${styles.item} ${styles.galleryWrapper}`}>
+    <div className={defaultView === true ? `${styles.item} ${styles.galleryWrapper}` : `${styles.expanded} ${styles.galleryWrapper}`}>
       <img
         src={rightArrow}
         alt='right arrow'
@@ -64,6 +70,12 @@ function Gallery({productStyles}) {
         alt='left arrow'
         style={{ position: 'absolute', bottom: '50%', left: '110px', cursor: 'pointer', zIndex: 1, background: 'aliceblue'}}
         onClick={prev} />
+      <img
+        src={fullScreen}
+        alt='toggle expanded view'
+        className={styles.fullScreenIcon}
+        onClick={toggleView}
+      />
       <div className={styles.thumbnailGallery} >
        { images.map((image, index) => {
          return index <= thumbnailPage -1 && index > thumbnailPage - 6 &&

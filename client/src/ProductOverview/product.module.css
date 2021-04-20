@@ -34,6 +34,14 @@
   padding: 15px 25px;
 }
 
+.hide {
+  display: none;
+}
+
+.expanded {
+  grid-column: span 2;
+}
+
 /* image gallery styles */
 
 .galleryWrapper {
@@ -103,6 +111,11 @@
   max-height: 600px;
 }
 
-.slideActive {
-
-};
+.fullScreenIcon {
+  z-index: 1;
+  background: aliceblue;
+  padding: 1px;
+  position: absolute;
+  right: 15px;
+  top: 75px;
+}

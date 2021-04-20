@@ -9,6 +9,7 @@ import Gallery from './Gallery.jsx';
 function ProductOverview() {
   const [product, setProduct] = useState({});
   const [productStyles, setProductStyles] = useState({});
+  const [defaultView, setDefaultView] = useState(true);
 
   useEffect(() => {
     setProduct(dummyProduct);
@@ -22,9 +23,12 @@ function ProductOverview() {
        <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
 
-      <Gallery productStyles={productStyles} />
+      <Gallery
+        productStyles={productStyles}
+        defaultView={defaultView}
+        setDefaultView={setDefaultView} />
 
-      <div className={`${styles.item} ${styles.productInfo}`}>
+      <div className={defaultView === true ? `${styles.item} ${styles.productInfo}` : `${styles.hide}`}>
         <StarRating
           starRating={1.6}
         />
