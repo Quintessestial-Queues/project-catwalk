@@ -52,32 +52,12 @@ class Reviews extends React.Component {
     if (reviews === 0) {
       return (<div>Currently, there are no reviews for this product.</div>)
     }
+
     let reviewsList = reviews.map((review, index) => {
       return <ReviewItem key={index} review={review}/>
     })
-    if (!this.state.clickedMoreReviews) {
-      return (
-        <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
-          <div className='reviewSorter'>
-            <p>
-              {`${reviews.length} reviews, sorted by `} <select>
-                <option>Relevance</option>
-                <option>Helpful</option>
-                <option>Newest</option>
-              </select>
-            </p>
-          </div>
-          <div className={styles.reviewsList}>
-            {reviewsList.slice(0, this.state.reviewsView)}
-          </div>
-          <div className='buttons'>
-            {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
-            <button className={styles.addAReviewButton}>Add A Review</button>
-          </div>
-        </div>
-        );
-    }
-    return (
+
+    let reviewsListRender = (
       <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
         <div className='reviewSorter'>
           <p>
@@ -93,10 +73,15 @@ class Reviews extends React.Component {
         </div>
         <div className='buttons'>
           {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
-          <button className={styles.addAReviewButton} >Add A Review</button>
+          <button className={styles.addAReviewButton}>Add A Review</button>
         </div>
       </div>
       );
+
+    if (!this.state.clickedMoreReviews) {
+      return reviewsListRender
+    }
+    return reviewsListRender
   }
 }
 

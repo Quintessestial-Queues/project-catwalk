@@ -1,0 +1,33 @@
+
+#relatedItemsTitle {
+  padding: 0px;
+  margin: 20px 48px 5px;
+}
+#relatedProductsContainer {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-template-rows: 350px;
+  gap: 0px 0px;
+  padding: 0px;
+  margin: 20px 40px 20px;
+}
+.productCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 65% 35%;
+  gap: 0px 0px;
+  /* padding: 9px; */
+  border-style: solid;
+  border-width: 2px;
+  margin: 8px;
+}
+.productText {
+  margin: 5px;
+  padding: 8px;
+  line-height: 1px;
+}
+.img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -6,6 +6,7 @@ import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
 import ProductOverview from '../../ProductOverview/index.jsx';
+import RelatedItems from '../../RelatedItems/index.jsx';
 import StarRating from '../../SharedComponents/StarRating.jsx';
 import { dummyProduct, dummyProductStyles, dummyReviews } from '../../dummyData';
 

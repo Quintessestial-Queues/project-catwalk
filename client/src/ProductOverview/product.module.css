@@ -33,3 +33,89 @@
 .productInfo {
   padding: 15px 25px;
 }
+
+.hide {
+  display: none;
+}
+
+.expanded {
+  grid-column: span 2;
+}
+
+/* image gallery styles */
+
+.galleryWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery {
+  position: absolute;
+
+}
+
+.leftArrow {
+  position: absolute;
+  width: 24px;
+  bottom: 50%;
+  left: 20px;
+  z-index: 1;
+}
+
+.rightArrow {
+  position: absolute;
+  width: 24px;
+  bottom: 50%;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1;
+  background: aliceblue;
+}
+
+.thumbnailGallery {
+  position: absolute;
+  height: 400px;
+  left: 15px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: aliceblue;
+}
+
+.thumbnail {
+  width: 55px;
+  padding: 5px;
+}
+
+.thumbnailActive {
+  width: 55px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-bottom: 5px solid red;
+}
+
+.down {
+  background: aliceblue;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 24px;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  max-height: 600px;
+}
+
+.fullScreenIcon {
+  z-index: 1;
+  background: aliceblue;
+  padding: 1px;
+  position: absolute;
+  right: 15px;
+  top: 75px;
+}
