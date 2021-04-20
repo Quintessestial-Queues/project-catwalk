@@ -16,7 +16,7 @@ function Gallery({productStyles}) {
   const [currentImage, setCurrentImage] = useState(0);
   const [thumbnailPage, setThumbnailPage] = useState(5);
 
-   useEffect(()=> {
+  useEffect(()=> {
     const defaultStyle = dummyProductStyles.results[0];
     const defaultImage = defaultStyle.photos[0].url;
     setCurrentSyle(defaultStyle);
@@ -24,6 +24,18 @@ function Gallery({productStyles}) {
 
     setDefaultImg(defaultImage)
   }, [])
+
+  useEffect(() => {
+    if (currentImage > thumbnailPage) {
+      setThumbnailPage(thumbnailPage + 5)
+    } else if (currentImage === thumbnailPage && currentImage > thumbnailPage) {
+      setThumbnailPage(thumbnailPage - 5)
+    } else if (currentImage === thumbnailPage ) {
+      setThumbnailPage(currentImage + 5)
+    } else if (thumbnailPage > images.length) {
+      setThumbnailPage(5)
+    }
+  }, [currentImage]);
 
   const next = () => {
     setCurrentImage(currentImage === images.length - 1 ? 0 : currentImage + 1)
