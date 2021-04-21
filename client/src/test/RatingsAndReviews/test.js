@@ -33,6 +33,26 @@ describe('RatingsAndReviews', () => {
       });
       expect(wrapper.find(ReviewItem)).toHaveLength(4);
     })
+
+    describe('ReviewItem', () => {
+      //test
+      it ('renders a div with class reviewContainer', () => {
+        let review = {
+          "review_id": 288940,
+          "rating": 5,
+          "summary": "Best Review Ever!",
+          "recommend": true,
+          "response": null,
+          "body": "This Review is great, so is the person who made this module!",
+          "date": "2021-03-12T00:00:00.000Z",
+          "reviewer_name": "Tear-in",
+          "helpfulness": 2,
+          "photos": []
+      };
+        const wrapper = mount(<ReviewItem review={review}/>);
+        wrapper.find()
+      })
+    })
   })
 
 });
