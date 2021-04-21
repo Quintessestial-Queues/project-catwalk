@@ -2,7 +2,7 @@ import React from 'react';
 import ProductInfo from './ProductInfo.jsx';
 import styles from './relatedItems.module.css'
 
-const ProductCard = ({ product, image }) => {
+const ProductCard = ({ product, image, outfit }) => {
   return (
     <div className={styles.productCard}>
       {/* <button className='action-button' /> */}

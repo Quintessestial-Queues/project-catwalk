@@ -5,10 +5,13 @@ import { dummyProductStyles } from '../dummyData.js'
 
 const RelatedProductCards = ({ products }) => {
   return (
-    <div id={styles.relatedProductsContainer}>
-      {products.map((product, index) => {
-        return <ProductCard product={product} image={dummyProductStyles.results[0].photos[0].thumbnail_url} key={index} />
-      })}
+    <div>
+      <h3 id={styles.relatedItemsTitle}>Related Items and Comparisons</h3>
+      <div id={styles.relatedProductsContainer}>
+        {products.map((product, index) => {
+          return <ProductCard product={product} image={dummyProductStyles.results[0].photos[0].thumbnail_url} key={index} />
+        })}
+      </div>
     </div>
   )
 };
