@@ -8,9 +8,12 @@ const YourOutfit = ({ outfits }) => {
     <div>
       <h3 id={styles.relatedItemsTitle}>Your Outfit</h3>
       <div id={styles.relatedProductsContainer}>
-        {outfits.map((outfit, index) => {
+        <div className={styles.productCard}>
+          <h3>Add to Outfit</h3>
+        </div>
+        {/* {outfits.map((outfit, index) => {
           return <ProductCard product={outfit} image={dummyProductStyles.results[0].photos[0].thumbnail_url} key={index} />
-        })}
+        })} */}
       </div>
     </div>
   )
