@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
-
+import CreateReview from './CreateReview.jsx';
 //Styling
 import styles from './Reviews.module.css';
 
@@ -72,7 +72,7 @@ class Reviews extends React.Component {
         </div>
         <div className='buttons'>
           {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
-          <button className={styles.addAReviewButton}>Add A Review</button>
+          <CreateReview />
         </div>
       </div>
       );
