@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './product.module.css';
 
 //icons
@@ -7,25 +7,26 @@ import rightArrow from '../../../assets/right-arrow.svg';
 import downArrow from '../../../assets/down-arrow.svg';
 import fullScreen from '../../../assets/full-screen.svg';
 
-// this will be a context file in future release
-import { dummyProduct, dummyProductStyles } from '../dummyData.js'
+// context
+import  { ProductContext }  from '../state/ProductContext.js';
+import {dummyProductStyles } from '../dummyData.js';
 
-function Gallery({productStyles, defaultView, setDefaultView}) {
-  const [currentStyle, setCurrentSyle] = useState({});
-  const [images, setImages] = useState([]);
-  const [defaultImg, setDefaultImg] = useState('')
+function Gallery({defaultView, setDefaultView}) {
+  const {
+    productStyles,
+    setProductStyles,
+    currentStyle,
+    setCurrentStyle,
+    images,
+    setImages,
+    defaultImg,
+    setDefaultImg
+  } = useContext(ProductContext);
+
+
   const [currentImage, setCurrentImage] = useState(0);
   const [thumbnailPage, setThumbnailPage] = useState(5);
 
-  useEffect(()=> {
-    // sets default image and styles to first image
-    const defaultStyle = dummyProductStyles.results[0];
-    const defaultImage = defaultStyle.photos[0].url;
-    setCurrentSyle(defaultStyle);
-    setImages(defaultStyle.photos);
-
-    setDefaultImg(defaultImage)
-  }, [])
 
   useEffect(() => {
     // display thumbnail gallary based on current thumbnail page

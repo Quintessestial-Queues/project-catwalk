@@ -1,0 +1,15 @@
+.stylesWrap {
+  display: flex;
+}
+.singleStyle {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin: 0px 10px 10px 0px;
+  border-radius: 28px;
+}
+
+.styleThumbnail {
+  width: 100%;
+}
+

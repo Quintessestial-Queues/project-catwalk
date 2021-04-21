@@ -6,11 +6,11 @@ import APIProvider from './APIContext';
 
 export const RootProvider = ({ children }) => {
   return (
-    <ProductProvider>
-      <APIProvider>
+    <APIProvider>
+      <ProductProvider>
         {children}
-      </APIProvider>
-    </ProductProvider>
+      </ProductProvider>
+    </APIProvider>
   );
 };
 

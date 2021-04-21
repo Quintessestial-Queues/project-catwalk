@@ -7,5 +7,5 @@ import RootProvider from './state/RootContext.js'
 ReactDOM.render(
   <RootProvider>
     <App />
-  </RootProvider>
-, document.getElementById('app'));
+  </RootProvider>,
+  document.getElementById('app'));

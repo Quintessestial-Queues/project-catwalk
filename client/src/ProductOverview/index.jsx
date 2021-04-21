@@ -17,10 +17,6 @@ function ProductOverview() {
 
   const [defaultView, setDefaultView] = useState(true);
 
-  useEffect(() => {
-    setProduct(dummyProduct);
-    setProductStyles(dummyProductStyles);
-  }, [])
 
   return (
     <div className={styles.grid}>
