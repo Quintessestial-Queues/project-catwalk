@@ -8,8 +8,7 @@ import { shallow, mount, render } from 'enzyme';
 import ProductOverview from '../../ProductOverview/index.jsx';
 import RelatedItems from '../../RelatedItems/index.jsx';
 import StarRating from '../../SharedComponents/StarRating.jsx';
-import { dummyProduct, dummyProductStyles } from '../../dummyData';
-
+import { dummyProduct, dummyProductStyles, dummyReviews } from '../../dummyData';
 
 describe('<ProductOverview />', () => {
   // gloval variables set up before each tests
@@ -42,20 +41,23 @@ describe('<ProductOverview />', () => {
   it('renders the <StarRating /> component', () => {
     expect(wrapper.find(StarRating)).to.have.lengthOf(1)
   })
+})
 
-  describe('it loads correct state', () =>{
-    it('loads a product', () => {
+
+
+describe('it loads correct state', () =>{
+  it('loads a product', () => {
+    // Todo: get this to work with toHaveBeenCalled()
+    expect(props.setProduct);
+  });
+
+  it('sets product styles to state', () => {
       // Todo: get this to work with toHaveBeenCalled()
-      expect(props.setProduct);
-    });
-
-    it('sets product styles to state', () => {
-       // Todo: get this to work with toHaveBeenCalled()
-      expect(props.setProductStyles);
-    })
+    expect(props.setProductStyles);
   })
-
 });
+
+
 
 describe('<StarRating />', () => {
   let starRating = 5;
@@ -78,3 +80,8 @@ describe('<StarRating />', () => {
     })
   })
 })
+
+
+
+
+

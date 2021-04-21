@@ -4,6 +4,7 @@ import React from 'react';
 import ProductOverview from './ProductOverview/index.jsx';
 import QuestionsAnswers from './QuestionsAnswers/index.jsx';
 import RelatedItems from './RelatedItems/index.jsx';
+import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
 
 // styles
 import styles from './app.module.css';
@@ -16,6 +17,7 @@ class App extends React.Component {
           <div className={styles.appGridItem}> <ProductOverview /> </div>
           <div className={styles.appGridItem}> <RelatedItems /> </div>
           <div className={styles.appGridItem}> <QuestionsAnswers /> </div>
+          <div className={styles.appGridItem}> <RatingsAndReviews /></div>
       </div>
     )
   }
