@@ -12,11 +12,9 @@ import  { ProductContext }  from '../state/ProductContext.js';
 import {dummyProductStyles } from '../dummyData.js';
 
 function Gallery({defaultView, setDefaultView}) {
+  // the following state is now global
   const {
-    productStyles,
-    setProductStyles,
     currentStyle,
-    setCurrentStyle,
     images,
     setImages,
     defaultImg,

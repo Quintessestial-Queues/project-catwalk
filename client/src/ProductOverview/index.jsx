@@ -26,7 +26,6 @@ function ProductOverview() {
       </div>
 
       <Gallery
-        productStyles={productStyles}
         defaultView={defaultView}
         setDefaultView={setDefaultView} />
 
@@ -34,10 +33,9 @@ function ProductOverview() {
         <StarRating
           starRating={1.6}
         />
-        <p> {product.category} </p>
-        <h1> {product.name} </h1>
-        <p> {product.default_price} </p>
-
+        <p className={styles.category}> {product.category} </p>
+        <h1 className={styles.productTitle}> {product.name} </h1>
+        <p className={styles.price}> ${product.default_price} </p>
         <StyleSelector />
       </div>
 
