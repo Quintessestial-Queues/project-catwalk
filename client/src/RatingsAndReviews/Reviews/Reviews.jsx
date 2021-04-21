@@ -45,7 +45,6 @@ class Reviews extends React.Component {
     })
   }
 
-  //A lot of repeating code, might want to refactor
   render() {
     let reviews = this.props.reviews;
 

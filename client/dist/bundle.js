@@ -895,7 +895,6 @@ var ReviewItem = function ReviewItem(_ref) {
       setClicked = _useState4[1];
 
   var isFirstRender = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(true);
-  var rating = review.rating;
   var boldedSummary = review.summary.slice(0, 60);
   var restOfSummary = review.summary.length < 60 ? null : "...".concat(review.summary.slice(60));
   var body = review.body.slice(0, 250);
@@ -913,7 +912,7 @@ var ReviewItem = function ReviewItem(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
     className: _ReviewItem_module_css__WEBPACK_IMPORTED_MODULE_4__.default.starRating
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_SharedComponents_StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
-    starRating: rating
+    starRating: review.rating
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
     className: _ReviewItem_module_css__WEBPACK_IMPORTED_MODULE_4__.default.datePosted
   }, "".concat(review.reviewer_name, " reviewed on ").concat(moment__WEBPACK_IMPORTED_MODULE_3___default()(review.date).format("ll"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
@@ -1033,8 +1032,7 @@ var Reviews = /*#__PURE__*/function (_React$Component) {
         clickedMoreReviews: !this.state.clickedMoreReviews,
         reviewsView: this.state.reviewsView + 2
       });
-    } //A lot of repeating code, might want to refactor
-
+    }
   }, {
     key: "render",
     value: function render() {
