@@ -19,7 +19,7 @@ class Reviews extends React.Component {
   }
 
 
-
+  //TODO: Test this!
   handleScroll (event) {
     console.log('Review List got Scrolled!');
     let element = event.target;
@@ -71,7 +71,7 @@ class Reviews extends React.Component {
           {reviewsList.slice(0, this.state.reviewsView)}
         </div>
         <div className='buttons'>
-          {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
+          {this.state.reviewsView < this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
           <CreateReview />
         </div>
       </div>

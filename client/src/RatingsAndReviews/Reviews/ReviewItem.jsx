@@ -3,6 +3,7 @@ import StarRating from '../../SharedComponents/StarRating.jsx';
 import moment from 'moment';
 import { FaCheck } from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
+import PhotoModal from './PhotoModal.jsx';
 
 import styles from './ReviewItem.module.css'
 
@@ -10,7 +11,7 @@ let ReviewItem = ({review}) => {
   const [helpfulnessCount, setCount] = useState(review.helpfulness);
   const [clicked, setClicked] = useState(false);
   const [showMore, toggleShowMore] = useState(false);
-  // const [showModal, toggleModal] = useState(false);
+  const [showReviewModal, toggleReviewModal] = useState(false);
 
   const isFirstRender = useRef(true);
 
@@ -47,7 +48,7 @@ let ReviewItem = ({review}) => {
       <div className={styles.photos}>
         {review.photos.length > 0 ? review.photos.map((photo, i) => {
           return (
-            <img className={styles.photo} key={i} src={photo.url}/>
+            <PhotoModal key={i} photo={photo.url}/>
           )
         }) : null}
       </div>
