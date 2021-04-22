@@ -17,14 +17,23 @@ function StyleSelector() {
   } = useContext(ProductContext);
 
   const [currentSkuObj, setCurrentSkuObj] = useState( currentStyleSkus[Object.keys(currentStyleSkus)[0]] );
+  const [sizes, setSizes] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     transformSkuValues();
-  }, [])
+  }, [currentSkuObj])
 
   const transformSkuValues = () => {
-    const sizes = Object.values(currentStyleSkus)
-    console.log(sizes)
+    const sizes = Object.values(currentStyleSkus).map(sku => sku.size);
+    setSizes(sizes);
+
+    // limit 15 or amount in stock
+    if (currentSkuObj.quantity < 15) {
+      setQuantity(currentSkuObj.quantity);
+    } else {
+      setQuantity(15)
+    }
   }
   return (
     <div>
@@ -51,7 +60,7 @@ function StyleSelector() {
         })}
       </div>
 
-      <AddToCart />
+      <AddToCart sizes={sizes} quantity={quantity} />
     </div>
   )
 };

@@ -2,30 +2,28 @@ import React, { useState, useContext, useEffect} from 'react';
 import styles from './styleSelect.module.css';
 
 // context
-import { ProductContext } from '../state/ProductContext.js';
+// import { ProductContext } from '../state/ProductContext.js';
 
-const AddToCart = () => {
-  const { sizes, quantity, selectedSize, selectedQuantity } = useContext(ProductContext);
-  const quantities = [...Array(10).keys()]
+const AddToCart = ({sizes, quantity}) => {
+  const quantities = [...Array(quantity + 1).keys()]
   return (
     <form className={styles.btnWrap}>
-
-    <select className={styles.selectSize}>
-
-      {['xs', 'sm', 'md', 'lg'].map(size => {
-        return
-        (<option value={size} key={index}>
-          {size}
-        </option>)
-      })}
+    <select className={styles.selectSize} name='size' id='size-select'>
+        <option value='default'>--Please choose an option--</option>
+        {sizes && sizes.length && sizes.map((size, index)=> {
+          return (
+            <option key={index} value={size}>{size}</option>
+          )
+        })}}
     </select>
 
-    <select className={styles.selectQuantity}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((size, index) => {
-        return
-        (<option value={size} key={index}>
-          {size}
-        </option>)
+
+    <select className={styles.selectQuantity} name='quantity' id='quantity-select'>
+      <option value='default'>--Please choose an option--</option>
+      {quantities && quantities.length && quantities.map((q, i) => {
+        return (
+          <option key={i} value={q}>{q}</option>
+        )
       })}
     </select>
     <button className={styles.addToBagBtn}>Add To Bag</button>
