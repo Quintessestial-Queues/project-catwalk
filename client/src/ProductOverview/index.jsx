@@ -3,7 +3,7 @@ import styles from './product.module.css';
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
 
 // context
-import  { ProductContext }  from '../state/ProductContext.js';
+import { ProductContext } from '../state/ProductContext.js';
 
 //components
 import StarRating from '../SharedComponents/StarRating.jsx';
@@ -12,7 +12,7 @@ import StyleSelector from './StyleSelector.jsx';
 
 function ProductOverview() {
   const {
-    product, setProduct, productStyles, setProductStyles
+    product, setProduct, productStyles, setProductStyles, currentStyle
   } = useContext(ProductContext);
 
   const [defaultView, setDefaultView] = useState(true);
@@ -22,7 +22,7 @@ function ProductOverview() {
     <div className={styles.grid}>
 
       <div className={`${styles.item} ${styles.announcement}`}>
-       <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
+        <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
 
       <Gallery
@@ -35,13 +35,23 @@ function ProductOverview() {
         />
         <p className={styles.category}> {product.category} </p>
         <h1 className={styles.productTitle}> {product.name} </h1>
-        <p className={styles.price}> ${product.default_price} </p>
+        {
+          currentStyle.sale_price
+            ?
+            (<p className={styles.salePrice}>
+              ${currentStyle.sale_price}
+              <span className={styles.strikeThrough}>{currentStyle.original_price} </span>
+            </p>)
+            :
+            (<p className={styles.price}> ${currentStyle.original_price} </p>)
+        }
+
         <StyleSelector />
       </div>
 
       <div className={`${styles.item} ${styles.description}`}>
-          <h2>{product.slogan}</h2>
-          <p>{product.description}</p>
+        <h2>{product.slogan}</h2>
+        <p>{product.description}</p>
       </div>
       <div className={`${styles.item} ${styles.features}`}>
         <ul className={styles.featureList}>

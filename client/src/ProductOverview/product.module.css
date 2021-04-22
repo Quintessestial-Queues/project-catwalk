@@ -52,6 +52,12 @@
   grid-column: span 2;
 }
 
+.strikeThrough {
+  text-decoration-line: line-through;
+}
+.salePrice {
+  color: red
+}
 /* image gallery styles */
 
 .galleryWrapper {
