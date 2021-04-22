@@ -15,7 +15,17 @@
 .description {
   padding: 5px;
 }
+.productTitle {
+  margin-top: 0;
+}
+.price {
+  margin: 20px 0;
+}
 
+.category {
+  text-transform: uppercase;
+  margin: 5px 0;
+}
 .features {
   padding: 15px 25px;
 }
@@ -42,6 +52,12 @@
   grid-column: span 2;
 }
 
+.strikeThrough {
+  text-decoration-line: line-through;
+}
+.salePrice {
+  color: red
+}
 /* image gallery styles */
 
 .galleryWrapper {
@@ -53,7 +69,6 @@
 
 .gallery {
   position: absolute;
-
 }
 
 .leftArrow {

@@ -44,21 +44,6 @@ describe('<ProductOverview />', () => {
 })
 
 
-
-describe('it loads correct state', () =>{
-  it('loads a product', () => {
-    // Todo: get this to work with toHaveBeenCalled()
-    expect(props.setProduct);
-  });
-
-  it('sets product styles to state', () => {
-      // Todo: get this to work with toHaveBeenCalled()
-    expect(props.setProductStyles);
-  })
-});
-
-
-
 describe('<StarRating />', () => {
   let starRating = 5;
 
@@ -69,6 +54,7 @@ describe('<StarRating />', () => {
 
   describe('it renders the correct amount of stars based on props', () => {
     const wrapper = mount(<StarRating starRating={starRating} />);
+    const image = wrapper.find('img');
 
     it('starRating props should be 5', () => {
       expect(wrapper.prop('starRating')).to.equal(5);
@@ -76,7 +62,7 @@ describe('<StarRating />', () => {
 
 
     it('should render 5 stars', () => {
-      expect(wrapper.find('img')).to.have.lengthOf(5);
+      expect(image).to.have.lengthOf(5);
     })
   })
 })
