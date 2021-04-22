@@ -29,7 +29,7 @@ function StyleSelector() {
     setSizes(sizes);
 
     // limit 15 or amount in stock
-    if (currentSkuObj.quantity < 15) {
+    if (currentSkuObj && currentSkuObj.quantity < 15) {
       setQuantity(currentSkuObj.quantity);
     } else {
       setQuantity(15)
@@ -43,13 +43,14 @@ function StyleSelector() {
         </span>
       </p>
 
-      <div className={styles.stylesWrap}>
+      <div className={styles.stylesWrap} id='style-wrap'>
         {productStyles.length && productStyles.map((style, index) => {
           const firstImg = style.photos[0].thumbnail_url;
           return (
             <div
               className={styles.singleStyle}
               key={index}
+              id='style'
               onClick={() => handleStyleChange(index)}>
               {index === currentStyleIndex && <img src={Checkmark} className={styles.checkmark} />}
 

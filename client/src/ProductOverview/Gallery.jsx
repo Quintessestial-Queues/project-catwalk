@@ -75,11 +75,16 @@ function Gallery({defaultView, setDefaultView}) {
         className={styles.fullScreenIcon}
         onClick={toggleView}
       />
-      <div className={styles.thumbnailGallery} >
+      <div className={styles.thumbnailGallery} id='thumbnail-gallery' >
        { images.map((image, index) => {
         //  only display images starting at thumbnail page up to 5
          return index <= thumbnailPage - 1 && index > thumbnailPage - 6 &&
-          ( <img onClick={() => selectThumbnail(index)} src={image.thumbnail_url} key={index} className={index === currentImage ? styles.thumbnailActive : styles.thumbnail} /> )
+          ( <img
+            onClick={() => selectThumbnail(index)}
+            src={image.thumbnail_url}
+            key={index}
+            id='thumbnail'
+            className={ index === currentImage ? styles.thumbnailActive : styles.thumbnail } /> )
        })}
        <img
         src={downArrow}
