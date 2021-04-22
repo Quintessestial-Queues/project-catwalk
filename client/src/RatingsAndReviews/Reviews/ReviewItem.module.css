@@ -2,7 +2,7 @@
 .reviewContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 10% 20% .5fr .2fr auto .1fr;
+  grid-template-rows: auto auto auto auto auto auto auto;
   border: black solid;
   grid-gap: 5px;
   justify-content: space-around
@@ -28,6 +28,23 @@
 .body {
   grid-column: span 2;
   border: solid;
+}
+
+.photos {
+  grid-column: span 2;
+  border: solid;
+}
+
+.photo {
+  height : 60px;
+  width: 60px;
+  border: 2px solid black;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.clickedPhoto {
+  
 }
 
 .recommendation {

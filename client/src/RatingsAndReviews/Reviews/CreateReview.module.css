@@ -1,0 +1,32 @@
+
+.reviewFormContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border: solid
+}
+
+.imageUploader {
+  display: grid;
+  border: solid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+
+.selectedImage {
+  height : 60px;
+  width: 60px;
+  border: 2px dashed black;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.headline {
+  border: solid;
+}
+
+.reviewBody {
+  border: solid;
+}
+
+
