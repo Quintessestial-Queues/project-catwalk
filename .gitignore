@@ -8,3 +8,6 @@ client/dist/bundle.js.map
 
 # test
 coverage
+
+# config api keys
+/client/src/config.js
