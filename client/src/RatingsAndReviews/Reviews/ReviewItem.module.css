@@ -1,6 +1,51 @@
 
 .reviewContainer {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% 20% .5fr .2fr auto .1fr;
   border: black solid;
+  grid-gap: 5px;
+  justify-content: space-around
+}
+
+.starRating {
+  border: solid;
+}
+
+
+.datePosted {
+  border: solid;
+  text-align: right;
+}
+
+.boldedSummary {
+  font-weight: bold;
+  border: solid;
+  grid-column: span 2;
+  padding-top: 5px;
+}
+
+.body {
+  grid-column: span 2;
+  border: solid;
+}
+
+.recommendation {
+  grid-column: span 2;
+  border: solid;
+}
+
+.responseActive {
+  background-color: grey;
+  grid-column: span 2;
+  border: solid;
+}
+
+.responseNormal {
+  grid-column: span 2;
+  border: solid;
+}
+
+.helpful {
+  border: solid;
 }
