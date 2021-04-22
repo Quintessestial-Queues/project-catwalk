@@ -16,6 +16,7 @@ function StyleSelector() {
     currentStyleSkus,
   } = useContext(ProductContext);
 
+  // set the first property of the sku object to current
   const [currentSkuObj, setCurrentSkuObj] = useState( currentStyleSkus[Object.keys(currentStyleSkus)[0]] );
   const [sizes, setSizes] = useState([]);
   const [quantity, setQuantity] = useState(0);
