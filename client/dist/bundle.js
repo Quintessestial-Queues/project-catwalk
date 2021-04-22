@@ -2465,9 +2465,7 @@ function Gallery(_ref) {
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_state_ProductContext_js__WEBPACK_IMPORTED_MODULE_7__.ProductContext),
       currentStyle = _useContext.currentStyle,
       images = _useContext.images,
-      setImages = _useContext.setImages,
-      defaultImg = _useContext.defaultImg,
-      setDefaultImg = _useContext.setDefaultImg;
+      setImages = _useContext.setImages;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
@@ -2582,12 +2580,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styleSelect.module.css */ "./client/src/ProductOverview/styleSelect.module.css");
-/* harmony import */ var _assets_check_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/check.svg */ "./assets/check.svg");
-/* harmony import */ var _assets_check_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_check_svg__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _state_ProductContext_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../state/ProductContext.js */ "./client/src/state/ProductContext.js");
-/* harmony import */ var _AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddToCart.jsx */ "./client/src/ProductOverview/AddToCart.jsx");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styleSelect.module.css */ "./client/src/ProductOverview/styleSelect.module.css");
+/* harmony import */ var _assets_check_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/check.svg */ "./assets/check.svg");
+/* harmony import */ var _assets_check_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_check_svg__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _state_ProductContext_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../state/ProductContext.js */ "./client/src/state/ProductContext.js");
+/* harmony import */ var _AddToCart_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddToCart.jsx */ "./client/src/ProductOverview/AddToCart.jsx");
+
 
 
  // context global state
@@ -2596,35 +2596,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function StyleSelector() {
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_state_ProductContext_js__WEBPACK_IMPORTED_MODULE_3__.ProductContext),
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_state_ProductContext_js__WEBPACK_IMPORTED_MODULE_4__.ProductContext),
       productStyles = _useContext.productStyles,
       currentStyle = _useContext.currentStyle,
       currentStyleIndex = _useContext.currentStyleIndex,
-      handleStyleChange = _useContext.handleStyleChange;
+      handleStyleChange = _useContext.handleStyleChange,
+      currentStyleSkus = _useContext.currentStyleSkus;
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__.default.styleLabel
-  }, " Style >", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-    className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__.default.styleName
-  }, " ", currentStyle.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__.default.stylesWrap
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(currentStyleSkus[Object.keys(currentStyleSkus)[0]]),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      currentSkuObj = _useState2[0],
+      setCurrentSkuObj = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    transformSkuValues();
+  }, []);
+
+  var transformSkuValues = function transformSkuValues() {
+    var sizes = Object.values(currentStyleSkus);
+    console.log(sizes);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", {
+    className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__.default.styleLabel
+  }, " Style >", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
+    className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__.default.styleName
+  }, " ", currentStyle.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__.default.stylesWrap
   }, productStyles.length && productStyles.map(function (style, index) {
     var firstImg = style.photos[0].thumbnail_url;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__.default.singleStyle,
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+      className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__.default.singleStyle,
       key: index,
       onClick: function onClick() {
         return handleStyleChange(index);
       }
-    }, index === currentStyleIndex && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      src: (_assets_check_svg__WEBPACK_IMPORTED_MODULE_2___default()),
-      className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__.default.checkmark
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      onClick: handleStyleChange,
-      className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_1__.default.singleStyle,
+    }, index === currentStyleIndex && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+      src: (_assets_check_svg__WEBPACK_IMPORTED_MODULE_3___default()),
+      className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__.default.checkmark
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+      className: _styleSelect_module_css__WEBPACK_IMPORTED_MODULE_2__.default.singleStyle,
       src: firstImg
     }));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__.default, null));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_5__.default, null));
 }
 
 ;
@@ -3924,8 +3938,7 @@ var ProductContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_7__.createCo
   currentStyle: {},
   currentStyleIndex: 0,
   images: [],
-  defaultImg: '',
-  skuObject: {},
+  currentStyleSkus: {},
   handleStyleChange: function handleStyleChange() {}
 }); // create a provider
 
@@ -3946,7 +3959,12 @@ var ProductProvider = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__.default)(_this), "handleStyleChange", function (i) {
-      console.log('change the state of currentStyle', i);
+      _this.setState({
+        currentStyleIndex: i,
+        currentStyle: _this.state.productStyles[i],
+        images: _this.state.productStyles[i].photos,
+        currentStyleSkus: _this.state.productStyles[i].skus
+      });
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__.default)(_this), "state", {
@@ -3956,8 +3974,7 @@ var ProductProvider = /*#__PURE__*/function (_Component) {
       currentStyle: _dummyData__WEBPACK_IMPORTED_MODULE_9__.dummyProductStyles.results[0],
       currentStyleIndex: 0,
       images: _dummyData__WEBPACK_IMPORTED_MODULE_9__.dummyProductStyles.results[0].photos,
-      defaultImg: _dummyData__WEBPACK_IMPORTED_MODULE_9__.dummyProductStyles.results[0].photos[0].url,
-      skuObject: _dummyData__WEBPACK_IMPORTED_MODULE_9__.dummyProductStyles.results[0].skus,
+      currentStyleSkus: _dummyData__WEBPACK_IMPORTED_MODULE_9__.dummyProductStyles.results[0].skus,
       handleStyleChange: _this.handleStyleChange
     });
 

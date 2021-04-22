@@ -16,9 +16,7 @@ function Gallery({defaultView, setDefaultView}) {
   const {
     currentStyle,
     images,
-    setImages,
-    defaultImg,
-    setDefaultImg
+    setImages
   } = useContext(ProductContext);
 
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styles from './styleSelect.module.css';
 import Checkmark from '../../../assets/check.svg';
 
@@ -12,9 +12,20 @@ function StyleSelector() {
     productStyles,
     currentStyle,
     currentStyleIndex,
-    handleStyleChange
+    handleStyleChange,
+    currentStyleSkus,
   } = useContext(ProductContext);
 
+  const [currentSkuObj, setCurrentSkuObj] = useState( currentStyleSkus[Object.keys(currentStyleSkus)[0]] );
+
+  useEffect(() => {
+    transformSkuValues();
+  }, [])
+
+  const transformSkuValues = () => {
+    const sizes = Object.values(currentStyleSkus)
+    console.log(sizes)
+  }
   return (
     <div>
       <p className={styles.styleLabel}> Style >
@@ -34,7 +45,6 @@ function StyleSelector() {
               {index === currentStyleIndex && <img src={Checkmark} className={styles.checkmark} />}
 
               <img
-                onClick={handleStyleChange}
                 className={styles.singleStyle}
                 src={firstImg} />
             </div>)

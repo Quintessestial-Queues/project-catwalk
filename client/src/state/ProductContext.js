@@ -11,8 +11,7 @@ export const ProductContext = createContext({
   currentStyle: { },
   currentStyleIndex: 0,
   images: [ ],
-  defaultImg: '',
-  skuObject: { },
+  currentStyleSkus: { },
   handleStyleChange: () => {},
 });
 
@@ -21,8 +20,14 @@ export const ProductContext = createContext({
 export class ProductProvider extends Component {
 
   handleStyleChange = (i) => {
-    console.log('change the state of currentStyle', i)
+    this.setState({
+      currentStyleIndex : i,
+      currentStyle: this.state.productStyles[i],
+      images: this.state.productStyles[i].photos,
+      currentStyleSkus: this.state.productStyles[i].skus,
+    })
   };
+
 
   state = {
     productId: '17071',
@@ -31,8 +36,7 @@ export class ProductProvider extends Component {
     currentStyle: dummyProductStyles.results[0],
     currentStyleIndex: 0,
     images: dummyProductStyles.results[0].photos,
-    defaultImg: dummyProductStyles.results[0].photos[0].url,
-    skuObject: dummyProductStyles.results[0].skus,
+    currentStyleSkus: dummyProductStyles.results[0].skus,
     handleStyleChange: this.handleStyleChange,
   };
 
