@@ -2,5 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App.jsx';
+import RootProvider from './state/RootContext.js'
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <RootProvider>
+    <App />
+  </RootProvider>,
+  document.getElementById('app'));

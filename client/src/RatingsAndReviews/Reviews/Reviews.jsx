@@ -45,9 +45,8 @@ class Reviews extends React.Component {
     })
   }
 
-  //A lot of repeating code, might want to refactor
   render() {
-    let reviews = this.state.reviews;
+    let reviews = this.props.reviews;
 
     if (reviews === 0) {
       return (<div>Currently, there are no reviews for this product.</div>)
