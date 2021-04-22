@@ -1,83 +1,48 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { createContext, Component } from 'react'
 import  { APIContext }  from '../state/APIContext.js';
 
+import { dummyProduct, dummyProductStyles } from '../dummyData';
 
 // create the context
-export const ProductContext = React.createContext();
+export const ProductContext = createContext({
+  productId: 17071,
+  product: { },
+  productStyles: [ ],
+  currentStyle: { },
+  currentStyleIndex: 0,
+  images: [ ],
+  defaultImg: '',
+  skuObject: { },
+  handleStyleChange: () => {},
+});
+
+
 // create a provider
-const ProductProvider = ({ children }) => {
-  // initialize state with some values, which you can share via value prop our provider component.
+export class ProductProvider extends Component {
 
-  const [productId, setProductId] = useState(17071);
-  const [product, setProduct] = useState({});
-  const [productStyles, setProductStyles] = useState([]);
-  const [currentStyle, setCurrentStyle] = useState({});
-  const [images, setImages] = useState([]);
-  const [defaultImg, setDefaultImg] = useState('');
-  const { getProductById, getProductStylesById } = useContext(APIContext)
+  handleStyleChange = (i) => {
+    console.log('change the state of currentStyle', i)
+  };
 
+  state = {
+    productId: '17071',
+    product: dummyProduct,
+    productStyles: dummyProductStyles.results,
+    currentStyle: dummyProductStyles.results[0],
+    currentStyleIndex: 0,
+    images: dummyProductStyles.results[0].photos,
+    defaultImg: dummyProductStyles.results[0].photos[0].url,
+    skuObject: dummyProductStyles.results[0].skus,
+    handleStyleChange: this.handleStyleChange,
+  };
 
-
-  const [sizes, setSizes] = useState([]);
-  const [quantity, setQuantity] = useState(15)
-  const [selectedSku, setSelectedSku] = useState({});
-
-
-  useEffect(() => {
-    //calls the api and sets the product
-    getProductById(productId)
-    .then(res => {
-      setProduct(res.data);
-    })
-    .catch(err => {
-      console.log('error fetching product with id')
-    })
-
-    getProductStylesById(productId)
-    .then(res => {
-      setProductStyles(res.data.results);
-      setCurrentStyle(res.data.results[0]);
-      setImages(res.data.results[0].photos);
-      setDefaultImg(res.data.results[0].photos[0].url)
-      let currentStyle = res.data.results[0];
-      let skus = currentStyle.skus && Object.values(currentStyle.skus);
-      let sizes = skus.map(sku => sku.size);
-      setSizes(sizes)
-      console.log(skus)
-    })
-
-    .catch(err => {
-      console.log('error fetching product styles')
-    })
-  }, [])
-
-  const handleStyleChange = () => {
-    console.log('change the state of currentStyle')
+  render() {
+    return (
+      <ProductContext.Provider value={this.state} >
+          {this.props.children}
+        </ProductContext.Provider>
+    )
   }
-
-  return (
-    <ProductContext.Provider
-      value={{
-        productId,
-        setProductId,
-        product,
-        setProduct,
-        productStyles,
-        setProductStyles,
-        currentStyle,
-        setCurrentStyle,
-        images,
-        setImages,
-        defaultImg,
-        setDefaultImg,
-        handleStyleChange,
-        sizes,
-        quantity
-      }}
-      >
-        {children}
-      </ProductContext.Provider>
-  )
 }
 
 export default ProductProvider;

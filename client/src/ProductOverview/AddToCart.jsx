@@ -12,7 +12,7 @@ const AddToCart = () => {
 
     <select className={styles.selectSize}>
 
-      {sizes && sizes.length && sizes.map(size => {
+      {['xs', 'sm', 'md', 'lg'].map(size => {
         return
         (<option value={size} key={index}>
           {size}
@@ -21,7 +21,7 @@ const AddToCart = () => {
     </select>
 
     <select className={styles.selectQuantity}>
-      {sizes.map((size, index) => {
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((size, index) => {
         return
         (<option value={size} key={index}>
           {size}

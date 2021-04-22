@@ -18,6 +18,10 @@
   border-radius: 50%;
 }
 
+.checkmark {
+  width: 24px;
+  position: absolute;
+}
 .styleThumbnail {
   width: 100%;
 }
@@ -50,3 +54,4 @@
   padding: 10px;
   margin: 10px;
 }
+
