@@ -4,16 +4,7 @@ import  { APIContext }  from '../state/APIContext.js';
 import { dummyProduct, dummyProductStyles } from '../dummyData';
 
 // create the context
-export const ProductContext = createContext({
-  productId: 17071,
-  product: { },
-  productStyles: [ ],
-  currentStyle: { },
-  currentStyleIndex: 0,
-  images: [ ],
-  currentStyleSkus: { },
-  handleStyleChange: () => {},
-});
+export const ProductContext = createContext();
 
 
 // create a provider
