@@ -11,7 +11,7 @@ let ReviewItem = ({review}) => {
   const [helpfulnessCount, setCount] = useState(review.helpfulness);
   const [clicked, setClicked] = useState(false);
   const [showMore, toggleShowMore] = useState(false);
-  const [showReviewModal, toggleReviewModal] = useState(false);
+
 
   const isFirstRender = useRef(true);
 
@@ -30,11 +30,6 @@ let ReviewItem = ({review}) => {
     setClicked(true)
   }, [helpfulnessCount]);
 
-
-  //On clicking of an image
-    //Have a modal popup of the image in its native resolution
-
-  //Ideas: Make a separate component for the images? That way you can just set a state and when that changes, the modal window should pop out
 
   return (
     <div className={styles.reviewContainer}>

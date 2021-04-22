@@ -13,11 +13,13 @@ class Reviews extends React.Component {
       hasMore : false,
       clickedMoreReviews: false,
       reviewsView: 2,
+      showCreateReviewModal: false
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
   }
 
+  //const [showReviewFormModal, toggleReviewFormModal] = useState(false);
 
   //TODO: Test this!
   handleScroll (event) {
@@ -72,7 +74,7 @@ class Reviews extends React.Component {
         </div>
         <div className='buttons'>
           {this.state.reviewsView < this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
-          <CreateReview />
+          <CreateReview showCreateReviewModal={this.state.showCreateReviewModal} />
         </div>
       </div>
       );

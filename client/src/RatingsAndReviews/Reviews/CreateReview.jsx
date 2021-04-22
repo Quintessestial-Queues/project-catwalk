@@ -5,17 +5,21 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './CreateReview.module.css';
 import axios from 'axios';
 
-const CreateReview = () => {
+const CreateReview = (ref) => {
   const [clickedAddReview, setForm] = useState(false);
+
   const [headline, setHeadline] = useState('');
   const [reviewBody, setReviewBody] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
 
-  const showForm = () => {
+  const wrapperRef = useRef(null);
 
+  //TODO: When you click OUT of the form modal, go back to the default modal-less state
+  const showForm = () => {
     return (
-      <div>
+      <div className={styles.modal} onClick={() => {setForm(false)}}>
+        <div className={styles.modalMain}>
           <h3>Create Review</h3>
           <form className={styles.reviewFormContainer} onSubmit={handleSubmit}>
 
@@ -34,15 +38,16 @@ const CreateReview = () => {
 
           <div className={styles.headline}>
             <h4>Add a headline</h4>
-            <input type='text' value={headline} onChange={e => setHeadline(e.target.value)}></input>
+            <input className={styles.headlineText} type='text' value={headline} onChange={e => setHeadline(e.target.value)}></input>
           </div>
 
           <div className={styles.reviewBody}>
             <h4>Write your reivew</h4>
-            <textarea value={reviewBody} onChange={e => setReviewBody(e.target.value)}></textarea>
+            <textarea className={styles.reviewBodyText} value={reviewBody} onChange={e => setReviewBody(e.target.value)}></textarea>
             <button>Submit</button>
           </div>
         </form>
+        </div>
       </div>
     )
   }
