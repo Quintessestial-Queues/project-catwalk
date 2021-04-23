@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
-
+import CreateReview from './CreateReview.jsx';
 //Styling
 import styles from './Reviews.module.css';
 
@@ -13,13 +13,15 @@ class Reviews extends React.Component {
       hasMore : false,
       clickedMoreReviews: false,
       reviewsView: 2,
+      showCreateReviewModal: false
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
   }
 
+  //const [showReviewFormModal, toggleReviewFormModal] = useState(false);
 
-
+  //TODO: Test this!
   handleScroll (event) {
     console.log('Review List got Scrolled!');
     let element = event.target;
@@ -71,8 +73,8 @@ class Reviews extends React.Component {
           {reviewsList.slice(0, this.state.reviewsView)}
         </div>
         <div className='buttons'>
-          {this.state.reviewsView <= this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
-          <button className={styles.addAReviewButton}>Add A Review</button>
+          {this.state.reviewsView < this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
+          <CreateReview showCreateReviewModal={this.state.showCreateReviewModal} />
         </div>
       </div>
       );
