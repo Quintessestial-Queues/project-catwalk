@@ -34,7 +34,6 @@ const APIProvider = ({ children }) => {
   const postInteraction = async (data) => {
     try {
       await axios.post(`${API_URL}/interactions`, data, options);
-      console.log('interaction posted')
     } catch(err) {
       console.log(err)
     }

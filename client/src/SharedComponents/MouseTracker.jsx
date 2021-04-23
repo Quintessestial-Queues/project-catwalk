@@ -27,8 +27,7 @@ class MouseTracker extends React.Component {
       widget: mod,
       time: dateTime
     };
-    console.log(data)
-    console.log(this.context.postInteraction);
+
     this.context.postInteraction(data);
   }
 
