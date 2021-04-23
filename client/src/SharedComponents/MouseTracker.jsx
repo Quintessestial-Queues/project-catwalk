@@ -19,9 +19,9 @@ class MouseTracker extends React.Component {
     const mod = this.getModule(el);
 
     const data = {
-      element: el,
-      timeOfClick: dateTime,
-      module: mod
+      element: el.outerHTML,
+      widget: mod,
+      time: dateTime
     };
     console.log(data)
   }
