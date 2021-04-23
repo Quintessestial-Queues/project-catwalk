@@ -19,16 +19,28 @@ const APIProvider = ({ children }) => {
     return axios.get(`${API_URL}/products/${id}`, options)
   };
 
+
+
   // get the current product info
   const getProductStylesById = (id) => {
     // return a chainable promise
     return axios.get(`${API_URL}/products/${id}/styles`, options)
   };
 
+<<<<<<< HEAD
   // get related product id's
   const getRelatedProducts = (id) => {
     // return a chainable promise
     return axios.get(`${API_URL}/products/${id}/related`, options)
+=======
+  // interaction
+  const postInteraction = async (data) => {
+    try {
+      await axios.post(`${API_URL}/interactions`, data, options);
+    } catch(err) {
+      console.log(err)
+    }
+>>>>>>> 32d885df88cc3f7b18449047e8212ca69b4018e8
   }
 
   return (
@@ -36,7 +48,11 @@ const APIProvider = ({ children }) => {
       value={{
         getProductById,
         getProductStylesById,
+<<<<<<< HEAD
         getRelatedProducts
+=======
+        postInteraction
+>>>>>>> 32d885df88cc3f7b18449047e8212ca69b4018e8
       }}>
         {children}
       </APIContext.Provider>
