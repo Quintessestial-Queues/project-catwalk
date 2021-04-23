@@ -14,14 +14,11 @@ const APIProvider = ({ children }) => {
   };
 
   // get the current product info
-  const getProductById = async () => {
-    try {
-      const product = await axios.get(`${API_URL}/products/${id}`, options);
-      console.log(product)
-    } catch (err) {
-      console.log(err);
-    }
+  const getProductById = (id) => {
+    // return a chainable promise
+    return axios.get(`${API_URL}/products/${id}`, options)
   };
+
 
 
   // get the current product info
