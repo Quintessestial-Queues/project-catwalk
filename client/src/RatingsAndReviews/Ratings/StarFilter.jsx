@@ -13,6 +13,7 @@ const StarFilter = ({reviews}) => {
     return fractionPercentage;
   }
 
+  
   const [fiveStarFraction, setFiveStarFraction] = useState(() => {
     return getFraction(5);
   });
@@ -32,11 +33,11 @@ const StarFilter = ({reviews}) => {
   console.log(fiveStarFraction);
   return (
     <div className={styles.starFilterContainer}>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>5 Star</span> <RatingsBar ratingFraction={fiveStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>4 Star</span> <RatingsBar ratingFraction={fourStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>3 Star</span> <RatingsBar ratingFraction={threeStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>2 Star</span> <RatingsBar ratingFraction={twoStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>1 Star</span> <RatingsBar ratingFraction={oneStarFraction}/></div>
+      <div className={styles.starFilterItem}><span className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction}/></div>
+      <div className={styles.starFilterItem}><span className={styles.starLabel}>4 Stars</span> <RatingsBar ratingFraction={fourStarFraction}/></div>
+      <div className={styles.starFilterItem}><span className={styles.starLabel}>3 Stars</span> <RatingsBar ratingFraction={threeStarFraction}/></div>
+      <div className={styles.starFilterItem}><span className={styles.starLabel}>2 Stars</span> <RatingsBar ratingFraction={twoStarFraction}/></div>
+      <div className={styles.starFilterItem}><span className={styles.starLabel}>1 Stars</span> <RatingsBar ratingFraction={oneStarFraction}/></div>
     </div>
   )
 }

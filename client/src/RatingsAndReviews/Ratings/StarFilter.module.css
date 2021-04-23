@@ -6,13 +6,13 @@
 
 .starFilterItem {
   grid-template-rows: auto;
-  border: solid;
+
   margin: 5px;
 }
 
 .starLabel {
   text-align: center;
-  border: solid;
+  text-decoration: underline;
   margin-right: 20px;
 
 }

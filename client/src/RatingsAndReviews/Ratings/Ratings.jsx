@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import StarRating from '../../SharedComponents/StarRating.jsx';
 import StarFilter from './StarFilter.jsx';
+import { sort } from 'fast-sort';
 
 import styles from './Ratings.module.css';
 
 let Ratings = ({reviews}) => {
-  //add star component
-  //add a big number that represents the average rating
+
   const [averageRating, setRating] = useState(() => {
     let sumOfRatings = reviews.reduce((accumulator, review, i) => {
       return accumulator + review.rating;
@@ -18,6 +18,10 @@ let Ratings = ({reviews}) => {
   useEffect(() => {
     console.log('Ratings has rendered');
   }, [])
+
+  //What to do next:
+    //Get the star filter to actually filter the review results
+    //these filters SHOULD be additive (might have to use contexts for this)
 
 
   return (

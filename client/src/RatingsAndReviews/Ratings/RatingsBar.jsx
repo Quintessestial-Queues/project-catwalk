@@ -11,7 +11,7 @@ const RatingsBar = ({ratingFraction}) => {
   }
 
   const containerStyles = {
-    height: 10,
+    height: 7,
     width: '60%',
     backgroundColor: "#e0e0de",
     margin: 'auto',
