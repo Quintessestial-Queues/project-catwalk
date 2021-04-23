@@ -25,11 +25,18 @@ const APIProvider = ({ children }) => {
     return axios.get(`${API_URL}/products/${id}/styles`, options)
   };
 
+  // get related product id's
+  const getRelatedProducts = (id) => {
+    // return a chainable promise
+    return axios.get(`${API_URL}/products/${id}/related`, options)
+  }
+
   return (
     <APIContext.Provider
       value={{
         getProductById,
-        getProductStylesById
+        getProductStylesById,
+        getRelatedProducts
       }}>
         {children}
       </APIContext.Provider>

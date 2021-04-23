@@ -27,10 +27,14 @@
   margin: 20px 40px 20px;
   overflow: scroll;
 }
+#addOutfit {
+  max-height: 100%;
+  max-width: 100%;
+}
 .productCard {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 65% 35%;
+  grid-template-rows: 62% 35% 3%;
   gap: 0px 0px;
   /* padding: 9px; */
   border-style: solid;
@@ -53,6 +57,9 @@
   max-width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .addOutfit {
   display: grid;
@@ -63,4 +70,9 @@
   border-style: solid;
   border-width: 1px;
   margin: 8px;
+}
+.productButton {
+  position: relative;
+  top: 0px;
+  right: 0px;
 }

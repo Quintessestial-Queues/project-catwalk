@@ -9,7 +9,7 @@ const RelatedProductCards = ({ products, handleClick}) => {
       <h3 id={styles.relatedItemsTitle}>Related Items and Comparisons</h3>
       <div id={styles.relatedProductsContainer}>
         {products.map((product, index) => {
-          return <ProductCard product={product} handleClick={handleClick} image={dummyProductStyles.results[0].photos[0].thumbnail_url} key={index} />
+          return <ProductCard product={product} handleClick={handleClick} key={product.id} />
         })}
       </div>
     </div>
