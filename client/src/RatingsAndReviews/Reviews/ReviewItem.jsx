@@ -3,20 +3,24 @@ import StarRating from '../../SharedComponents/StarRating.jsx';
 import moment from 'moment';
 import { FaCheck } from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
+import PhotoModal from './PhotoModal.jsx';
 
-//Styling
 import styles from './ReviewItem.module.css'
 
 let ReviewItem = ({review}) => {
   const [helpfulnessCount, setCount] = useState(review.helpfulness);
   const [clicked, setClicked] = useState(false);
+  const [showMore, toggleShowMore] = useState(false);
+
+
   const isFirstRender = useRef(true);
 
   let boldedSummary = review.summary.slice(0, 60);
   let restOfSummary = review.summary.length < 60 ? null : `...${review.summary.slice(60)}`;
-  let body = review.body.slice(0, 250);
-  let checkIcon = <FaCheck />;
-
+  let body = !showMore ? review.body.slice(0, 250) : review.body;
+  let showMoreButton = review.body.length > 250 && !showMore ? <button onClick={() => {
+    toggleShowMore(!showMore);
+  }}>Show More</button> : null;
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -34,7 +38,15 @@ let ReviewItem = ({review}) => {
       <span className={styles.datePosted}>{`${review.reviewer_name} reviewed on ${moment(review.date).format("ll")}`}</span>
 
       <div className={styles.boldedSummary}>{boldedSummary} <p>{restOfSummary}</p></div>
-      <p className={styles.body}>{body}</p>
+      <p className={styles.body}>{body}{showMoreButton}</p>
+
+      <div className={styles.photos}>
+        {review.photos.length > 0 ? review.photos.map((photo, i) => {
+          return (
+            <PhotoModal key={i} photo={photo.url}/>
+          )
+        }) : null}
+      </div>
 
       <span className={styles.recommendation}>{!review.recommend ? null : <span>
         <FaCheck/> {'I recommend this product'} </span>}</span>

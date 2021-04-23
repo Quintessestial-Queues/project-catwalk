@@ -9,7 +9,7 @@
 
 .reviewsList {
   display: grid;
-  grid-auto-rows: 300px;
+  grid-auto-rows: auto;
   border: 1px solid black;
   overflow-y: scroll;
   max-height: 100%;
