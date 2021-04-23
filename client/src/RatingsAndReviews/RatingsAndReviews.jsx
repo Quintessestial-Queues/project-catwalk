@@ -15,7 +15,7 @@ class RatingsAndReviews extends React.Component {
   render() {
     return (
       <div className={styles.ratingsAndReviews}>
-        <div><Ratings /></div>
+        <div><Ratings reviews={dummyReviews.results}/></div>
         <div><Reviews reviews={dummyReviews.results}/></div>
       </div>
     )

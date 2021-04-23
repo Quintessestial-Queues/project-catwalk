@@ -30,6 +30,8 @@ let ReviewItem = ({review}) => {
     setClicked(true)
   }, [helpfulnessCount]);
 
+  //TODO: Had to remove helpfulnessCount to get the sort working
+    //plan to fix: when Yes or No is clicked, send a put and a get request right after so that the page is rendered
 
   return (
     <div className={styles.reviewContainer}>
@@ -53,8 +55,8 @@ let ReviewItem = ({review}) => {
 
       <div className={review.response ? styles.responseActive : styles.responseNormal}>{review.response ? `Response from seller: ${review.response}` : null}</div>
 
-      <span className={styles.helpful}>Was this review helpful? <a onClick={() => {!clicked ? setCount(helpfulnessCount + 1) : console.log('Already clicked!')}}>Yes ({helpfulnessCount})</a>
-      <a onClick={ () => {!clicked ? setCount(helpfulnessCount - 1) : console.log('Already clicked!')}}> No</a></span>
+      <span className={styles.helpful}>Was this review helpful? <a onClick={() => {!clicked ? setCount(review.helpfulness + 1) : console.log('Already clicked!')}}>Yes ({review.helpfulness})</a>
+      <a onClick={ () => {!clicked ? setCount(review.helpfulness - 1) : console.log('Already clicked!')}}> No</a></span>
     </div>
   )
 }

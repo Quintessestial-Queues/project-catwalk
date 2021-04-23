@@ -1,25 +1,72 @@
 import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import CreateReview from './CreateReview.jsx';
-//Styling
+import { sort } from 'fast-sort';
+
 import styles from './Reviews.module.css';
+
 
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: this.props.reviews.slice(0, 5) || [],
+      reviews: this.props.reviews || [],
       loading : false,
       hasMore : false,
       clickedMoreReviews: false,
       reviewsView: 2,
-      showCreateReviewModal: false
+      sortDropdown: 'relevance'
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
+    this.handleOnChangeSort = this.handleOnChangeSort.bind(this);
   }
 
-  //const [showReviewFormModal, toggleReviewFormModal] = useState(false);
+  componentDidMount() {
+    let reviews = this.state.reviews;
+    console.log(reviews);
+    let sortedReview = sort(reviews).desc([
+      r => r.date,
+      r => r.helpfulness
+    ])
+    this.setState({
+      reviews: sortedReview
+    })
+  }
+
+  handleOnChangeSort (event) {
+    let reviews = this.state.reviews;
+    this.setState({
+      sortDropdown: event.target.value
+    }, () => {
+      //if the sort is by newest
+      if (this.state.sortDropdown === 'newest') {
+        let sortedByNewestReviews = sort(reviews).desc(r => r.date);
+        this.setState({
+          reviews: sortedByNewestReviews
+        })
+      }
+      //if the sort is by helpfulness
+      if (this.state.sortDropdown === 'helpful') {
+        let sortedByHelpfulnessReviews = sort(reviews).desc(
+          r => r.helpfulness
+        )
+        this.setState({
+          reviews: sortedByHelpfulnessReviews
+        })
+      }
+      //if the sort is by relevance
+      if (this.state.sortDropdown === 'relevance') {
+        let sortedReview = sort(reviews).desc([
+          r => r.date,
+          r => r.helpfulness
+        ])
+        this.setState({
+          reviews: sortedReview
+        })
+      }
+    })
+  }
 
   //TODO: Test this!
   handleScroll (event) {
@@ -48,13 +95,14 @@ class Reviews extends React.Component {
   }
 
   render() {
-    let reviews = this.props.reviews;
+    let reviews = this.state.reviews;
 
     if (reviews === 0) {
       return (<div>Currently, there are no reviews for this product.</div>)
     }
 
     let reviewsList = reviews.map((review, index) => {
+      debugger;
       return <ReviewItem key={index} review={review}/>
     })
 
@@ -62,10 +110,11 @@ class Reviews extends React.Component {
       <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
         <div className='reviewSorter'>
           <p>
-            {`${reviews.length} reviews, sorted by `} <select>
-              <option>Relevance</option>
-              <option>Helpful</option>
-              <option>Newest</option>
+            {`${reviews.length} reviews, sorted by `}
+            <select onChange={this.handleOnChangeSort}>
+              <option value='relevance'>Relevance</option>
+              <option value='helpful'>Helpful</option>
+              <option value='newest'>Newest</option>
             </select>
           </p>
         </div>
