@@ -1,4 +1,6 @@
 import React from 'react';
+import { APIContext } from '../state/APIContext.js';
+
 
 // This component encapsulates the behavior we need...
 class MouseTracker extends React.Component {
@@ -6,7 +8,9 @@ class MouseTracker extends React.Component {
     super(props);
     this.handleMouseClick = this.handleMouseClick.bind(this);
     this.getModule = this.getModule.bind(this);
-  }
+  };
+
+  static contextType = APIContext;
 
   handleMouseClick(event) {
     const today = new Date();
@@ -24,6 +28,8 @@ class MouseTracker extends React.Component {
       time: dateTime
     };
     console.log(data)
+    console.log(this.context.postInteraction);
+    this.context.postInteraction(data);
   }
 
   getModule = (el) => {
