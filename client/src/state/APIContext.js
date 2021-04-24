@@ -19,8 +19,6 @@ const APIProvider = ({ children }) => {
     return axios.get(`${API_URL}/products/${id}`, options)
   };
 
-
-
   // get the current product info
   const getProductStylesById = (id) => {
     // return a chainable promise
@@ -35,6 +33,32 @@ const APIProvider = ({ children }) => {
       console.log(err)
     }
   }
+
+
+  //Routes for RatingsAndReviews
+
+  //get requests
+  const getReview = () => {
+    return axios.get(`${API_URL}/reviews/`, options);
+  }
+
+  const getReviewMetadata = (id) => {
+    return axios.get(`${API_URL}/reviews/meta`, {
+      headers:{
+        'Authorization': API_KEY
+      },
+      params: {
+        product_id: id
+      }
+    })
+  }
+
+  //post requests
+  //this is not done!
+  const postReview = (review) => {
+    return axios.post(`${API_URL}/reviews/`)
+  }
+
 
   return (
     <APIContext.Provider

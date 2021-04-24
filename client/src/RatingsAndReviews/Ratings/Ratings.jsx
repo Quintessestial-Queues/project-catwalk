@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import StarRating from '../../SharedComponents/StarRating.jsx';
 import StarFilter from './StarFilter.jsx';
 import { sort } from 'fast-sort';
+import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
 
 import styles from './Ratings.module.css';
 
-let Ratings = ({reviews}) => {
+let Ratings = ({reviews, handleOnClickStars}) => {
 
   const [averageRating, setRating] = useState(() => {
     let sumOfRatings = reviews.reduce((accumulator, review, i) => {
@@ -35,11 +36,11 @@ let Ratings = ({reviews}) => {
       </div>
 
       <div >
-        <StarFilter reviews={reviews}/>
+        <StarFilter reviews={reviews} handleOnClickStars={handleOnClickStars}/>
       </div>
 
       <div>
-        <span>Sizing</span>
+        {/* <Characteristics /> */}
       </div>
 
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RatingsBar from './RatingsBar.jsx';
 import styles from './StarFilter.module.css';
 
-const StarFilter = ({reviews}) => {
+const StarFilter = ({reviews, handleOnClickStars}) => {
 
   const getFraction = (targetNumber) => {
     let filtered = reviews.filter((review, i) => {
@@ -13,7 +13,7 @@ const StarFilter = ({reviews}) => {
     return fractionPercentage;
   }
 
-  
+
   const [fiveStarFraction, setFiveStarFraction] = useState(() => {
     return getFraction(5);
   });
@@ -30,10 +30,12 @@ const StarFilter = ({reviews}) => {
     return getFraction(1);
   });
 
-  console.log(fiveStarFraction);
+  console.log(handleOnClickStars);
   return (
     <div className={styles.starFilterContainer}>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction}/></div>
+      <div className={styles.starFilterItem}><span value={5} onClick={() => {
+        console.log(event.target.value)
+      }} className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction}/></div>
       <div className={styles.starFilterItem}><span className={styles.starLabel}>4 Stars</span> <RatingsBar ratingFraction={fourStarFraction}/></div>
       <div className={styles.starFilterItem}><span className={styles.starLabel}>3 Stars</span> <RatingsBar ratingFraction={threeStarFraction}/></div>
       <div className={styles.starFilterItem}><span className={styles.starLabel}>2 Stars</span> <RatingsBar ratingFraction={twoStarFraction}/></div>

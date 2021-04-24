@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import CreateReview from './CreateReview.jsx';
 import { sort } from 'fast-sort';
+import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
 
 import styles from './Reviews.module.css';
 
@@ -21,6 +22,7 @@ class Reviews extends React.Component {
     this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
     this.handleOnChangeSort = this.handleOnChangeSort.bind(this);
   }
+
 
   componentDidMount() {
     let reviews = this.state.reviews;
