@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ProductProvider from './ProductContext';
-import RatingsAndReviewsProvider from './RatingsAndReviewsContext';
+import { RatingsAndReviewsProvider } from './RatingsAndReviewsContext';
 import APIProvider from './APIContext';
 
 

@@ -3,31 +3,33 @@ import  { APIContext }  from '../state/APIContext.js';
 import { dummyReviews } from '../dummyData.js';
 
 
-
+//REFACTOR INTO A FUNCTIONAL COMPONENT
 export const RatingsAndReviewsContext = createContext();
 
 export class RatingsAndReviewsProvider extends Component {
 
-  state = {
-    reviews: dummyReviews.results,
-    starFilterValue: null,
-    handleOnClickStars: this.handleOnClickStars
-  };
-
-  handleOnClickStars (event) {
+  //Filters based on which RatingsBar was clicked in the StarFilter Component in Ratings
+  handleOnClickStars = () => {
     let reviews = this.state.reviews;
+    let rating = event.target.getAttribute('value');
     this.setState({
-      starFilterValue: event.target.value
+      starFilterValue: rating
     }, () => {
       let starFiltered = reviews.filter((review, i) => {
-        return review.rating === this.state.starFilterValue
+        return review.rating == this.state.starFilterValue
       })
       this.setState({
-        reviews: starFiltered
+        filteredReviews: starFiltered
       })
     })
   }
 
+  state = {
+    reviews: dummyReviews.results,
+    filteredReviews: dummyReviews.results || [],
+    starFilterValue: null,
+    handleOnClickStars: this.handleOnClickStars,
+  };
 
   render() {
     return (

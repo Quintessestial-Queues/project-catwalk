@@ -17,13 +17,11 @@ class RatingsAndReviews extends React.Component {
     return (
       <div className={styles.ratingsAndReviews}>
         <div><Ratings reviews={this.context.reviews} handleOnClickStars={this.context.handleOnClickStars}/></div>
-        <div><Reviews reviews={this.context.reviews}/></div>
+        <div><Reviews reviews={this.context.reviews} filteredReviews={this.context.filteredReviews}/></div>
       </div>
     )
   }
 }
-
-
 
 export default RatingsAndReviews;
 

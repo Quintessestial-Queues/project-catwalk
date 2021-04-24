@@ -3,6 +3,7 @@ import ReviewItem from './ReviewItem.jsx';
 import CreateReview from './CreateReview.jsx';
 import { sort } from 'fast-sort';
 import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
+import  { APIContext }  from '../../state/APIContext.js';
 
 import styles from './Reviews.module.css';
 
@@ -12,59 +13,74 @@ class Reviews extends React.Component {
     super(props);
     this.state = {
       reviews: this.props.reviews || [],
+      filteredReviews: this.props.filteredReviews,
       loading : false,
       hasMore : false,
       clickedMoreReviews: false,
       reviewsView: 2,
       sortDropdown: 'relevance'
     }
+
     this.handleScroll = this.handleScroll.bind(this);
     this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
     this.handleOnChangeSort = this.handleOnChangeSort.bind(this);
   }
 
-
+  // static contextType = RatingsAndReviewsContext;
   componentDidMount() {
-    let reviews = this.state.reviews;
-    console.log(reviews);
-    let sortedReview = sort(reviews).desc([
+    let filteredReviews = this.state.filteredReviews;
+    let sortedReview = sort(filteredReviews).desc([
       r => r.date,
       r => r.helpfulness
     ])
     this.setState({
-      reviews: sortedReview
+      filteredReviews: sortedReview
     })
   }
 
+  // component did update
+  // -> this.props change
+  //   set state {reviews : this.props.reviews}
+  componentDidUpdate(prevProps) {
+    if (prevProps.filteredReviews !== this.props.filteredReviews) {
+      console.log('Prevprops changed!');
+      this.setState({
+        filteredReviews: this.props.filteredReviews
+      })
+    }
+  }
+
+  //This might need to go on the context
   handleOnChangeSort (event) {
-    let reviews = this.state.reviews;
+    let filteredReviews = this.state.filteredReviews;
     this.setState({
       sortDropdown: event.target.value
     }, () => {
       //if the sort is by newest
       if (this.state.sortDropdown === 'newest') {
-        let sortedByNewestReviews = sort(reviews).desc(r => r.date);
+        //send a get request with the sort on newest
+        let sortedByNewestReviews = sort(filteredReviews).desc(r => r.date);
         this.setState({
-          reviews: sortedByNewestReviews
+          filteredReviews: sortedByNewestReviews
         })
       }
       //if the sort is by helpfulness
       if (this.state.sortDropdown === 'helpful') {
-        let sortedByHelpfulnessReviews = sort(reviews).desc(
+        let sortedByHelpfulnessReviews = sort(filteredReviews).desc(
           r => r.helpfulness
         )
         this.setState({
-          reviews: sortedByHelpfulnessReviews
+          filteredReviews: sortedByHelpfulnessReviews
         })
       }
       //if the sort is by relevance
       if (this.state.sortDropdown === 'relevance') {
-        let sortedReview = sort(reviews).desc([
+        let sortedReview = sort(filteredReviews).desc([
           r => r.date,
           r => r.helpfulness
         ])
         this.setState({
-          reviews: sortedReview
+          filteredReviews: sortedReview
         })
       }
     })
@@ -89,7 +105,6 @@ class Reviews extends React.Component {
   }
 
   handleClickMoreReviews (event) {
-    console.log('More Reviews Got Clicked!')
     this.setState({
       clickedMoreReviews: !this.state.clickedMoreReviews,
       reviewsView: this.state.reviewsView + 2
@@ -97,13 +112,14 @@ class Reviews extends React.Component {
   }
 
   render() {
-    let reviews = this.state.reviews;
+    // console.log(this.context.reviews);
+    let filteredReviews = this.state.filteredReviews;
 
-    if (reviews === 0) {
+    if (filteredReviews === 0) {
       return (<div>Currently, there are no reviews for this product.</div>)
     }
 
-    let reviewsList = reviews.map((review, index) => {
+    let reviewsList = filteredReviews.map((review, index) => {
       debugger;
       return <ReviewItem key={index} review={review}/>
     })
@@ -112,7 +128,7 @@ class Reviews extends React.Component {
       <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
         <div className='reviewSorter'>
           <p>
-            {`${reviews.length} reviews, sorted by `}
+            {`${filteredReviews.length} reviews, sorted by `}
             <select onChange={this.handleOnChangeSort}>
               <option value='relevance'>Relevance</option>
               <option value='helpful'>Helpful</option>
@@ -124,7 +140,7 @@ class Reviews extends React.Component {
           {reviewsList.slice(0, this.state.reviewsView)}
         </div>
         <div className='buttons'>
-          {this.state.reviewsView < this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
+          {this.state.reviewsView < this.props.filteredReviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
           <CreateReview showCreateReviewModal={this.state.showCreateReviewModal} />
         </div>
       </div>

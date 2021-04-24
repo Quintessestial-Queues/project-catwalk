@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import RatingsBar from './RatingsBar.jsx';
 import styles from './StarFilter.module.css';
+import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext'
 
-const StarFilter = ({reviews, handleOnClickStars}) => {
+const StarFilter = (props) => {
+  const {reviews, handleOnClickStars} = useContext(RatingsAndReviewsContext);
 
   const getFraction = (targetNumber) => {
     let filtered = reviews.filter((review, i) => {
@@ -30,16 +32,18 @@ const StarFilter = ({reviews, handleOnClickStars}) => {
     return getFraction(1);
   });
 
-  console.log(handleOnClickStars);
   return (
     <div className={styles.starFilterContainer}>
-      <div className={styles.starFilterItem}><span value={5} onClick={() => {
-        console.log(event.target.value)
-      }} className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>4 Stars</span> <RatingsBar ratingFraction={fourStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>3 Stars</span> <RatingsBar ratingFraction={threeStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>2 Stars</span> <RatingsBar ratingFraction={twoStarFraction}/></div>
-      <div className={styles.starFilterItem}><span className={styles.starLabel}>1 Stars</span> <RatingsBar ratingFraction={oneStarFraction}/></div>
+      <div className={styles.starFilterItem}><span value={5} onClick={handleOnClickStars} className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction}/></div>
+
+      <div className={styles.starFilterItem}><span value={4} onClick={handleOnClickStars}className={styles.starLabel}>4 Stars</span> <RatingsBar ratingFraction={fourStarFraction}/></div>
+
+      <div className={styles.starFilterItem}><span value={3} onClick={handleOnClickStars}className={styles.starLabel}>3 Stars</span> <RatingsBar ratingFraction={threeStarFraction}/></div>
+
+      <div className={styles.starFilterItem}><span value={2} onClick={handleOnClickStars}className={styles.starLabel}>2 Stars</span> <RatingsBar ratingFraction={twoStarFraction}/></div>
+
+      <div className={styles.starFilterItem}><span value={1} onClick={handleOnClickStars}className={styles.starLabel}>1 Stars</span> <RatingsBar ratingFraction={oneStarFraction}/></div>
+
     </div>
   )
 }
