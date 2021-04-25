@@ -1,7 +1,7 @@
 import React, { createContext, Component } from 'react'
 import  { APIContext }  from '../state/APIContext.js';
 
-import { dummyProduct, dummyProductStyles } from '../dummyData';
+import { dummyProduct, dummyProductStyles, dummyProductQuestions } from '../dummyData';
 
 // create the context
 export const ProductContext = createContext();
@@ -29,6 +29,8 @@ export class ProductProvider extends Component {
     images: dummyProductStyles.results[0].photos,
     currentStyleSkus: dummyProductStyles.results[0].skus,
     handleStyleChange: this.handleStyleChange,
+    questions: dummyProductQuestions.results,
+    relatedId: [2, 2, 4, 5]
   };
 
   render() {
