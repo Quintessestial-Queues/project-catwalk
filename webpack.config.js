@@ -9,7 +9,7 @@ module.exports = {
     path: DIST_DIR
   },
   mode: "development",
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {

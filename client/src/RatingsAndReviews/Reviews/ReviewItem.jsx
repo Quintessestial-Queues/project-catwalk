@@ -36,7 +36,7 @@ let ReviewItem = ({review}) => {
   return (
     <div className={styles.reviewContainer}>
 
-      <span className={styles.starRating}><StarRating starRating={review.rating}/></span>
+      <span className={styles.starRating}><StarRating starRating={review.rating || 0}/></span>
       <span className={styles.datePosted}>{`${review.reviewer_name} reviewed on ${moment(review.date).format("ll")}`}</span>
 
       <div className={styles.boldedSummary}>{boldedSummary} <p>{restOfSummary}</p></div>

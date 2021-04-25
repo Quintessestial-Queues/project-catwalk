@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext }from 'react';
 import axios from 'axios';
 import { API_KEY, API_URL } from '../config.js';
+import { RatingsAndReviewsContext } from './RatingsAndReviewsContext.js';
 
 // first create the context
 export const APIContext = React.createContext();
@@ -38,19 +39,28 @@ const APIProvider = ({ children }) => {
   //Routes for RatingsAndReviews
 
   //get requests
-  const getReview = () => {
-    return axios.get(`${API_URL}/reviews/`, options);
+  const getReviews = (id, sort = 'relevant') => {
+    let body = {
+      headers: {'Authorization': API_KEY},
+      params: {
+        sort,
+        product_id: id,
+        count: 100
+      }
+    }
+    return axios.get(`${API_URL}/reviews/`, body);
   }
 
   const getReviewMetadata = (id) => {
-    return axios.get(`${API_URL}/reviews/meta`, {
+    let body = {
       headers:{
         'Authorization': API_KEY
       },
       params: {
         product_id: id
       }
-    })
+    }
+    return axios.get(`${API_URL}/reviews/meta`, body);
   }
 
   //post requests
@@ -65,7 +75,10 @@ const APIProvider = ({ children }) => {
       value={{
         getProductById,
         getProductStylesById,
-        postInteraction
+        postInteraction,
+        getReviews,
+        getReviewMetadata
+
       }}>
         {children}
       </APIContext.Provider>
