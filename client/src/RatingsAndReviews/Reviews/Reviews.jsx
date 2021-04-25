@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import CreateReview from './CreateReview.jsx';
-import { sort } from 'fast-sort';
 import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
 import { ProductContext } from '../../state/ProductContext.js';
 import { APIContext } from '../../state/APIContext.js';
