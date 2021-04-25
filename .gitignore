@@ -3,7 +3,7 @@ client/dist/bundle.js
 client/dist/bundle.js.map
 
 # dependencies
-/node_modules
+node_modules
 
 
 # test
