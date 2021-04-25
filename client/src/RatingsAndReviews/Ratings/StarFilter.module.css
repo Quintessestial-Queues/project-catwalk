@@ -1,0 +1,18 @@
+
+.starFilterContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.starFilterItem {
+  grid-template-rows: auto;
+
+  margin: 5px;
+}
+
+.starLabel {
+  text-align: center;
+  text-decoration: underline;
+  margin-right: 20px;
+
+}

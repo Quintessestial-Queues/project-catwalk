@@ -15,7 +15,8 @@ const StarRating = ({
   useEffect(() => {
     // Update star rating upon first intitial render
     setRating(starRating)
-  }, []);
+  }, [starRating]);
+
 
 
   const setRating = () => {

@@ -160,7 +160,31 @@ let dummyReviews = {
         "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
         "date": "2021-03-12T00:00:00.000Z",
         "reviewer_name": "frogeeeeeee",
-        "helpfulness": 0,
+        "helpfulness": 4,
+        "photos": []
+    },
+    {
+        "review_id": 288942,
+        "rating": 5,
+        "summary": "Cutest Frog",
+        "recommend": true,
+        "response": null,
+        "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+        "date": "2021-03-10T00:00:00.000Z",
+        "reviewer_name": "frogeeeeeee",
+        "helpfulness": 4,
+        "photos": []
+    },
+    {
+        "review_id": 288942,
+        "rating": 5,
+        "summary": "Cutest Frog",
+        "recommend": true,
+        "response": null,
+        "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+        "date": "2021-03-10T00:00:00.000Z",
+        "reviewer_name": "frogeeeeeee",
+        "helpfulness": 5,
         "photos": []
     },
     {
@@ -172,7 +196,7 @@ let dummyReviews = {
         "body": "They're fine but I wouldn't buy again.",
         "date": "2019-05-23T00:00:00.000Z",
         "reviewer_name": "anyone",
-        "helpfulness": 0,
+        "helpfulness": 1,
         "photos": []
     },
     {
@@ -184,7 +208,7 @@ let dummyReviews = {
         "body": "I don't like them",
         "date": "2019-06-16T00:00:00.000Z",
         "reviewer_name": "negativity",
-        "helpfulness": 0,
+        "helpfulness": 14,
         "photos": []
     },
 
