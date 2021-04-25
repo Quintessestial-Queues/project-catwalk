@@ -617,4 +617,63 @@ let dummyProductStyles = {
   ]
 }
 
-export {dummyProducts, dummyProduct, dummyRelatedProducts, dummyReviews, dummyProductStyles};
+let dummyProductQuestions = {
+    "product_id": "17071",
+    "results": [
+        {
+            "question_id": 104629,
+            "question_body": "Can I wash it?",
+            "question_date": "2017-01-04T00:00:00.000Z",
+            "asker_name": "luaulover",
+            "question_helpfulness": 3,
+            "reported": false,
+            "answers": {
+                "992102": {
+                    "id": 992102,
+                    "body": "I've thrown it in the wash and it seems fine",
+                    "date": "2017-01-04T00:00:00.000Z",
+                    "answerer_name": "skilover",
+                    "helpfulness": 4,
+                    "photos": [
+                        "https://images.unsplash.com/photo-1469504512102-900f29606341?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+                        "https://images.unsplash.com/photo-1510551310160-589462daf284?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80"
+                    ]
+                },
+                "992103": {
+                    "id": 992103,
+                    "body": "It says not to",
+                    "date": "2017-01-04T00:00:00.000Z",
+                    "answerer_name": "skilover",
+                    "helpfulness": 4,
+                    "photos": []
+                },
+                "992135": {
+                    "id": 992135,
+                    "body": "I wouldn't machine wash it",
+                    "date": "2017-11-04T00:00:00.000Z",
+                    "answerer_name": "skilover",
+                    "helpfulness": 5,
+                    "photos": []
+                },
+                "1719483": {
+                    "id": 1719483,
+                    "body": "The cheese is the answer.",
+                    "date": "2021-04-24T00:00:00.000Z",
+                    "answerer_name": "Allison",
+                    "helpfulness": 0,
+                    "photos": [
+                        "https://i.imgur.com/uaMK0Xc.jpg"
+                    ]
+                }
+            }
+        }
+    ]
+}
+export {
+    dummyProducts,
+    dummyProduct,
+    dummyRelatedProducts,
+    dummyReviews,
+    dummyProductStyles,
+    dummyProductQuestions
+};
