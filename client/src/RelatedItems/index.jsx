@@ -35,27 +35,21 @@ function RelatedItems () {
     var productId = item.id
     setOutfit(outfitList.filter(item => item.id !== productId))
   }
-    // getProduct = (id) => {
-
-  // }
-  //  getProductStyle = (id) => {
-
-  // }
 
   // Lifecycle Methods --------------------------------------------------------
   var productList = []
   useEffect(() => {
     getRelatedProductIds(product.id)
-    getProducts(relatedProductIds)
-    getStyles(relatedProductIds)
-
-
   }, [])
+  useEffect(() => {
+    getStyles(relatedProductIds)
+    getProducts(relatedProductIds)
+  }, [relatedProductIds])
 
   return (
     <div id={styles.relatedItemsGrid}>
-      <RelatedProductCards products={relatedProducts} handleClick={productListClick}/>
-      <YourOutfit outfits={outfitList} handleAddOutfit={productListClick} handleRemove={handleRemove}/>
+      <RelatedProductCards products={relatedProducts} images={relatedProductStyles} handleClick={productListClick}/>
+      <YourOutfit outfits={outfitList} images={relatedProductStyles} handleAddOutfit={productListClick} handleRemove={handleRemove}/>
     </div>
   )
 };

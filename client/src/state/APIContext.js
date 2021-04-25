@@ -18,7 +18,7 @@ const APIProvider = ({ children }) => {
 
   // get the current product info
   const getProductById = async (id) => {
-    // return a chainable promise
+    // return a single product obj
     try {
       const product = await axios.get(`${API_URL}/products/${id}`, options)
       return product.data
@@ -30,7 +30,7 @@ const APIProvider = ({ children }) => {
 
   // get the current product info
   const getProductStylesById = async (id) => {
-    // return a chainable promise
+    // return a single styles obj
     try {
       const productStyle = await axios.get(`${API_URL}/products/${id}/styles`, options)
       return productStyle.data
@@ -41,16 +41,18 @@ const APIProvider = ({ children }) => {
 
   //get related product id's
   const getRelatedProductIds = async (id) => {
+    //returns array of id's
     try {
       const ids = await axios.get(`${API_URL}/products/${id}/related`, options);
-      setRelatedProductIds(ids.data)
-      //return (products.data);
+      setRelatedProductIds([...new Set(ids.data)])
     } catch (err) {
       console.log(err);
     }
   };
 
+  // get products
   const getProducts = async (idArray) => {
+    // returns array of product obj's
     const promises = idArray.map(async (id) => {
       const product = await getProductById(id)
       return product
@@ -58,7 +60,9 @@ const APIProvider = ({ children }) => {
     setRelatedProducts(await Promise.all(promises))
   }
 
+  // get styles
   const getStyles = async (idArray) => {
+    // returns array of style obj's
     const promises = idArray.map(async (id) => {
       const style = await getProductStylesById(id)
       return style

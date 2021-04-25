@@ -6,7 +6,7 @@ import styles from './relatedItems.module.css';
 import PlusIcon from '../../../assets/plus-icon.svg';
 import { dummyProductStyles } from '../dummyData.js';
 
-const YourOutfit = ({ outfits, handleAddOutfit, handleRemove }) => {
+const YourOutfit = ({ outfits, images, handleAddOutfit, handleRemove }) => {
   const {
     product, setProduct, productStyles, setProductStyles, currentStyle
   } = useContext(ProductContext);
@@ -22,8 +22,7 @@ const YourOutfit = ({ outfits, handleAddOutfit, handleRemove }) => {
           <h2 className={styles.img}>Add to Outfit</h2>
         </div>
         {outfits.map((outfit, index) => {
-          return <ProductCard product={outfit} buttonType={'remove'}
-          key={index} handleRemove={handleRemove}/>
+          return <ProductCard product={outfit} buttonType={'remove'} key={outfit.id} images={images} handleRemove={handleRemove}/>
         })}
       </div>
     </div>
