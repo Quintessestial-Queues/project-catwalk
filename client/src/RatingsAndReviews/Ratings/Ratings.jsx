@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import StarRating from '../../SharedComponents/StarRating.jsx';
 import StarFilter from './StarFilter.jsx';
 import Characteristics from './Characteristics.jsx';
-import { sort } from 'fast-sort';
 import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
 
 import styles from './Ratings.module.css';

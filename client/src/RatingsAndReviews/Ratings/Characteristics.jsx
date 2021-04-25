@@ -14,6 +14,8 @@ const Characteristics = (props) => {
     getReviewMetadata(productId)
       .then(({data}) => {
         console.log(data);
+        let characteristics = data.characteristics;
+        console.log(characteristics);
       })
       .catch((err) => {
         console.log()
