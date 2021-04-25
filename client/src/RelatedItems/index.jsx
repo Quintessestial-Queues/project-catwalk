@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 //context
 import { ProductContext } from '../state/ProductContext.js';
+import { RelatedProductsContext } from '../state/RelatedProductsContext.js'
 import { APIContext } from '../state/APIContext.js'
 
 import styles from './relatedItems.module.css';
@@ -10,16 +11,18 @@ import { dummyProducts, dummyProductStyles } from '../dummyData.js'
 
 function RelatedItems () {
   // State --------------------------------------------------------------------
-  const [relatedProducts, setRelatedProducts] = useState([])
   const [outfitList, setOutfit] = useState([])
 
   // Context ------------------------------------------------------------------
   const {
-    product, setProduct, productStyles, setProductStyles, currentStyle
+    relatedProducts, relatedProductIds, relatedProductStyles
+  } = useContext(RelatedProductsContext);
+  const {
+    product, setProduct, productStyles, setProductStyles, currentStyle,
   } = useContext(ProductContext);
   const {
-    getProductStylesById, getProductById, getRelatedProducts
-  } = useContext(APIContext)
+    getProducts, getStyles, getRelatedProductIds
+  } = useContext(APIContext);
 
   // Event handlers -----------------------------------------------------------
   var productListClick = (product) => {
@@ -32,34 +35,22 @@ function RelatedItems () {
     var productId = item.id
     setOutfit(outfitList.filter(item => item.id !== productId))
   }
-    // handleCompare = () => {
+    // getProduct = (id) => {
+
+  // }
+  //  getProductStyle = (id) => {
 
   // }
 
   // Lifecycle Methods --------------------------------------------------------
   var productList = []
   useEffect(() => {
-    getRelatedProducts(product.id)
-      .then(products => {
-        products = [...new Set(products.data)]
-        products.forEach(id => {
-          getProductById(id)
-            .then(obj => {
-              productList.push(obj.data)
-              productList.forEach(obj => {
-                getProductStylesById(obj.id)
-                  .then(result => {
-                    obj.thumbnail = result.data.results[0].photos[0].thumbnail_url
-                  })
-              })
-            })
-        })
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [relatedProducts])
-  setRelatedProducts(productList)
+    getRelatedProductIds(product.id)
+    getProducts(relatedProductIds)
+    getStyles(relatedProductIds)
+
+
+  }, [])
 
   return (
     <div id={styles.relatedItemsGrid}>

@@ -8,9 +8,11 @@ const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove })
   // Event Components
   function RemoveButton() {
     return (
+      <div>
         <button className={styles.productButton} onClick={() => {handleRemove(product)}}>
           <img src={xIcon} />
         </button>
+      </div>
 
     )
   }

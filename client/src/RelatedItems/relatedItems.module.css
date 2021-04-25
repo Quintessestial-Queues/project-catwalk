@@ -34,7 +34,7 @@
 .productCard {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 62% 35% 3%;
+  grid-template-rows: 65% 35%;
   gap: 0px 0px;
   /* padding: 9px; */
   border-style: solid;
@@ -72,7 +72,5 @@
   margin: 8px;
 }
 .productButton {
-  position: relative;
-  top: 0px;
-  right: 0px;
+  position: absolute;
 }

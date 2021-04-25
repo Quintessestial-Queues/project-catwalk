@@ -8,7 +8,7 @@ const RelatedProductCards = ({ products, handleClick}) => {
     <div>
       <h3 id={styles.relatedItemsTitle}>Related Items and Comparisons</h3>
       <div id={styles.relatedProductsContainer}>
-        {products.map((product, index) => {
+        {products && products.length > 0 && products.map((product, index) => {
           return <ProductCard product={product} handleClick={handleClick} key={product.id} />
         })}
       </div>
