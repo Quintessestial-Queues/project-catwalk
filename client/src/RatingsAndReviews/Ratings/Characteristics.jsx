@@ -10,7 +10,7 @@ const Characteristics = (props) => {
   const { productId } = useContext(ProductContext);
 
   useEffect(() => {
-    debugger;
+
     getReviewMetadata(productId)
       .then(({data}) => {
         console.log(data);
