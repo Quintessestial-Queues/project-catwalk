@@ -15,11 +15,11 @@ const RatingsAndReviews = () => {
   const { getReviews } = useContext(APIContext);
   const { productId } = useContext(ProductContext);
 
+
   useEffect(() => {
     getReviews(productId)
       .then(({data}) => {
         console.log(data);
-        // debugger;
         testContext.setReviews(data.results);
       })
       .catch((err) => {

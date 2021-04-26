@@ -45,7 +45,7 @@ const APIProvider = ({ children }) => {
       params: {
         sort,
         product_id: id,
-        count: 100
+        count: 100,
       }
     }
     return axios.get(`${API_URL}/reviews/`, body);

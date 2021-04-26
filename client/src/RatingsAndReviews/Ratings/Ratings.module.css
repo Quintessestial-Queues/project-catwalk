@@ -2,7 +2,7 @@
 .ratingsContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 100px 250px 250px;
+  grid-template-rows: 50px 100px 150px 250px;
   border: 1px solid black;
   height: 100%;
   grid-gap: 10px;
@@ -29,3 +29,8 @@
   border: solid;
 }
 
+.characteristicsItem {
+  display: grid;
+  grid-template-columns: auto;
+  border: solid;
+}
