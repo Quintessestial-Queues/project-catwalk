@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import StarRating from '../../SharedComponents/StarRating.jsx';
 import moment from 'moment';
-import { useState, useEffect, useRef } from 'react';
 import styles from './CreateReview.module.css';
+import { APIContext } from '../../state/APIContext';
+import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
+import { ProductContext } from '../../state/ProductContext.js';
 import axios from 'axios';
 
 const CreateReview = (ref) => {
-  const [clickedAddReview, setForm] = useState(false);
+  const { reviews, filteredReviews, setReviews } = useContext(RatingsAndReviewsContext);
+  const { getReviews, postReview } = useContext(APIContext);
+  const { productId } = useContext(ProductContext);
 
+  const [clickedAddReview, setForm] = useState(false);
   const [headline, setHeadline] = useState('');
+  const [reviewSummary, setReviewSummary] = useState('');
   const [reviewBody, setReviewBody] = useState('');
+  const [recommended, setRecommended] = useState(false);
+  const [userName, setUserName] = useState('Anonymous');
+  const [email, setEmail] = useState('anonymous.gmail.com');
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [characteristics, setCharacteristics] = useState({});
 
-  const wrapperRef = useRef(null);
 
   //TODO: When you click OUT of the form modal, go back to the default modal-less state
   const showForm = () => {
     return (
-      <div className={styles.modal} onClick={() => {setForm(false)}}>
+      <div className={styles.modal}>
         <div className={styles.modalMain}>
           <h3>Create Review</h3>
           <form className={styles.reviewFormContainer} onSubmit={handleSubmit}>
@@ -42,7 +51,7 @@ const CreateReview = (ref) => {
           </div>
 
           <div className={styles.reviewBody}>
-            <h4>Write your reivew</h4>
+            <h4>Write your review</h4>
             <textarea className={styles.reviewBodyText} value={reviewBody} onChange={e => setReviewBody(e.target.value)}></textarea>
             <button>Submit</button>
           </div>
@@ -61,7 +70,6 @@ const CreateReview = (ref) => {
   }
 
   const handleImageUpload = (event) => {
-
     //TODO: Refactor to accomodate post requests to API
     const [file] = event.target.files;
     const fd = new FormData();
@@ -73,8 +81,31 @@ const CreateReview = (ref) => {
     event.preventDefault();
     if (reviewBody.length < 50 || reviewBody.length > 1000) {
       alert('Review should be between 50 and 1000 characters long');
+    } else {
+      let reviewPost = {
+        product_id: Number(productId),
+        rating: 4,
+        summary: 'Perty Good',
+        body: reviewBody,
+        recommend: recommended,
+        name: userName,
+        email: email,
+        photos: [],
+        characteristics: { "14": 5, "15": 5, '16': 5, '17': 5},
+      }
+      postReview(reviewPost)
+        .then(() => {
+          console.log('Successfully posted review')
+          getReviews(productId)
+            .then(({data}) => {
+              setReviews(data.results)
+            })
+        })
+        .catch((err) => {
+          console.log('Error posting review', err);
+        })
+      setForm(false);
     }
-    alert(`Submitting Review with headline ${headline}`);
   }
 
   return (

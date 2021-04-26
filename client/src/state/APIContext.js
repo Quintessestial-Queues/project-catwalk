@@ -64,9 +64,8 @@ const APIProvider = ({ children }) => {
   }
 
   //post requests
-  //this is not done!
   const postReview = (review) => {
-    return axios.post(`${API_URL}/reviews/`)
+    return axios.post(`${API_URL}/reviews/`, review, options)
   }
 
   //put requests
@@ -97,7 +96,8 @@ const APIProvider = ({ children }) => {
         getReviews,
         getReviewMetadata,
         updateHelpfulReview,
-        reportReview
+        reportReview,
+        postReview
       }}>
         {children}
       </APIContext.Provider>
