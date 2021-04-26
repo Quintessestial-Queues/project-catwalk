@@ -10,7 +10,7 @@ import styles from './Reviews.module.css';
 const Reviews = (props) => {
   const { reviews, filteredReviews, setReviews } = useContext(RatingsAndReviewsContext);
   const { getReviews } = useContext(APIContext);
-  const { productId } = useContext(ProductContext)
+  const { productId } = useContext(ProductContext);
 
   const [loading, setLoading] = useState(false);
   const [clickedMoreReviews, setClickedMoreReviews] = useState(false);
@@ -20,6 +20,15 @@ const Reviews = (props) => {
   const [reviewsView, setReviewsView] = useState(2);
   const [sortDropdown, setSortDropdown] = useState('relevance');
 
+  useEffect(() => {
+    getReviews(productId)
+      .then(({data}) => {
+        setReviews(data.results)
+      })
+      .catch((err) => {
+        console.log('Error getting reviews in Reviews Component', err);
+      })
+  }, [productId])
 
   const handleScroll = (event) => {
     // TODO:implement me

@@ -42,7 +42,7 @@ const Characteristics = (props) => {
 
       <div><span>Width</span><CharacteristicsBar characteristicData={valuesArr.length > 0 ? valuesArr[1] : null}/><div className={styles.characteristicsBarContainer}><span>Runs Tight</span>  <span >Just Right</span> <span>Runs Wide</span></div></div>
 
-      <div><span>Comfort</span><CharacteristicsBar characteristicData={valuesArr.length > 0 ?  valuesArr[2]  : null}/><div className={styles.characteristicsBarContainer}><span>Uncomfortable</span>  <span >Just Right</span> <span>Too Big</span></div></div>
+      <div><span>Comfort</span><CharacteristicsBar characteristicData={valuesArr.length > 0 ?  valuesArr[2]  : null}/><div className={styles.characteristicsBarContainer}><span>Uncomfortable</span>  <span ></span> <span>Comfortable</span></div></div>
 
       <div><span>Quality</span><CharacteristicsBar characteristicData={valuesArr.length > 0 ?  valuesArr[3]  : null}/><div className={styles.characteristicsBarContainer}><span>Poor</span>  <span ></span> <span style={{
         position: 'relative',

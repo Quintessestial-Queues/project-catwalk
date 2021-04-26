@@ -44,3 +44,7 @@
 .helpful {
   padding-bottom: 20px;
 }
+
+.hover {
+  cursor: pointer;
+}

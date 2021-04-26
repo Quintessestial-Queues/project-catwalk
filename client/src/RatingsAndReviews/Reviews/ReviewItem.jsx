@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import StarRating from '../../SharedComponents/StarRating.jsx';
 import moment from 'moment';
 import { FaCheck } from 'react-icons/fa';
-import { useState, useEffect, useRef } from 'react';
 import PhotoModal from './PhotoModal.jsx';
-
+import { APIContext } from '../../state/APIContext';
+import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext';
+import { ProductContext } from '../../state/ProductContext';
 import styles from './ReviewItem.module.css'
 
 let ReviewItem = ({review}) => {
+
+  const { updateHelpfulReview, reportReview, getReviews } = useContext(APIContext);
+  const { reviews, setReviews } = useContext(RatingsAndReviewsContext);
+  const { productId } = useContext(ProductContext)
+
+  const [notHelpfulCount, setNotHelpfulCount] = useState(0);
   const [helpfulnessCount, setCount] = useState(review.helpfulness);
   const [clicked, setClicked] = useState(false);
   const [showMore, toggleShowMore] = useState(false);
-
-
-  const isFirstRender = useRef(true);
 
   let boldedSummary = review.summary.slice(0, 60);
   let restOfSummary = review.summary.length < 60 ? null : `...${review.summary.slice(60)}`;
@@ -22,16 +26,51 @@ let ReviewItem = ({review}) => {
     toggleShowMore(!showMore);
   }}>Show More</button> : null;
 
+  let reviewId = review.review_id;
+  console.log(reviewId);
+
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    setClicked(true)
+    setCount(helpfulnessCount);
   }, [helpfulnessCount]);
 
-  //TODO: Had to remove helpfulnessCount to get the sort working
-    //plan to fix: when Yes or No is clicked, send a put and a get request right after so that the page is rendered
+  const handleOnClickHelpful = (event) => {
+    if (!clicked) {
+      if (event.target.getAttribute('value') === 'No') {
+        setNotHelpfulCount(notHelpfulCount + 1);
+        setClicked(true);
+      } else {
+        updateHelpfulReview(reviewId)
+        .then(() => {
+          console.log('Successfully incremented helpfulness');
+          getReviews(productId)
+            .then(({data}) => {
+              setReviews(data.results);
+              setCount(review.helpfulness);
+              setClicked(true);
+            })
+        })
+        .catch((err) => {
+          console.log('Error incrementing helpfulness', err);
+        })
+      }
+    } else {
+      console.log('Already clicked helpful');
+    }
+  }
+
+  const handleOnClickReport = () => {
+    reportReview(reviewId)
+      .then(() => {
+        console.log('Successfully reported review with ID: ' + reviewId);
+        getReviews(productId)
+          .then(({data}) => {
+            setReviews(data.results);
+          })
+      })
+      .catch((err) => {
+        console.log('Error reporting review', err);
+      })
+  }
 
   return (
     <div className={styles.reviewContainer}>
@@ -55,8 +94,10 @@ let ReviewItem = ({review}) => {
 
       <div className={review.response ? styles.responseActive : styles.responseNormal}>{review.response ? `Response from seller: ${review.response}` : null}</div>
 
-      <span className={styles.helpful}>Was this review helpful? <a onClick={() => {!clicked ? setCount(review.helpfulness + 1) : console.log('Already clicked!')}}>Yes ({review.helpfulness})</a>
-      <a onClick={ () => {!clicked ? setCount(review.helpfulness - 1) : console.log('Already clicked!')}}> No</a></span>
+      <span className={styles.helpful}>Was this review helpful? <a onClick={ handleOnClickHelpful} className={styles.hover}><u>Yes</u> ({review.helpfulness})</a>
+      <a value='No' onClick={handleOnClickHelpful} className={styles.hover}> <u>No</u> ({notHelpfulCount})</a></span>
+
+      <span onClick={handleOnClickReport} className={styles.hover}><u>Report</u></span>
     </div>
   )
 }
