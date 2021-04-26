@@ -57,3 +57,13 @@ The goal of a reset stylesheet is to reduce browser inconsistencies in things li
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.header {
+	background-color: #525252;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	height: 100%;
+}
