@@ -38,7 +38,7 @@ const Reviews = (props) => {
 
   return (
     <div className={styles.reviewsContainer} onScroll={handleScroll}>
-      <div className='reviewSorter'>
+      <div className={styles.reviewSorter}>
         <p>
           {`${filteredReviews.length} reviews, sorted by `}
           <select onChange={handleOnChangeSort}>

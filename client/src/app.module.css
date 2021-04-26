@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap');
+
+
 /* ============================================================================================================================================
 Start Reset CSS
 The goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on.
@@ -20,6 +23,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Work Sans', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -54,11 +58,16 @@ The goal of a reset stylesheet is to reduce browser inconsistencies in things li
   display: grid;
   grid-template-columns: 1200px;
   grid-template-rows:  75px 900px 950px 500px 750px;
-  border: 1px solid black;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.appGridItem {
-  border: 1px solid black;
+.header {
+	background-color: #525252;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	height: 100%;
 }

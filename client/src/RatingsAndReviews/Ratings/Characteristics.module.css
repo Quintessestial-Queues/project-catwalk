@@ -1,0 +1,10 @@
+.characteristicsContainer {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+}
+
+
+.characteristicsBarContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}

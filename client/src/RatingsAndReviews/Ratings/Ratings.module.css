@@ -2,30 +2,27 @@
 .ratingsContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 100px 250px 250px;
-  border: 1px solid black;
+  grid-template-rows: 50px 100px 150px 250px;
   height: 100%;
   grid-gap: 10px;
 }
 
 .starRatingItem {
-  display: grid;
-  grid-template-columns: auto auto;
-  border: solid;
+  display: flex;
 }
 
 .numberRating {
-  margin-top: 20%;
-  text-align: center;
   vertical-align: auto;
-  font-size: 40px;
+  font-size: 100px;
   font-weight: bold;
-  border: solid;
 }
 
 .starRating {
   display: inline-block;
-  margin-top: 20%;
-  border: solid;
+  margin: 20px;
 }
 
+.characteristicsItem {
+  display: grid;
+  grid-template-columns: auto;
+}

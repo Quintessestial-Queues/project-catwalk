@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.11.0",
+    "file-loader": "^6.2.0",
     "live-server": "^1.2.1"
   }
 }

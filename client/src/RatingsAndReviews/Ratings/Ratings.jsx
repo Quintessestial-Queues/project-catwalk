@@ -19,10 +19,6 @@ let Ratings = (props) => {
   });
 
   useEffect(() => {
-    console.log('Ratings has rendered');
-  }, [])
-
-  useEffect(() => {
     let sumOfRatings = reviews.reduce((accumulator, review, i) => {
       return accumulator + review.rating;
     }, 0);
@@ -30,9 +26,6 @@ let Ratings = (props) => {
 
     setRating(averageOfRatings);
   }, [reviews])
-  //What to do next:
-    //Get the star filter to actually filter the review results
-    //these filters SHOULD be additive (might have to use contexts for this)
 
 
   return (
@@ -49,7 +42,7 @@ let Ratings = (props) => {
         <StarFilter/>
       </div>
 
-      <div>
+      <div className={styles.characteristicsItem}>
         <Characteristics />
       </div>
 
