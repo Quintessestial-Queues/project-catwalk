@@ -36,7 +36,7 @@ const APIProvider = ({ children }) => {
   }
 
 
-  //Routes for RatingsAndReviews
+//ROUTES FOR RatingsAndReviews
 
   //get requests
   const getReviews = (id, sort = 'relevant') => {
@@ -69,6 +69,24 @@ const APIProvider = ({ children }) => {
     return axios.post(`${API_URL}/reviews/`)
   }
 
+  //put requests
+  const updateHelpfulReview = (id) => {
+    let body = {
+      params: {
+        review_id: id
+      }
+    }
+    return axios.put(`${API_URL}/reviews/${id}/helpful`, body, options);
+  }
+
+  const reportReview = (id) => {
+    let body = {
+      params: {
+        review_id: id
+      }
+    }
+    return axios.put(`${API_URL}/reviews/${id}/report`, body, options);
+  }
 
   return (
     <APIContext.Provider
@@ -77,8 +95,9 @@ const APIProvider = ({ children }) => {
         getProductStylesById,
         postInteraction,
         getReviews,
-        getReviewMetadata
-
+        getReviewMetadata,
+        updateHelpfulReview,
+        reportReview
       }}>
         {children}
       </APIContext.Provider>
