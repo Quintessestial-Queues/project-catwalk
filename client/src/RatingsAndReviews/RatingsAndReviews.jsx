@@ -19,7 +19,6 @@ const RatingsAndReviews = () => {
   useEffect(() => {
     getReviews(productId)
       .then(({data}) => {
-        console.log(data);
         testContext.setReviews(data.results);
       })
       .catch((err) => {

@@ -53,7 +53,6 @@ const CreateReview = (ref) => {
   }
 
   const handleImageSelect = (event) => {
-    console.log(event.target.files[0])
     if (selectedFile) {
       selectedFiles.push(selectedFile)
     }
