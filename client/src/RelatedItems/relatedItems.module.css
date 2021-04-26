@@ -1,15 +1,35 @@
 
+#relatedItemsGrid {
+  display: grid;
+  grid-template-columns: 1200px;
+  grid-template-rows: 50% 1fr;
+  gap: 0px 0px;
+}
 #relatedItemsTitle {
   padding: 0px;
   margin: 20px 48px 5px;
 }
-#relatedProductsContainer {
+#yourOutfitContainer {
   display: grid;
   grid-template-columns: 250px 250px 250px 250px 250px;
-  grid-template-rows: 350px;
+  grid-template-rows: 375px;
   gap: 0px 0px;
   padding: 0px;
   margin: 20px 40px 20px;
+  overflow: scroll;
+}
+#relatedProductsContainer {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-template-rows: 375px;
+  gap: 0px 0px;
+  padding: 0px;
+  margin: 20px 40px 20px;
+  overflow: scroll;
+}
+#addOutfit {
+  max-height: 100%;
+  max-width: 100%;
 }
 .productCard {
   display: grid;
@@ -18,7 +38,14 @@
   gap: 0px 0px;
   /* padding: 9px; */
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
+  margin: 8px;
+}
+#addOutfitCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-style: transparent;
+  border-width: 1px;
   margin: 8px;
 }
 .productText {
@@ -30,4 +57,20 @@
   max-width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.addOutfit {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 65% 35%;
+  gap: 0px 0px;
+  /* padding: 9px; */
+  border-style: solid;
+  border-width: 1px;
+  margin: 8px;
+}
+.productButton {
+  position: absolute;
 }

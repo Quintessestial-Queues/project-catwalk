@@ -57,7 +57,7 @@ The goal of a reset stylesheet is to reduce browser inconsistencies in things li
 .appGrid {
   display: grid;
   grid-template-columns: 1200px;
-  grid-template-rows:  75px 900px 750px 500px 750px;
+  grid-template-rows:  75px 900px 950px 500px 750px;
   max-width: 1200px;
   margin: 0 auto;
 }
