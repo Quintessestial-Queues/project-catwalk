@@ -3,13 +3,8 @@
   height: 100%;
   grid-template-columns: 60% 40%;
   grid-template-rows: 5% 600px 1fr;
-  border: 1px solid black;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.item {
-  border: 1px solid black;
 }
 
 .description {
