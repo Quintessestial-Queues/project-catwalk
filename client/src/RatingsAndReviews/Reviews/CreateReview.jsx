@@ -79,10 +79,10 @@ const CreateReview = (ref) => {
   }
 
   return (
-    <div>
-      <button className='createReview' onClick={() => {setForm(true)}}>Add A Review</button>
+    <span>
+      <button className={styles.addAReviewButton} onClick={() => {setForm(true)}}>Add A Review</button>
       {clickedAddReview ? showForm() : null}
-    </div>
+    </span>
   )
 }
 

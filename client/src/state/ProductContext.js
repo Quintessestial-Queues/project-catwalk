@@ -21,7 +21,7 @@ export class ProductProvider extends Component {
 
 
   state = {
-    productId: '17071',
+    productId: '17072',
     product: dummyProduct,
     productStyles: dummyProductStyles.results,
     currentStyle: dummyProductStyles.results[0],

@@ -2,7 +2,6 @@
 .reviewsContainer {
   display: grid;
   grid-template-columns: 1fr;
-  border: 1px solid black;
   grid-gap: 10px;
 }
 
@@ -10,22 +9,33 @@
 .reviewsList {
   display: grid;
   grid-auto-rows: auto;
-  border: 1px solid black;
   overflow-y: scroll;
   max-height: 100%;
   grid-template-columns: 1fr;
+  grid-gap: 20px
+}
+
+.reviewSorter {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 5px;
+  padding-top: 10px;
 }
 
 
 .moreReviewsButton {
   display: inline-block;
-  width: 30%;
-  margin-right: 5px;
+  width: 20%;
+  height: 45px;
+  padding: 10px;
+  margin: 10px;
 }
 
 
 .addAReviewButton {
   display: inline-block;
-  width: 30%;
-  margin-right: 5px;
+  width: 20%;
+  height: 45px;
+  padding: 10px;
+  margin: 10px;
 }

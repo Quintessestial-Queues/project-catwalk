@@ -60,3 +60,11 @@
   transform: translate(-50%,-50%);
 }
 
+
+.addAReviewButton {
+  display: inline-block;
+  width: 20%;
+  height: 45px;
+  padding: 10px;
+  margin: 10px;
+}
