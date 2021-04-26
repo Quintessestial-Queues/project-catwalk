@@ -19,6 +19,16 @@ export class ProductProvider extends Component {
     })
   };
 
+  handleProductChange = (product, productStyle) => {
+    this.setState({
+      productId: product.id,
+      product: product,
+      productStyles: productStyle.results,
+      currentStyle: productStyle.results[0],
+      images: productStyle.results[0].photos,
+      currentStyleSkus: productStyle.results[0].skus
+    })
+  }
 
   state = {
     productId: '17072',
@@ -29,6 +39,7 @@ export class ProductProvider extends Component {
     images: dummyProductStyles.results[0].photos,
     currentStyleSkus: dummyProductStyles.results[0].skus,
     handleStyleChange: this.handleStyleChange,
+    handleProductChange: this.handleProductChange,
     questions: dummyProductQuestions.results,
     relatedId: [2, 2, 4, 5]
   };
