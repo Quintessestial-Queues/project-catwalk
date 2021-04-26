@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 100px 150px 250px;
-  border: 1px solid black;
   height: 100%;
   grid-gap: 10px;
 }
@@ -11,7 +10,6 @@
 .starRatingItem {
   display: grid;
   grid-template-columns: auto auto;
-  border: solid;
 }
 
 .numberRating {
@@ -20,17 +18,14 @@
   vertical-align: auto;
   font-size: 40px;
   font-weight: bold;
-  border: solid;
 }
 
 .starRating {
   display: inline-block;
   margin-top: 20%;
-  border: solid;
 }
 
 .characteristicsItem {
   display: grid;
   grid-template-columns: auto;
-  border: solid;
 }
