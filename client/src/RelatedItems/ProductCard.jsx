@@ -36,7 +36,7 @@ const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, i
 
   return (
     <div className={styles.productCard}>
-      {button}
+      {/* {button} */}
       <div className={styles.img}>
         <img src={url || findThumbnail(images, product.id)} onClick={() => handleClick(product, findThumbnail(images, product.id, 1))} className={styles.img}/>
       </div>

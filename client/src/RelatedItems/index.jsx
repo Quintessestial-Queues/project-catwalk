@@ -37,6 +37,7 @@ function RelatedItems () {
   }
   var handleProductClick = (product, productStyle) => {
     handleProductChange(product, productStyle)
+    // getRelatedProductIds(product.id)
   }
 
   // Lifecycle Methods --------------------------------------------------------
