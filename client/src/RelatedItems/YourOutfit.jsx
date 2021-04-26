@@ -22,7 +22,7 @@ const YourOutfit = ({ outfits, images, handleAddOutfit, handleRemove }) => {
           <h2 className={styles.img}>Add to Outfit</h2>
         </div>
         {outfits.map((outfit, index) => {
-          return <ProductCard product={outfit} buttonType={'remove'} key={outfit.id} images={images} handleRemove={handleRemove}/>
+          return <ProductCard product={outfit} buttonType={'remove'} key={outfit.id} url={currentStyle.photos[0].thumbnail_url} handleRemove={handleRemove}/>
         })}
       </div>
     </div>

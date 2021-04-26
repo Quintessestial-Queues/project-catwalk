@@ -1,89 +1,65 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import CreateReview from './CreateReview.jsx';
-//Styling
+import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
+import { ProductContext } from '../../state/ProductContext.js';
+import { APIContext } from '../../state/APIContext.js';
+
 import styles from './Reviews.module.css';
 
-class Reviews extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviews: this.props.reviews.slice(0, 5) || [],
-      loading : false,
-      hasMore : false,
-      clickedMoreReviews: false,
-      reviewsView: 2,
-      showCreateReviewModal: false
-    }
-    this.handleScroll = this.handleScroll.bind(this);
-    this.handleClickMoreReviews = this.handleClickMoreReviews.bind(this);
+const Reviews = (props) => {
+  const { reviews, filteredReviews, setReviews } = useContext(RatingsAndReviewsContext);
+  const { getReviews } = useContext(APIContext);
+  const { productId } = useContext(ProductContext)
+
+  const [loading, setLoading] = useState(false);
+  const [clickedMoreReviews, setClickedMoreReviews] = useState(false);
+  const [hasMore, setHasMore] = useState(false);
+  const [showCreateReviewModal, setShowCreateReviewModal] = useState(false);
+
+  const [reviewsView, setReviewsView] = useState(2);
+  const [sortDropdown, setSortDropdown] = useState('relevance');
+
+
+  const handleScroll = (event) => {
+    // TODO:implement me
   }
 
-  //const [showReviewFormModal, toggleReviewFormModal] = useState(false);
-
-  //TODO: Test this!
-  handleScroll (event) {
-    console.log('Review List got Scrolled!');
-    let element = event.target;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      this.setState((prevState) => ({
-        loading: true,
-        reviews: [...prevState.reviews, ...this.props.reviews]
-      }));
-      this.setState({
-        hasMore: this.props.reviews > 0
-      })
-      this.setState({
-        loading: false
-      })
-    }
+  const handleOnChangeSort = (e) => {
+    getReviews(productId, e.target.value)
+      .then(({ data }) => {
+        setReviews(data.results);
+      });
   }
 
-  handleClickMoreReviews (event) {
-    console.log('More Reviews Got Clicked!')
-    this.setState({
-      clickedMoreReviews: !this.state.clickedMoreReviews,
-      reviewsView: this.state.reviewsView + 2
-    })
+  const handleClickMoreReviews = (event) => {
+    setReviewsView(reviewsView + 2);
   }
 
-  render() {
-    let reviews = this.props.reviews;
-
-    if (reviews === 0) {
-      return (<div>Currently, there are no reviews for this product.</div>)
-    }
-
-    let reviewsList = reviews.map((review, index) => {
-      return <ReviewItem key={index} review={review}/>
-    })
-
-    let reviewsListRender = (
-      <div className={styles.reviewsContainer} onScroll={this.handleScroll}>
-        <div className='reviewSorter'>
-          <p>
-            {`${reviews.length} reviews, sorted by `} <select>
-              <option>Relevance</option>
-              <option>Helpful</option>
-              <option>Newest</option>
-            </select>
-          </p>
-        </div>
-        <div className={styles.reviewsList}>
-          {reviewsList.slice(0, this.state.reviewsView)}
-        </div>
-        <div className='buttons'>
-          {this.state.reviewsView < this.props.reviews.length ? <button className={styles.moreReviewsButton} onClick={this.handleClickMoreReviews}>More Reviews</button> : null}
-          <CreateReview showCreateReviewModal={this.state.showCreateReviewModal} />
-        </div>
+  return (
+    <div className={styles.reviewsContainer} onScroll={handleScroll}>
+      <div className='reviewSorter'>
+        <p>
+          {`${filteredReviews.length} reviews, sorted by `}
+          <select onChange={handleOnChangeSort}>
+            <option value='relevance'>Relevance</option>
+            <option value='helpful'>Helpful</option>
+            <option value='newest'>Newest</option>
+          </select>
+        </p>
       </div>
-      );
-
-    if (!this.state.clickedMoreReviews) {
-      return reviewsListRender
-    }
-    return reviewsListRender
-  }
+      <div className={styles.reviewsList}>
+        {filteredReviews.slice(0, reviewsView).map((review, i) =>
+          <ReviewItem key={i} review={review}/>
+        )}
+      </div>
+      <div className='buttons'>
+        {reviewsView < filteredReviews.length ? <button className={styles.moreReviewsButton} onClick={handleClickMoreReviews}>More Reviews</button> : null}
+        <CreateReview showCreateReviewModal={showCreateReviewModal} />
+      </div>
+    </div>
+  );
 }
+
 
 export default Reviews;

@@ -23,7 +23,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "test": "jest --collectCoverage",
-    "dev:react": "live-server ./client/dist & webpack --mode=development -w",
+    "dev:react": "live-server ./client/dist & webpack --mode development -w",
     "dev": "live-server ./client/dist"
   },
   "repository": {

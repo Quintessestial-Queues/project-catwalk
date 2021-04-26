@@ -18,14 +18,14 @@ function RelatedItems () {
     relatedProducts, relatedProductIds, relatedProductStyles
   } = useContext(RelatedProductsContext);
   const {
-    product, setProduct, productStyles, setProductStyles, currentStyle,
+    product, setProduct, productStyles, setProductStyles, currentStyle, handleProductChange
   } = useContext(ProductContext);
   const {
     getProducts, getStyles, getRelatedProductIds
   } = useContext(APIContext);
 
   // Event handlers -----------------------------------------------------------
-  var productListClick = (product) => {
+  var handleAddOutfit = (product) => {
     var productId = product.id
     if (!outfitList.some(obj => obj.id === productId)) {
       setOutfit([...outfitList, product])
@@ -34,6 +34,9 @@ function RelatedItems () {
   var handleRemove = (item) => {
     var productId = item.id
     setOutfit(outfitList.filter(item => item.id !== productId))
+  }
+  var handleProductClick = (product, productStyle) => {
+    handleProductChange(product, productStyle)
   }
 
   // Lifecycle Methods --------------------------------------------------------
@@ -48,8 +51,8 @@ function RelatedItems () {
 
   return (
     <div id={styles.relatedItemsGrid}>
-      <RelatedProductCards products={relatedProducts} images={relatedProductStyles} handleClick={productListClick}/>
-      <YourOutfit outfits={outfitList} images={relatedProductStyles} handleAddOutfit={productListClick} handleRemove={handleRemove}/>
+      <RelatedProductCards products={relatedProducts} images={relatedProductStyles} handleClick={handleProductClick}/>
+      <YourOutfit outfits={outfitList} images={relatedProductStyles} handleAddOutfit={handleAddOutfit} handleRemove={handleRemove}/>
     </div>
   )
 };

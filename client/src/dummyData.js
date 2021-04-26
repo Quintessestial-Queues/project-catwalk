@@ -160,7 +160,31 @@ let dummyReviews = {
         "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
         "date": "2021-03-12T00:00:00.000Z",
         "reviewer_name": "frogeeeeeee",
-        "helpfulness": 0,
+        "helpfulness": 4,
+        "photos": []
+    },
+    {
+        "review_id": 288942,
+        "rating": 5,
+        "summary": "Cutest Frog",
+        "recommend": true,
+        "response": null,
+        "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+        "date": "2021-03-10T00:00:00.000Z",
+        "reviewer_name": "frogeeeeeee",
+        "helpfulness": 4,
+        "photos": []
+    },
+    {
+        "review_id": 288942,
+        "rating": 5,
+        "summary": "Cutest Frog",
+        "recommend": true,
+        "response": null,
+        "body": "EVERRRRRRR!RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+        "date": "2021-03-10T00:00:00.000Z",
+        "reviewer_name": "frogeeeeeee",
+        "helpfulness": 5,
         "photos": []
     },
     {
@@ -172,7 +196,7 @@ let dummyReviews = {
         "body": "They're fine but I wouldn't buy again.",
         "date": "2019-05-23T00:00:00.000Z",
         "reviewer_name": "anyone",
-        "helpfulness": 0,
+        "helpfulness": 1,
         "photos": []
     },
     {
@@ -184,7 +208,7 @@ let dummyReviews = {
         "body": "I don't like them",
         "date": "2019-06-16T00:00:00.000Z",
         "reviewer_name": "negativity",
-        "helpfulness": 0,
+        "helpfulness": 14,
         "photos": []
     },
 
@@ -593,4 +617,63 @@ let dummyProductStyles = {
   ]
 }
 
-export {dummyProducts, dummyProduct, dummyRelatedProducts, dummyReviews, dummyProductStyles};
+let dummyProductQuestions = {
+    "product_id": "17071",
+    "results": [
+        {
+            "question_id": 104629,
+            "question_body": "Can I wash it?",
+            "question_date": "2017-01-04T00:00:00.000Z",
+            "asker_name": "luaulover",
+            "question_helpfulness": 3,
+            "reported": false,
+            "answers": {
+                "992102": {
+                    "id": 992102,
+                    "body": "I've thrown it in the wash and it seems fine",
+                    "date": "2017-01-04T00:00:00.000Z",
+                    "answerer_name": "skilover",
+                    "helpfulness": 4,
+                    "photos": [
+                        "https://images.unsplash.com/photo-1469504512102-900f29606341?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+                        "https://images.unsplash.com/photo-1510551310160-589462daf284?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80"
+                    ]
+                },
+                "992103": {
+                    "id": 992103,
+                    "body": "It says not to",
+                    "date": "2017-01-04T00:00:00.000Z",
+                    "answerer_name": "skilover",
+                    "helpfulness": 4,
+                    "photos": []
+                },
+                "992135": {
+                    "id": 992135,
+                    "body": "I wouldn't machine wash it",
+                    "date": "2017-11-04T00:00:00.000Z",
+                    "answerer_name": "skilover",
+                    "helpfulness": 5,
+                    "photos": []
+                },
+                "1719483": {
+                    "id": 1719483,
+                    "body": "The cheese is the answer.",
+                    "date": "2021-04-24T00:00:00.000Z",
+                    "answerer_name": "Allison",
+                    "helpfulness": 0,
+                    "photos": [
+                        "https://i.imgur.com/uaMK0Xc.jpg"
+                    ]
+                }
+            }
+        }
+    ]
+}
+export {
+    dummyProducts,
+    dummyProduct,
+    dummyRelatedProducts,
+    dummyReviews,
+    dummyProductStyles,
+    dummyProductQuestions
+};
