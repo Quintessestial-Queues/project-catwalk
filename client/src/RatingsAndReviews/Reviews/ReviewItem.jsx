@@ -44,7 +44,6 @@ let ReviewItem = ({review}) => {
           console.log('Successfully incremented helpfulness');
           getReviews(productId)
             .then(({data}) => {
-              // debugger;
               setReviews(data.results);
               setCount(review.helpfulness);
               setClicked(true);
@@ -63,6 +62,10 @@ let ReviewItem = ({review}) => {
     reportReview(reviewId)
       .then(() => {
         console.log('Successfully reported review with ID: ' + reviewId);
+        getReviews(productId)
+          .then(({data}) => {
+            setReviews(data.results);
+          })
       })
       .catch((err) => {
         console.log('Error reporting review', err);
@@ -91,10 +94,10 @@ let ReviewItem = ({review}) => {
 
       <div className={review.response ? styles.responseActive : styles.responseNormal}>{review.response ? `Response from seller: ${review.response}` : null}</div>
 
-      <span className={styles.helpful}>Was this review helpful? <a onClick={ handleOnClickHelpful}>Yes ({review.helpfulness})</a>
-      <a value='No' onClick={handleOnClickHelpful}> No ({notHelpfulCount})</a></span>
+      <span className={styles.helpful}>Was this review helpful? <a onClick={ handleOnClickHelpful} className={styles.hover}><u>Yes</u> ({review.helpfulness})</a>
+      <a value='No' onClick={handleOnClickHelpful} className={styles.hover}> <u>No</u> ({notHelpfulCount})</a></span>
 
-      <span onClick={handleOnClickReport}>Report</span>
+      <span onClick={handleOnClickReport} className={styles.hover}><u>Report</u></span>
     </div>
   )
 }
