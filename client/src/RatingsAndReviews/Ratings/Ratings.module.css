@@ -8,21 +8,18 @@
 }
 
 .starRatingItem {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
 }
 
 .numberRating {
-  margin-top: 20%;
-  text-align: center;
   vertical-align: auto;
-  font-size: 40px;
+  font-size: 100px;
   font-weight: bold;
 }
 
 .starRating {
   display: inline-block;
-  margin-top: 20%;
+  margin: 20px;
 }
 
 .characteristicsItem {
