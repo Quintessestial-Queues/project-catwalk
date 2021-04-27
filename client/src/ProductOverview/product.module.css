@@ -129,3 +129,9 @@
   right: 15px;
   top: 75px;
 }
+
+.reviewsLink {
+  text-decoration: underline;
+  display: inline;
+  font-size: small;
+}
