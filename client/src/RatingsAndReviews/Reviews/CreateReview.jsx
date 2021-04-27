@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const CreateReview = (ref) => {
   const { reviews, filteredReviews, setReviews } = useContext(RatingsAndReviewsContext);
-  const { getReviews, postReview } = useContext(APIContext);
+  const { getReviews, postReview, getReviewMetadata } = useContext(APIContext);
   const { productId } = useContext(ProductContext);
 
   const [clickedAddReview, setForm] = useState(false);
@@ -85,13 +85,13 @@ const CreateReview = (ref) => {
       let reviewPost = {
         product_id: Number(productId),
         rating: 4,
-        summary: 'Perty Good',
+        summary: headline,
         body: reviewBody,
         recommend: recommended,
         name: userName,
         email: email,
-        photos: [],
-        characteristics: { "14": 5, "15": 5, '16': 5, '17': 5},
+        photos: selectedFiles,
+        characteristics: {},
       }
       postReview(reviewPost)
         .then(() => {
