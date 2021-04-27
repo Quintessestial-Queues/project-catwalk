@@ -5,10 +5,11 @@ import styles from './CreateReview.module.css';
 import { APIContext } from '../../state/APIContext';
 import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext.js';
 import { ProductContext } from '../../state/ProductContext.js';
+import ReviewRating from './ReviewRating.jsx';
 import axios from 'axios';
 
 const CreateReview = (ref) => {
-  const { reviews, filteredReviews, setReviews } = useContext(RatingsAndReviewsContext);
+  const { reviews, filteredReviews, setReviews,reviewsMetadata, setReviewsMetadata} = useContext(RatingsAndReviewsContext);
   const { getReviews, postReview, getReviewMetadata } = useContext(APIContext);
   const { productId } = useContext(ProductContext);
 
@@ -22,7 +23,16 @@ const CreateReview = (ref) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [characteristics, setCharacteristics] = useState({});
+  const [rating, setRating] = useState(null);
 
+  useEffect(() => {
+    getReviewMetadata(productId)
+      .then(({data}) => {
+        let metadata = data;
+        setReviewsMetadata(metadata);
+        setCharacteristics(metadata.characteristics)
+      })
+  }, [])
 
   //TODO: When you click OUT of the form modal, go back to the default modal-less state
   const showForm = () => {
@@ -31,6 +41,18 @@ const CreateReview = (ref) => {
         <div className={styles.modalMain}>
           <h3>Create Review</h3>
           <form className={styles.reviewFormContainer} onSubmit={handleSubmit}>
+
+          <div className='reviewRating'>
+            <h3>Overall rating</h3>
+            <ReviewRating rating={rating} setRating={setRating}/>
+          </div>
+
+          <div className='recommendedRadio'>
+            <span>Would you recommend this product?
+              <input type="radio" value="Yes"/> Yes
+              <input type="radio" value="No" /> No
+            </span>
+          </div>
 
           <div className={styles.imageUploader}>
             <h4>Add photos</h4>
@@ -44,6 +66,8 @@ const CreateReview = (ref) => {
               <img src={selectedFiles[3]} className={styles.selectedImage}/>
             </div>
           </div>
+
+
 
           <div className={styles.headline}>
             <h4>Add a headline</h4>
