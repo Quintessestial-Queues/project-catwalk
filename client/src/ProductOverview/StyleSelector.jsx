@@ -32,7 +32,6 @@ function StyleSelector() {
   }, [currentSkuObj])
 
   useEffect(() => {
-    console.log('update quantity ')
     updateQuantity();
   }, [currentSkuObj])
 
@@ -75,7 +74,6 @@ function StyleSelector() {
 
     // filter for the right obj by the size
     const sku = skuArray.filter(sku => {
-      console.log(sku)
       return sku.size == selected;
     })[0]
 
