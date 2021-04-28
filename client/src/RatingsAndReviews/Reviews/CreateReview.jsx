@@ -14,28 +14,51 @@ const CreateReview = (ref) => {
   const { productId } = useContext(ProductContext);
 
   const [clickedAddReview, setForm] = useState(false);
-  const [headline, setHeadline] = useState('');
-  const [reviewSummary, setReviewSummary] = useState('');
-  const [reviewBody, setReviewBody] = useState('');
+  const [headline, setHeadline] = useState("");
+  const [reviewSummary, setReviewSummary] = useState("");
+  const [reviewBody, setReviewBody] = useState("");
   const [recommended, setRecommended] = useState(false);
-  const [userName, setUserName] = useState('Anonymous');
-  const [email, setEmail] = useState('anonymous.gmail.com');
+  const [userName, setUserName] = useState("Anonymous");
+  const [email, setEmail] = useState("anonymous@gmail.com");
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [characteristics, setCharacteristics] = useState({});
+  const [charIds, setCharIds] = useState([]);
   const [rating, setRating] = useState(null);
+  const [size, setSize] = useState(null);
+  const [width, setWidth] = useState(null);
+  const [comfort, setComfort] = useState(null);
+  const [quality, setQuality] = useState(null);
 
   useEffect(() => {
     getReviewMetadata(productId)
       .then(({data}) => {
         let metadata = data;
         setReviewsMetadata(metadata);
-        setCharacteristics(metadata.characteristics)
+        let characteristicsId = [];
+        for (let key in metadata.characteristics) {
+          let currentChar = metadata.characteristics[key];
+          let charId = currentChar.id;
+          characteristicsId.push(charId);
+        }
+        setCharIds(characteristicsId)
       })
   }, [])
 
+  useEffect(() => {
+    let characteristicsIdandValue = {};
+        size ? characteristicsIdandValue[charIds[0]] = Number(size) : null;
+        width ? characteristicsIdandValue[charIds[1]] = Number(width) : null;
+        comfort ? characteristicsIdandValue[charIds[2]] = Number(comfort) : null;
+        quality ? characteristicsIdandValue[charIds[3]] = Number(quality) : null;
+        console.log(characteristicsIdandValue);
+        setCharacteristics(characteristicsIdandValue);
+  }, [size, width, comfort, quality])
+
   //TODO: When you click OUT of the form modal, go back to the default modal-less state
   const showForm = () => {
+
+    let characteristicsKeys = Object.keys(reviewsMetadata.characteristics);
     return (
       <div className={styles.modal}>
         <div className={styles.modalMain}>
@@ -49,9 +72,55 @@ const CreateReview = (ref) => {
 
           <div className='recommendedRadio'>
             <span>Would you recommend this product?
-              <input type="radio" value="Yes"/> Yes
-              <input type="radio" value="No" /> No
+              <input type="radio" value="Yes" onClick={ () => {
+                setRecommended(true);
+              }}/> Yes
+              <input type="radio" value="No" onClick={ () => {
+                setRecommended(false);
+              }}/> No
             </span>
+          </div>
+
+          <div className='characteristicsRadio'>
+            {characteristicsKeys.map((key) => {
+              return (<div value={key}>{key}
+                <span><input type='radio' onClick={() => {
+                  key === 'Size' ? setSize(event.target.value) :
+                  key === 'Width' ? setWidth(event.target.value) :
+                  key === 'Comfort' ? setComfort(event.target.value) :
+                  key === 'Quality' ? setQuality(event.target.value) :
+                  null
+                }} value={1}/>1</span>
+                <span><input type='radio' onClick={() => {
+                  key === 'Size' ? setSize(event.target.value) :
+                  key === 'Width' ? setWidth(event.target.value) :
+                  key === 'Comfort' ? setComfort(event.target.value) :
+                  key === 'Quality' ? setQuality(event.target.value) :
+                  null
+                }} value={2}/>2</span>
+                <span><input type='radio' onClick={() => {
+                  key === 'Size' ? setSize(event.target.value) :
+                  key === 'Width' ? setWidth(event.target.value) :
+                  key === 'Comfort' ? setComfort(event.target.value) :
+                  key === 'Quality' ? setQuality(event.target.value) :
+                  null
+                }} value={3}/>3</span>
+                <span><input type='radio' onClick={() => {
+                  key === 'Size' ? setSize(event.target.value) :
+                  key === 'Width' ? setWidth(event.target.value) :
+                  key === 'Comfort' ? setComfort(event.target.value) :
+                  key === 'Quality' ? setQuality(event.target.value) :
+                  null
+                }} value={4}/>4</span>
+                <span><input type='radio' onClick={() => {
+                  key === 'Size' ? setSize(event.target.value) :
+                  key === 'Width' ? setWidth(event.target.value) :
+                  key === 'Comfort' ? setComfort(event.target.value) :
+                  key === 'Quality' ? setQuality(event.target.value) :
+                  null
+                }} value={5}/>5</span>
+              </div>)
+            })}
           </div>
 
           <div className={styles.imageUploader}>
@@ -71,7 +140,7 @@ const CreateReview = (ref) => {
 
           <div className={styles.headline}>
             <h4>Add a headline</h4>
-            <input className={styles.headlineText} type='text' value={headline} onChange={e => setHeadline(e.target.value)}></input>
+            <input className={styles.headlineText} type='text' value={headline} onChange={e => setHeadline(e.target.value)} placeholder={'Example: Best purchase ever!'}></input>
           </div>
 
           <div className={styles.reviewBody}>
@@ -107,16 +176,17 @@ const CreateReview = (ref) => {
       alert('Review should be between 50 and 1000 characters long');
     } else {
       let reviewPost = {
-        product_id: Number(productId),
-        rating: 4,
-        summary: headline,
-        body: reviewBody,
-        recommend: recommended,
-        name: userName,
-        email: email,
-        photos: selectedFiles,
-        characteristics: {},
+        "product_id": Number(productId),
+        "rating": Number(rating),
+        "summary": headline,
+        "body": reviewBody,
+        "recommend": recommended,
+        "name": userName,
+        "email": email,
+        "photos": [selectedFile, ...selectedFiles],
+        "characteristics": characteristics,
       }
+      console.log(reviewPost);
       postReview(reviewPost)
         .then(() => {
           console.log('Successfully posted review')

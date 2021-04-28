@@ -13,7 +13,7 @@ const ReviewRating = ({rating, setRating}) => {
       const ratingValue = i + 1;
 
       return <label>
-        <input type='radio' className={styles.rating} name='rating' value={ratingValue} onClick={() => {
+        <input type='radio' className={styles.rating} name='rating' value={ratingValue} key={i} onClick={() => {
           setRating(ratingValue)
         }}/>
         <FaStar className={styles.star} color={ratingValue <= hover || rating ? '#ffc107' : 'e4e5e9'} size={30} onMouseEnter={() => {
