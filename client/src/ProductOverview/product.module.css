@@ -49,6 +49,7 @@
 
 .strikeThrough {
   text-decoration-line: line-through;
+  color: black;
 }
 .salePrice {
   color: red

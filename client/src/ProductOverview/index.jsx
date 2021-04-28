@@ -58,7 +58,7 @@ function ProductOverview() {
           currentStyle.sale_price
             ?
             (<p className={styles.salePrice}>
-              ${currentStyle.sale_price}
+              ${currentStyle.sale_price} {' '}
               <span className={styles.strikeThrough}>{currentStyle.original_price} </span>
             </p>)
             :
