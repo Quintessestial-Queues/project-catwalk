@@ -17,20 +17,19 @@ export class RelatedProductsProvider extends Component {
   setProductStyles = (styles) => {
     this.setState({relatedProductStyles: styles})
   }
-  handleRelatedProducts = (id) => {
-    var products = this.state.relatedProductIds.map(id => {
-
-    })
+  setLoadRelated = () => {
+    this.setState({loadRelated: !this.state.loadRelated})
   };
 
   state = {
     relatedProductIds: [],
     relatedProducts: [],
     relatedProductStyles: [],
-    handleRelatedProducts: this.handleRelatedProducts,
+    loadRelated: false,
     setRelatedProductIds: this.setRelatedProductIds,
     setRelatedProducts: this.setRelatedProducts,
-    setProductStyles: this.setProductStyles
+    setProductStyles: this.setProductStyles,
+    setLoadRelated: this.setLoadRelated
   };
 
   render() {

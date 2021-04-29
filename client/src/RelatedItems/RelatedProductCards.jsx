@@ -3,13 +3,13 @@ import ProductCard from './ProductCard.jsx'
 import styles from './relatedItems.module.css'
 import { dummyProductStyles } from '../dummyData.js'
 
-const RelatedProductCards = ({ products, handleClick, images }) => {
+const RelatedProductCards = ({ products, handleClick, images, load }) => {
 
   return (
     <div>
       <h3 id={styles.relatedItemsTitle}>Related Items and Comparisons</h3>
       <div id={styles.relatedProductsContainer}>
-        {images && images.length > 0 && products && products.length > 0 && products.map((product, index) => {
+        {products && products.length > 0 && products.map((product, index) => {
           return <ProductCard product={product} handleClick={handleClick} key={product.id} images={images}/>
         })}
       </div>

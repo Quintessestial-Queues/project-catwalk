@@ -27,7 +27,6 @@ let ReviewItem = ({review}) => {
   }}>Show More</button> : null;
 
   let reviewId = review.review_id;
-  console.log(reviewId);
 
   useEffect(() => {
     setCount(helpfulnessCount);

@@ -4,14 +4,24 @@ import styles from './relatedItems.module.css'
 import xIcon from '../../../assets/x-icon.svg';
 
 const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, images, url }) => {
-
+  const [isModalVisible, setIsModalVisible] = useState(false)
   // Event Components
   function RemoveButton() {
     return (
-      <div>
-        <button className={styles.productButton} onClick={() => {handleRemove(product)}}>
-          <img src={xIcon} />
+      <div className={styles.productButton}>
+        <button onClick={() => {handleRemove(product)}}>
+          <img src={xIcon} className={styles.icon}/>
         </button>
+      </div>
+    )
+  }
+  function ModalButton() {
+    return (
+      <div className={styles.productButton}>
+        <button onClick={() => setIsModalVisible(!isModalVisible)}>
+          <img src={xIcon} className={styles.icon}/>
+        </button>
+        {isModalVisible && <ComparisonModal comparedProduct={product}/>}
       </div>
     )
   }
@@ -28,7 +38,7 @@ const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, i
     })
     if (option) {
       return image[0]
-    } else {
+    } else if (image[0]) {
       var url = image[0].results[0].photos[0].thumbnail_url
       return url
     }
@@ -36,7 +46,7 @@ const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, i
 
   return (
     <div className={styles.productCard}>
-      {/* {button} */}
+      {button}
       <div className={styles.img}>
         <img src={url || findThumbnail(images, product.id)} onClick={() => handleClick(product, findThumbnail(images, product.id, 1))} className={styles.img}/>
       </div>

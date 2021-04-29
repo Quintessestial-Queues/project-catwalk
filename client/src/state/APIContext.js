@@ -46,30 +46,27 @@ const APIProvider = ({ children }) => {
     //returns array of id's
     try {
       const ids = await axios.get(`${API_URL}/products/${id}/related`, options);
-      setRelatedProductIds([...new Set(ids.data)])
+      var idArray = ([...new Set(ids.data)])
+      return idArray
     } catch (err) {
       console.log(err);
     }
   };
 
   // get products
-  const getProducts = async (idArray) => {
+  const getProducts = async (id) => {
     // returns array of product obj's
-    const promises = idArray.map(async (id) => {
+    const idArray = await getRelatedProductIds(id)
+    const products = idArray.map(async (id) => {
       const product = await getProductById(id)
       return product
       })
-    setRelatedProducts(await Promise.all(promises))
-  }
-
-  // get styles
-  const getStyles = async (idArray) => {
-    // returns array of style obj's
-    const promises = idArray.map(async (id) => {
+    const styles = idArray.map(async (id) => {
       const style = await getProductStylesById(id)
       return style
-      })
-    setProductStyles(await Promise.all(promises))
+    })
+    setProductStyles(await Promise.all(styles))
+    setRelatedProducts(await Promise.all(products))
   }
 
   // interaction
@@ -140,7 +137,7 @@ const APIProvider = ({ children }) => {
         getProductStylesById,
         getRelatedProductIds,
         getProducts,
-        getStyles,
+        // getStyles,
         postInteraction,
         getReviews,
         getReviewMetadata,

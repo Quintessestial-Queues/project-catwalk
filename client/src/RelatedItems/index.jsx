@@ -15,7 +15,7 @@ function RelatedItems () {
 
   // Context ------------------------------------------------------------------
   const {
-    relatedProducts, relatedProductIds, relatedProductStyles
+    relatedProducts, relatedProductIds, relatedProductStyles, loadRelated, setLoadRelated
   } = useContext(RelatedProductsContext);
   const {
     product, setProduct, productStyles, setProductStyles, currentStyle, handleProductChange
@@ -37,22 +37,18 @@ function RelatedItems () {
   }
   var handleProductClick = (product, productStyle) => {
     handleProductChange(product, productStyle)
-    // getRelatedProductIds(product.id)
+    // setLoadRelated()
   }
 
   // Lifecycle Methods --------------------------------------------------------
   var productList = []
   useEffect(() => {
-    getRelatedProductIds(product.id)
-  }, [])
-  useEffect(() => {
-    getStyles(relatedProductIds)
-    getProducts(relatedProductIds)
-  }, [relatedProductIds])
+    getProducts(product.id)
+  }, [product])
 
   return (
     <div id={styles.relatedItemsGrid}>
-      <RelatedProductCards products={relatedProducts} images={relatedProductStyles} handleClick={handleProductClick}/>
+      <RelatedProductCards products={relatedProducts} images={relatedProductStyles} handleClick={handleProductClick} load={loadRelated}/>
       <YourOutfit outfits={outfitList} images={relatedProductStyles} handleAddOutfit={handleAddOutfit} handleRemove={handleRemove}/>
     </div>
   )
