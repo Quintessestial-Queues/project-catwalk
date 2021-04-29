@@ -6,6 +6,8 @@ import { RatingsAndReviewsContext } from '../../state/RatingsAndReviewsContext'
 const StarFilter = (props) => {
   const { reviews, filteredReviews, setFilteredReviews, starFilters, setStarFilters } = useContext(RatingsAndReviewsContext);
 
+  const [recommendedPercentage, setRecommendedPercentage] = useState(0);
+
   const getFraction = (targetNumber) => {
     let filtered = reviews.filter((review, i) => {
       return review.rating === targetNumber;
@@ -26,7 +28,14 @@ const StarFilter = (props) => {
       return starFilters.length ? starFilters.includes(review.rating) : true;
     });
     setFilteredReviews(starFiltered);
-
+    let totalRecommended = reviews.reduce((accum, review, i) => {
+      if (review.recommend) {
+        accum += 1;
+      }
+      return accum;
+    }, 0)
+    let recommendedPercentageValue = Math.round((totalRecommended/reviews.length) * 100)
+    setRecommendedPercentage(recommendedPercentageValue)
   }, [reviews])
 
   const [fiveStarFraction, setFiveStarFraction] = useState(() => {
@@ -77,7 +86,12 @@ const StarFilter = (props) => {
 
       <div className={styles.starFilterItem}><span value={1} onClick={handleOnClickStars} className={styles.starLabel}>1 Stars</span> <RatingsBar ratingFraction={oneStarFraction} filterValue={1} handleOnClickStars={handleOnClickStars}/></div>
 
-      <div>Recommended</div>
+      <div className={styles.removeAllFilters} onClick={() => {
+        setStarFilters([])
+        setFilteredReviews(reviews);
+      }}>Remove All Filters</div>
+
+      <div className={styles.recommendedPercentage}>{recommendedPercentage}% Recommend this Product</div>
     </div>
   )
 }

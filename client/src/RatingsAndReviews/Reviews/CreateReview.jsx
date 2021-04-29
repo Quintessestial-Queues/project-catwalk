@@ -8,7 +8,7 @@ import { ProductContext } from '../../state/ProductContext.js';
 import ReviewRating from './ReviewRating.jsx';
 import axios from 'axios';
 
-const CreateReview = (ref) => {
+const CreateReview = (props) => {
   const { reviews, filteredReviews, setReviews,reviewsMetadata, setReviewsMetadata} = useContext(RatingsAndReviewsContext);
   const { getReviews, postReview, getReviewMetadata } = useContext(APIContext);
   const { productId } = useContext(ProductContext);
@@ -18,8 +18,8 @@ const CreateReview = (ref) => {
   const [reviewSummary, setReviewSummary] = useState("");
   const [reviewBody, setReviewBody] = useState("");
   const [recommended, setRecommended] = useState(false);
-  const [userName, setUserName] = useState("Anonymous");
-  const [email, setEmail] = useState("anonymous@gmail.com");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [characteristics, setCharacteristics] = useState({});
@@ -51,7 +51,6 @@ const CreateReview = (ref) => {
         width ? characteristicsIdandValue[charIds[1]] = Number(width) : null;
         comfort ? characteristicsIdandValue[charIds[2]] = Number(comfort) : null;
         quality ? characteristicsIdandValue[charIds[3]] = Number(quality) : null;
-        console.log(characteristicsIdandValue);
         setCharacteristics(characteristicsIdandValue);
   }, [size, width, comfort, quality])
 
@@ -82,8 +81,8 @@ const CreateReview = (ref) => {
           </div>
 
           <div className='characteristicsRadio'>
-            {characteristicsKeys.map((key) => {
-              return (<div value={key}>{key}
+            {characteristicsKeys.map((key, i) => {
+              return (<div key={i} value={key}>{key}
                 <span><input type='radio' onClick={() => {
                   key === 'Size' ? setSize(event.target.value) :
                   key === 'Width' ? setWidth(event.target.value) :
@@ -143,9 +142,20 @@ const CreateReview = (ref) => {
             <input className={styles.headlineText} type='text' value={headline} onChange={e => setHeadline(e.target.value)} placeholder={'Example: Best purchase ever!'}></input>
           </div>
 
+          <div className={styles.username}>
+            <h4>Username</h4>
+            <input className={styles.usernameText} type='text' value={userName} onChange={e => setUserName(e.target.value)} placeholder={'Example: CoolDude420'}></input>
+          </div>
+
+          <div className={styles.email}>
+            <h4>Email</h4>
+            <input className={styles.emailText}type='text' value={email} onChange={e => setEmail(e.target.value)} placeholder={'Example: awesomebuyer@gmail.com'}/>
+          </div>
+
           <div className={styles.reviewBody}>
             <h4>Write your review</h4>
             <textarea className={styles.reviewBodyText} value={reviewBody} onChange={e => setReviewBody(e.target.value)}></textarea>
+            <span>{reviewBody.length < 50 ? `Minimum required characters left: ${50 - reviewBody.length}` : `Minimum reached`} </span>
             <button>Submit</button>
           </div>
         </form>
