@@ -67,16 +67,17 @@ const StarFilter = (props) => {
 
   return (
     <div className={styles.starFilterContainer}>
-      <div className={styles.starFilterItem}><span value={5} onClick={handleOnClickStars} className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction} /></div>
+      <div className={styles.starFilterItem} ><span value={5} onClick={handleOnClickStars} className={styles.starLabel}>5 Stars</span> <RatingsBar ratingFraction={fiveStarFraction} filterValue={5} handleOnClickStars={handleOnClickStars}/></div>
 
-      <div className={styles.starFilterItem}><span value={4} onClick={handleOnClickStars} className={styles.starLabel}>4 Stars</span> <RatingsBar ratingFraction={fourStarFraction} /></div>
+      <div className={styles.starFilterItem}><span value={4} onClick={handleOnClickStars} className={styles.starLabel}>4 Stars</span> <RatingsBar ratingFraction={fourStarFraction} filterValue={4} handleOnClickStars={handleOnClickStars}/></div>
 
-      <div className={styles.starFilterItem}><span value={3} onClick={handleOnClickStars} className={styles.starLabel}>3 Stars</span> <RatingsBar ratingFraction={threeStarFraction} /></div>
+      <div className={styles.starFilterItem}><span value={3} onClick={handleOnClickStars} className={styles.starLabel}>3 Stars</span> <RatingsBar ratingFraction={threeStarFraction} filterValue={3} handleOnClickStars={handleOnClickStars}/></div>
 
-      <div className={styles.starFilterItem}><span value={2} onClick={handleOnClickStars} className={styles.starLabel}>2 Stars</span> <RatingsBar ratingFraction={twoStarFraction} /></div>
+      <div className={styles.starFilterItem}><span value={2} onClick={handleOnClickStars} className={styles.starLabel}>2 Stars</span> <RatingsBar ratingFraction={twoStarFraction} filterValue={2} handleOnClickStars={handleOnClickStars}/></div>
 
-      <div className={styles.starFilterItem}><span value={1} onClick={handleOnClickStars} className={styles.starLabel}>1 Stars</span> <RatingsBar ratingFraction={oneStarFraction} /></div>
+      <div className={styles.starFilterItem}><span value={1} onClick={handleOnClickStars} className={styles.starLabel}>1 Stars</span> <RatingsBar ratingFraction={oneStarFraction} filterValue={1} handleOnClickStars={handleOnClickStars}/></div>
 
+      <div>Recommended</div>
     </div>
   )
 }
