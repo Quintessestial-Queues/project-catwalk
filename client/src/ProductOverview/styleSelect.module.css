@@ -9,6 +9,10 @@
   display: flex;
   min-height: 100px;
   margin: 20px 0;
+  flex-wrap: wrap;
+  width: 250px;
+  min-height: 100px;
+  margin: 20px 0;
 }
 .singleStyle {
   width: 50px;
