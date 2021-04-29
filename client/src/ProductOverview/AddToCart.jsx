@@ -4,12 +4,16 @@ import styles from './styleSelect.module.css';
 // context
 // import { ProductContext } from '../state/ProductContext.js';
 
-const AddToCart = ({sizes, quantity}) => {
+const AddToCart = ({sizes, quantity, selectSize}) => {
   const quantities = [...Array(quantity + 1).keys()]
   return (
     <form className={styles.btnWrap}>
-    <select className={styles.selectSize} name='size' id='size-select'>
-        <option value='default'>--Please choose an option--</option>
+    <select
+      className={styles.selectSize}
+      name='size'
+      id='size-select'
+      onChange={selectSize}>
+        <option value='default'>Select Size</option>
         {sizes && sizes.length && sizes.map((size, index)=> {
           return (
             <option key={index} value={size}>{size}</option>
@@ -19,7 +23,7 @@ const AddToCart = ({sizes, quantity}) => {
 
 
     <select className={styles.selectQuantity} name='quantity' id='quantity-select'>
-      <option value='default'>--Please choose an option--</option>
+      <option value='default'>Select Quantity</option>
       {quantities && quantities.length && quantities.map((q, i) => {
         return (
           <option key={i} value={q}>{q}</option>
