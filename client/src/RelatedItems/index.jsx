@@ -28,6 +28,7 @@ function RelatedItems () {
   var handleAddOutfit = (product, style) => {
     var productId = product.id
     product.style = style.photos[0].thumbnail_url
+
     if (!outfitList.some(obj => obj.id === productId)) {
       setOutfit([...outfitList, product])
     }
