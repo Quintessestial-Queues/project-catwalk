@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { Suspense, useState, useEffect, useContext } from 'react';
+import { lazy } from '@loadable/component'
+
 import styles from './product.module.css';
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
 
@@ -8,7 +10,7 @@ import { RatingsAndReviewsContext } from '../state/RatingsAndReviewsContext.js';
 
 //components
 import StarRating from '../SharedComponents/StarRating.jsx';
-import Gallery from './Gallery.jsx';
+const Gallery = lazy(() => import('./Gallery.jsx'));
 import StyleSelector from './StyleSelector.jsx';
 
 // utils
@@ -35,10 +37,12 @@ function ProductOverview() {
       <div className={`${styles.item} ${styles.announcement}`}>
         <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
+      <Suspense fallback={<div styles={{ textAlign: 'center'}}>Loading...</div>}>
 
-      <Gallery
-        defaultView={defaultView}
-        setDefaultView={setDefaultView} />
+        <Gallery
+          defaultView={defaultView}
+          setDefaultView={setDefaultView} />
+      </Suspense>
 
       <div className={defaultView === true ? `${styles.item} ${styles.productInfo}` : `${styles.hide}`}>
         <StarRating

@@ -117,8 +117,7 @@
 }
 
 .slide {
-  height: 100%;
-  width: 100%;
+  max-width: 700px;
   max-height: 600px;
 }
 
