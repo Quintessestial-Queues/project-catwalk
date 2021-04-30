@@ -1,11 +1,12 @@
 import React from 'react';
+import loadable from '@loadable/component';
 
 // components
 import ProductOverview from './ProductOverview/index.jsx';
-import QuestionsAnswers from './QuestionsAnswers/index.jsx';
-import RelatedItems from './RelatedItems/index.jsx';
-import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
-import MouseTracker from '../src/SharedComponents/MouseTracker.jsx';
+const QuestionsAnswers = loadable(() => import('./QuestionsAnswers/index.jsx'));
+const RelatedItems = loadable(() => import('./RelatedItems/index.jsx'));
+const RatingsAndReviews = loadable(() => import('./RatingsAndReviews/RatingsAndReviews.jsx'));
+const MouseTracker = loadable(() => import('../src/SharedComponents/MouseTracker.jsx'));
 
 // styles
 import styles from './app.module.css';
