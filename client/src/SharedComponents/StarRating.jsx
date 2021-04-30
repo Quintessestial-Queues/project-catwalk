@@ -78,7 +78,7 @@ const StarRating = ({
   }
 
   return (
-    <div>
+    <div className={styles.starRatingWrapper}>
       {starState.map((star, index) => {
         switch (star) {
           case 'empty':

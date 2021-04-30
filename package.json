@@ -22,6 +22,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
+    "build": "webpack --mode production",
     "test": "jest --collectCoverage",
     "dev:react": "live-server ./client/dist & webpack --mode development -w",
     "dev": "live-server ./client/dist"
