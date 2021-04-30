@@ -38,7 +38,10 @@ const Characteristics = (props) => {
   return (
     <div className={styles.characteristicsContainer}>
 
-      <div className='grid'><div>Size</div><CharacteristicsBar characteristicData={valuesArr.length > 0 ? valuesArr[0] : null}/><div className={styles.characteristicsBarContainer}><span>Runs Small</span>  <span >Just Right</span> <span>Runs Big</span></div></div>
+      <div className='grid'><div>Size</div><CharacteristicsBar characteristicData={valuesArr.length > 0 ? valuesArr[0] : null}/><div className={styles.characteristicsBarContainer}><span>Runs Small</span>  <span style={{
+        position: 'relative',
+        left: '-9px'
+      }}>Just Right</span> <span>Runs Big</span></div></div>
 
       <div><span>Width</span><CharacteristicsBar characteristicData={valuesArr.length > 0 ? valuesArr[1] : null}/><div className={styles.characteristicsBarContainer}><span>Runs Tight</span>  <span >Just Right</span> <span>Runs Wide</span></div></div>
 

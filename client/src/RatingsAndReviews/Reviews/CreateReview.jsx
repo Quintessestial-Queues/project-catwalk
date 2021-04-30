@@ -33,6 +33,7 @@ const CreateReview = (props) => {
   const [emailError, setEmailError] = useState("");
   const [ratingError, setRatingError] = useState("");
   const [reviewBodyError, setReviewBodyError] = useState("");
+  const [userError, setUserError] = useState("");
 
   useEffect(() => {
     getReviewMetadata(productId)
@@ -83,10 +84,10 @@ const CreateReview = (props) => {
 
           <div className='recommendedRadio'>
             <span>Would you recommend this product?
-              <input type="radio" value="Yes" onClick={ () => {
+              <input name='recommended'type="radio" value="Yes" onClick={ () => {
                 setRecommended(true);
               }}/> Yes
-              <input type="radio" value="No" onClick={ () => {
+              <input name='recommended' type="radio" value="No" onClick={ () => {
                 setRecommended(false);
               }}/> No
             </span>
@@ -163,11 +164,20 @@ const CreateReview = (props) => {
           <div className={styles.username}>
             <h4>Username</h4>
             <input className={styles.inputText} type='text' value={userName} onChange={e => setUserName(e.target.value)} placeholder={'Example: CoolDude420'}></input>
+            <div className={styles.note}>
+              For privacy reasons, do not use your full name or email address
+            </div>
+            <div className={styles.errorMessage}>
+              {userError}
+            </div>
           </div>
 
           <div className={styles.email}>
             <h4>Email</h4>
             <input className={styles.inputText}type='text' value={email} onChange={e => setEmail(e.target.value)} placeholder={'Example: awesomebuyer@gmail.com'}/>
+            <div className={styles.note}>
+              For authentication reasons, you will not be emailed
+            </div>
             <div className={styles.errorMessage}>
               {`  ${emailError}`}
             </div>
@@ -175,9 +185,9 @@ const CreateReview = (props) => {
 
           <div className={styles.reviewBody}>
             <h4>Write your review</h4>
-            <textarea placeholder={`I gave these to my kids and they love it! What a great product! Would recommend!`} className={styles.reviewBodyText} value={reviewBody} onChange={e => setReviewBody(e.target.value)}></textarea><div className={styles.errorMessage}>{reviewBodyError}</div>
+            <textarea placeholder={`Example: I gave these to my kids and they love it! What a great product! Would recommend!`} className={styles.reviewBodyText} value={reviewBody} onChange={e => setReviewBody(e.target.value)}></textarea><div className={styles.errorMessage}>{reviewBodyError}</div>
             <span>{reviewBody.length < 50 ? `Minimum required characters left: ${50 - reviewBody.length}` : `Minimum reached`} </span>
-            <button>Submit</button>
+            <button className={styles.formButton}>Submit</button>
           </div>
         </form>
         </div>
@@ -207,6 +217,7 @@ const CreateReview = (props) => {
     setEmailError("");
     setReviewBodyError("");
     setRatingError("");
+    setUserError("");
   }
 
   const resetForm = () => {
@@ -231,6 +242,7 @@ const CreateReview = (props) => {
     let reviewBodyError = "";
     let emailError = "";
     let ratingError = "";
+    let userError = "";
     if (!rating) {
       ratingError = 'Please enter a rating';
     }
@@ -243,10 +255,15 @@ const CreateReview = (props) => {
       emailError = 'Please enter a valid email address';
     }
 
-    if (emailError || reviewBodyError || ratingError) {
+    if (!userName) {
+      userError = 'Please enter a valid username';
+    }
+
+    if (emailError || reviewBodyError || ratingError || userError) {
       setRatingError(ratingError);
       setReviewBodyError(reviewBodyError);
       setEmailError(emailError);
+      setUserError(userError);
       return false;
     }
     return true;

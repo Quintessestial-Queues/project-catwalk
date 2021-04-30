@@ -42,7 +42,7 @@ const RatingsBar = ({ratingFraction, handleOnClickStars, filterValue}) => {
     }} onMouseLeave={() => {
       setHovered(false);
     }} onClick={handleOnClickStars}>
-      <div style={hovered ? hoveredFillerStyles : fillerStyles}>
+      <div value={filterValue} style={hovered ? hoveredFillerStyles : fillerStyles}>
         <span></span>
       </div>
     </div>

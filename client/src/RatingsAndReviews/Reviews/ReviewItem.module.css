@@ -48,3 +48,10 @@
 .hover {
   cursor: pointer;
 }
+
+.showMoreButton {
+  width: 12%;
+  height: 25px;
+  padding: 5px;
+  margin: 5px;
+}

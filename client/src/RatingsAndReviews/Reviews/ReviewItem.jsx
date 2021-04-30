@@ -22,7 +22,7 @@ let ReviewItem = ({review}) => {
   let boldedSummary = review.summary.slice(0, 60);
   let restOfSummary = review.summary.length < 60 ? null : `...${review.summary.slice(60)}`;
   let body = !showMore ? review.body.slice(0, 250) : review.body;
-  let showMoreButton = review.body.length > 250 && !showMore ? <button onClick={() => {
+  let showMoreButton = review.body.length > 250 && !showMore ? <button className={styles.showMoreButton}onClick={() => {
     toggleShowMore(!showMore);
   }}>Show More</button> : null;
 
@@ -34,6 +34,7 @@ let ReviewItem = ({review}) => {
 
   const handleOnClickHelpful = (event) => {
     if (!clicked) {
+      console.log(event.target.getAttribute('value'))
       if (event.target.getAttribute('value') === 'No') {
         setNotHelpfulCount(notHelpfulCount + 1);
         setClicked(true);
@@ -94,7 +95,7 @@ let ReviewItem = ({review}) => {
       <div className={review.response ? styles.responseActive : styles.responseNormal}>{review.response ? `Response from seller: ${review.response}` : null}</div>
 
       <span className={styles.helpful}>Was this review helpful? <a onClick={ handleOnClickHelpful} className={styles.hover}><u>Yes</u> ({review.helpfulness})</a>
-      <a value='No' onClick={handleOnClickHelpful} className={styles.hover}> <u>No</u> ({notHelpfulCount})</a></span>
+      <a value='No' onClick={handleOnClickHelpful} className={styles.hover}> <u value='No'>No</u> ({notHelpfulCount})</a></span>
 
       <span onClick={handleOnClickReport} className={styles.hover}><u>Report</u></span>
     </div>
