@@ -15,14 +15,14 @@ const YourOutfit = ({ outfits, images, handleAddOutfit, handleRemove }) => {
     <div>
       <h3 id={styles.relatedItemsTitle}>Your Outfit</h3>
       <div id={styles.relatedProductsContainer}>
-        <div id={styles.addOutfitCard} onClick={() => {handleAddOutfit(product)}}>
+        <div id={styles.addOutfitCard} onClick={() => {handleAddOutfit(product, currentStyle)}}>
           <div className={styles.img}>
             <img src={PlusIcon} className={styles.img}/>
           </div>
-          <h2 className={styles.img}>Add to Outfit</h2>
+          <h2 id={styles.addOutfitText}>Add to Outfit</h2>
         </div>
         {outfits.map((outfit, index) => {
-          return <ProductCard product={outfit} buttonType={'remove'} key={outfit.id} url={currentStyle.photos[0].thumbnail_url} handleRemove={handleRemove}/>
+          return <ProductCard product={outfit} buttonType={'remove'} key={outfit.id} url={outfit.style} handleRemove={handleRemove}/>
         })}
       </div>
     </div>

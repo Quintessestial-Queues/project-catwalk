@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ProductInfo from './ProductInfo.jsx';
 import styles from './relatedItems.module.css'
 import xIcon from '../../../assets/x-icon.svg';
+import ComparisonModal from './ComparisonModal.jsx'
+import defaultPhoto from '../../../assets/cat.jpg'
 
 const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, images, url }) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -30,6 +32,9 @@ const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, i
   if (buttonType === 'remove') {
     var button = <RemoveButton/>
   }
+  // } else {
+  //   button = <ModalButton/>
+  // }
 
   // Image Selection
   function findThumbnail (images, id, option) {
@@ -39,8 +44,12 @@ const ProductCard = ({ product, outfit, handleClick, buttonType, handleRemove, i
     if (option) {
       return image[0]
     } else if (image[0]) {
-      var url = image[0].results[0].photos[0].thumbnail_url
-      return url
+        if (image[0].results[0].photos[0].thumbnail_url) {
+          var url = image[0].results[0].photos[0].thumbnail_url
+          return url
+        } else {
+          return defaultPhoto
+        }
     }
   }
 
