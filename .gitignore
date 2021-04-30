@@ -1,6 +1,9 @@
 # compiled files
 client/dist/bundle.js
 client/dist/bundle.js.map
+client/dist/*.bundle.js
+*.bundle.js
+
 
 # dependencies
 node_modules
