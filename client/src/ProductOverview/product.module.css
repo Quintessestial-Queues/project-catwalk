@@ -49,6 +49,7 @@
 
 .strikeThrough {
   text-decoration-line: line-through;
+  color: black;
 }
 .salePrice {
   color: red
@@ -116,8 +117,7 @@
 }
 
 .slide {
-  height: 100%;
-  width: 100%;
+  max-width: 700px;
   max-height: 600px;
 }
 
@@ -128,4 +128,10 @@
   position: absolute;
   right: 15px;
   top: 75px;
+}
+
+.reviewsLink {
+  text-decoration: underline;
+  display: inline;
+  font-size: small;
 }

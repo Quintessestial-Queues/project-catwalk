@@ -9,9 +9,9 @@ export const RatingsAndReviewsProvider = (props) => {
   const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState([]);
   const [starFilters, setStarFilters] = useState([]);
+  const [reviewsMetadata, setReviewsMetadata] = useState({})
 
 
-  
 
   return (
     <RatingsAndReviewsContext.Provider value={{
@@ -20,7 +20,9 @@ export const RatingsAndReviewsProvider = (props) => {
       filteredReviews,
       setFilteredReviews,
       starFilters,
-      setStarFilters
+      setStarFilters,
+      reviewsMetadata,
+      setReviewsMetadata
     }} >
       {props.children}
     </RatingsAndReviewsContext.Provider>

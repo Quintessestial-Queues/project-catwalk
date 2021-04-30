@@ -1,22 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { Suspense, useState, useEffect, useContext } from 'react';
+import { lazy } from '@loadable/component'
+
 import styles from './product.module.css';
 import { dummyProduct, dummyProductStyles } from '../dummyData.js'
 
 // context
 import { ProductContext } from '../state/ProductContext.js';
+import { RatingsAndReviewsContext } from '../state/RatingsAndReviewsContext.js';
 
 //components
 import StarRating from '../SharedComponents/StarRating.jsx';
-import Gallery from './Gallery.jsx';
+const Gallery = lazy(() => import('./Gallery.jsx'));
 import StyleSelector from './StyleSelector.jsx';
+
+// utils
+import { getAverageRating } from '../utils/getAverageRating.js';
 
 function ProductOverview() {
   const {
     product, setProduct, productStyles, setProductStyles, currentStyle
   } = useContext(ProductContext);
 
-  const [defaultView, setDefaultView] = useState(true);
+  const { reviews } = useContext(RatingsAndReviewsContext);
 
+  const [defaultView, setDefaultView] = useState(true);
+  const [averageRating, setAverageRating] = useState(0);
+
+  useEffect(() => {
+    const average = getAverageRating(reviews);
+    setAverageRating(average);
+  }, [reviews])
 
   return (
     <div className={styles.grid}>
@@ -24,22 +37,32 @@ function ProductOverview() {
       <div className={`${styles.item} ${styles.announcement}`}>
         <p><i>SITE-WIDE ANNOUNCEMENT</i> -- SALE / DISCOUNT <b>OFFER</b> -- <a href='#'>NEW PRODUCT HIGHLIGHT</a></p>
       </div>
+      <Suspense fallback={<div styles={{ textAlign: 'center'}}>Loading...</div>}>
 
-      <Gallery
-        defaultView={defaultView}
-        setDefaultView={setDefaultView} />
+        <Gallery
+          defaultView={defaultView}
+          setDefaultView={setDefaultView} />
+      </Suspense>
 
       <div className={defaultView === true ? `${styles.item} ${styles.productInfo}` : `${styles.hide}`}>
         <StarRating
-          starRating={1.6}
+          starRating={averageRating}
         />
+        <a
+          onClick={() => {
+            console.log('clicked')
+            const titleElement = document.getElementById('ratings')
+            titleElement.scrollIntoView({ behavior: 'smooth' })
+          }}
+          className={styles.reviewsLink}
+          >See All Reviews</a>
         <p className={styles.category}> {product.category} </p>
         <h1 className={styles.productTitle}> {product.name} </h1>
         {
           currentStyle.sale_price
             ?
             (<p className={styles.salePrice}>
-              ${currentStyle.sale_price}
+              ${currentStyle.sale_price} {' '}
               <span className={styles.strikeThrough}>{currentStyle.original_price} </span>
             </p>)
             :

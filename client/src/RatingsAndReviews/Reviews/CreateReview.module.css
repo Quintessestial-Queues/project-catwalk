@@ -1,14 +1,29 @@
 
 .reviewFormContainer {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  border: solid
+  grid-template-columns: auto;
+  grid-template-rows: auto 30px auto 160px auto auto auto 200px;
+}
+
+.createReviewHeadline {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
+}
+
+.photos {
+  border-top: 1px solid lightgrey;
+  padding-top: 10px;
+}
+
+.overAllRating {
+  box-sizing: border-box;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .imageUploader {
+  width: 100%;
   display: grid;
-  border: solid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr;
 }
@@ -22,24 +37,45 @@
 }
 
 .headline {
-  border: solid;
-
+  border-top: 1px solid lightgrey
 }
 
-.headlineText {
-  width: 50%;
+.inputText {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 0 20px 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.username {
+  border-top: 1px solid lightgrey;
+  box-sizing: border-box;
+}
+
+.email {
+  border-top: 1px solid lightgrey
 }
 
 .reviewBody {
-  border: solid;
+  border-top: 1px solid lightgrey
 }
 
 .reviewBodyText {
-  height: 50%;
-  width: 50%;
+  height: 30%;
+  width: 100%;
   display: block;
+  background-color: #eee;
+  min-height: 70px;
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 0 5px 0;
+  padding: 5px;
+  box-sizing: border-box;
 }
-
 
 .modal {
   position: fixed;
@@ -52,14 +88,17 @@
 
 .modalMain {
   position:fixed;
-  background: white;
-  width: 80%;
+  background: #fff;
+  width: 60%;
   height: auto;
   top:50%;
   left:50%;
+  padding: 40px;
   transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2)
 }
-
 
 .addAReviewButton {
   display: inline-block;
@@ -67,4 +106,8 @@
   height: 45px;
   padding: 10px;
   margin: 10px;
+}
+
+.errorMessage {
+  color: red;
 }

@@ -21,7 +21,8 @@
   "description": "Front End Capstone",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "build": "webpack --mode production",
     "test": "jest --collectCoverage",
     "dev:react": "live-server ./client/dist & webpack --mode development -w",
     "dev": "live-server ./client/dist"
@@ -42,6 +43,7 @@
     "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
+    "@loadable/component": "^5.14.1",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "chai": "^4.3.4",

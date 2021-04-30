@@ -18,6 +18,11 @@ function Gallery({defaultView, setDefaultView}) {
     setImages
   } = useContext(ProductContext);
 
+  useEffect(()=> {
+    images.forEach((image) => {
+        new Image().src = image
+    });
+  }, [])
 
   const [currentImage, setCurrentImage] = useState(0);
   const [thumbnailPage, setThumbnailPage] = useState(5);
@@ -99,7 +104,7 @@ function Gallery({defaultView, setDefaultView}) {
             key={index}
           >
             {index === currentImage && (
-              <img src={slide.url} alt='travel image' className={styles.slide} />
+              <img src={slide.url} alt='default image' className={styles.slide} />
             )}
           </div>
         );

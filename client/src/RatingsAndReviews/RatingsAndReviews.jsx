@@ -27,7 +27,7 @@ const RatingsAndReviews = () => {
   }, [])
 
     return (
-    <div className={styles.ratingsAndReviews}>
+    <div id='ratings' className={styles.ratingsAndReviews}>
       <div><Ratings /></div>
       <div><Reviews /></div>
       </div>
