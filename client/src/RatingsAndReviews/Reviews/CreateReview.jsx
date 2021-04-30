@@ -54,6 +54,7 @@ const CreateReview = (props) => {
         setCharacteristics(characteristicsIdandValue);
   }, [size, width, comfort, quality])
 
+
   //TODO: When you click OUT of the form modal, go back to the default modal-less state
   const showForm = () => {
 
@@ -185,6 +186,12 @@ const CreateReview = (props) => {
     if (reviewBody.length < 50 || reviewBody.length > 1000) {
       alert('Review should be between 50 and 1000 characters long');
     } else {
+
+      let defaultArr = [];
+      if (selectedFile !== null) {
+        defaultArr = [selectedFile, ...selectedFiles]
+      }
+
       let reviewPost = {
         "product_id": Number(productId),
         "rating": Number(rating),
@@ -193,7 +200,7 @@ const CreateReview = (props) => {
         "recommend": recommended,
         "name": userName,
         "email": email,
-        "photos": [selectedFile, ...selectedFiles],
+        "photos": defaultArr,
         "characteristics": characteristics,
       }
       console.log(reviewPost);
