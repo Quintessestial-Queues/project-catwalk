@@ -91,7 +91,7 @@ const StarFilter = (props) => {
         setFilteredReviews(reviews);
       }}>Remove All Filters</div>
 
-      <div className={styles.recommendedPercentage}>{recommendedPercentage}% Recommend this Product</div>
+      <div className={styles.recommendedPercentage}><b>{recommendedPercentage}% </b> Recommend this Product</div>
     </div>
   )
 }
