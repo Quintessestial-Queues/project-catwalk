@@ -21,11 +21,7 @@
   "description": "Front End Capstone",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "node server/index.js",
-=======
-    "start": "nodemon server/index.js",
->>>>>>> master
     "build": "webpack --mode production",
     "test": "jest --collectCoverage",
     "dev:react": "live-server ./client/dist & webpack --mode development -w",
